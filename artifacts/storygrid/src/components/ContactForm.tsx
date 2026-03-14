@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, X } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import type { FieldValues, SubmissionError } from "@formspree/core";
 
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "";
@@ -13,13 +13,13 @@ const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "";
 function ConfiguredForm({ onSuccess }: { onSuccess: () => void }) {
   const [state, handleSubmit] = useForm(FORMSPREE_ID);
 
+  useEffect(() => {
+    if (state.succeeded) onSuccess();
+  }, [state.succeeded]);
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     await handleSubmit(e);
   };
-
-  if (state.succeeded) {
-    onSuccess();
-  }
 
   return (
     <form onSubmit={onSubmit} className="space-y-6" data-testid="form-contact">
