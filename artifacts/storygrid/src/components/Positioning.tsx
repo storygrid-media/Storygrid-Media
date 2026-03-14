@@ -109,7 +109,7 @@ export default function Positioning() {
                   <div className="mt-0.5 bg-[#FFC107]/15 text-[#FFC107] rounded-full p-1.5 shrink-0">
                     <Check size={18} strokeWidth={3} />
                   </div>
-                  <span className="text-white text-lg font-medium transition-transform duration-300 group-hover/item:translate-x-1">{item}</span>
+                  <span className="text-white text-lg font-medium transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:text-[#FFC107]">{item}</span>
                 </motion.li>
               ))}
             </ul>
