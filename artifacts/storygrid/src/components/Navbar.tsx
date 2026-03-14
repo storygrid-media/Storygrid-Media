@@ -34,7 +34,7 @@ export default function Navbar() {
         scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between">
         <a 
           href="#"
           className="text-2xl font-bold font-display"

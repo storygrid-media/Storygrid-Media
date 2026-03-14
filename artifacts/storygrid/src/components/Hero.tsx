@@ -57,7 +57,15 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/80 via-[#0B0B0B]/60 to-[#0B0B0B]/95 z-[1]" />
-      <div className="absolute inset-0 bg-[#0B0B0B] md:hidden z-[0]" />
+      <div className="absolute inset-0 md:hidden z-[0]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#0B0B0B] to-[#080808]" />
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06]" aria-hidden="true">
+          <filter id="mobile-grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#mobile-grain)" />
+        </svg>
+      </div>
 
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04] mix-blend-overlay z-[2]" aria-hidden="true">
         <filter id="grain">
