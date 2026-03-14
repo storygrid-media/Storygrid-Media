@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { User } from "lucide-react";
 
 function StatCounter({ target, suffix, label, duration = 2000 }: { target: number; suffix: string; label: string; duration?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,18 +19,14 @@ function StatCounter({ target, suffix, label, duration = 2000 }: { target: numbe
     requestAnimationFrame(animate);
   }, [isInView, target, duration]);
 
-  const display = target >= 1000
-    ? `${(count / 1000000).toFixed(count >= target ? 0 : 1)}M`
-    : `${count}`;
-
   return (
     <div ref={ref} className="text-center">
-      <div className="text-3xl md:text-4xl font-display font-bold text-white">
+      <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
         {target >= 1000000
           ? `${count >= target ? (target / 1000000) : (count / 1000000).toFixed(1)}M${suffix}`
           : `${count >= target ? target.toLocaleString() : count.toLocaleString()}${suffix}`}
       </div>
-      <div className="text-sm text-black/60 mt-1 font-medium">{label}</div>
+      <div className="text-xs sm:text-sm text-white/50 mt-1 font-medium">{label}</div>
     </div>
   );
 }
@@ -46,21 +41,31 @@ export default function Founder() {
         viewport={{ once: true, margin: "-100px" }}
         className="grid lg:grid-cols-2 min-h-[700px]"
       >
-        <div className="relative bg-[#141414] overflow-hidden min-h-[400px] lg:min-h-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1F1F1F] to-[#0B0B0B]" />
+        <div className="relative overflow-hidden min-h-[500px] lg:min-h-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] via-[#111111] to-[#0B0B0B]" />
 
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#FFC107] rounded-full blur-[100px] opacity-10" />
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-[#1F1F1F] border-2 border-white/10 relative z-10 flex items-center justify-center overflow-hidden">
-                <User className="w-24 h-24 text-white/15" />
-              </div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] opacity-30" />
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[280px] h-[360px] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] bg-[#1F1F1F] rounded-lg border border-white/5 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white/[0.06] text-[120px] font-display font-bold select-none">SG</div>
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 z-10">
-            <div className="text-xs uppercase tracking-[0.2em] text-[#FFC107] font-semibold mb-2">
+          <div className="absolute top-8 left-8 z-10">
+            <div className="text-xs uppercase tracking-[0.2em] text-[#FFC107] font-semibold">
               Founder & Head of Strategy
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 z-10">
+            <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-20 pb-8 px-6 sm:px-10">
+              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                <StatCounter target={2000000} suffix="+" label="YouTube Views" duration={1800} />
+                <StatCounter target={1000000} suffix="+" label="Subscribers" duration={2000} />
+                <StatCounter target={3500} suffix="+" label="Clients Served" duration={2200} />
+              </div>
             </div>
           </div>
         </div>
@@ -100,12 +105,6 @@ export default function Founder() {
                 table."
               </p>
             </blockquote>
-
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-black/15 mt-4">
-              <StatCounter target={2000000} suffix="+" label="YouTube Views" duration={1800} />
-              <StatCounter target={1000000} suffix="+" label="Subscribers" duration={2000} />
-              <StatCounter target={3500} suffix="+" label="Clients Served" duration={2200} />
-            </div>
           </motion.div>
         </div>
       </motion.div>
