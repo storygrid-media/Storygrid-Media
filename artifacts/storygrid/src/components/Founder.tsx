@@ -41,17 +41,23 @@ export default function Founder() {
         viewport={{ once: true, margin: "-100px" }}
         className="grid lg:grid-cols-2 min-h-[700px]"
       >
-        <div className="relative overflow-hidden min-h-[500px] lg:min-h-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] via-[#111111] to-[#0B0B0B]" />
+        <div
+          className="relative overflow-hidden min-h-[500px] lg:min-h-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundColor: "#181818" }}
+        >
+          {/*
+            Replace the placeholder below with a real founder photo:
+            Add style={{ backgroundImage: "url('/founder-photo.jpg')" }} to the parent div
+            and remove this placeholder block.
+          */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#222] via-[#181818] to-[#0D0D0D]" />
 
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] opacity-30" />
-
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[280px] h-[360px] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[500px] bg-[#1F1F1F] rounded-lg border border-white/5 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white/[0.06] text-[120px] font-display font-bold select-none">SG</div>
-            </div>
-          </div>
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" aria-hidden="true">
+            <filter id="founder-grain">
+              <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#founder-grain)" />
+          </svg>
 
           <div className="absolute top-8 left-8 z-10">
             <div className="text-xs uppercase tracking-[0.2em] text-[#FFC107] font-semibold">
@@ -60,8 +66,8 @@ export default function Founder() {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 z-10">
-            <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-20 pb-8 px-6 sm:px-10">
-              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+            <div className="bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-24 pb-8 px-8 sm:px-10">
+              <div className="grid grid-cols-3 gap-4">
                 <StatCounter target={2000000} suffix="+" label="YouTube Views" duration={1800} />
                 <StatCounter target={1000000} suffix="+" label="Subscribers" duration={2000} />
                 <StatCounter target={3500} suffix="+" label="Clients Served" duration={2200} />
