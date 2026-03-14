@@ -3,6 +3,19 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia(query).matches : false
+  );
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [query]);
+  return matches;
+}
+
 function CountUp({ target, suffix = "", display, duration = 2000 }: { target: number; suffix?: string; display: (n: number) => string; duration?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -42,9 +55,12 @@ export default function Hero() {
     document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 hidden md:block">
+      {isDesktop && (
+      <div className="absolute inset-0">
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080`}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
@@ -55,9 +71,11 @@ export default function Hero() {
           loading="eager"
         />
       </div>
+      )}
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/80 via-[#0B0B0B]/60 to-[#0B0B0B]/95 z-[1]" />
-      <div className="absolute inset-0 md:hidden z-[0]">
+      {!isDesktop && (
+      <div className="absolute inset-0 z-[0]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#0B0B0B] to-[#080808]" />
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06]" aria-hidden="true">
           <filter id="mobile-grain">
@@ -66,6 +84,7 @@ export default function Hero() {
           <rect width="100%" height="100%" filter="url(#mobile-grain)" />
         </svg>
       </div>
+      )}
 
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04] mix-blend-overlay z-[2]" aria-hidden="true">
         <filter id="grain">
