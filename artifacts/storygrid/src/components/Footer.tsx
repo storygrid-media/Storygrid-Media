@@ -1,5 +1,5 @@
 import { Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
-import logoUrl from "@assets/storygridmedia_logo_1773491928917.avif";
+import logoUrl from "@assets/logo_(1)_1773492679483.avif";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -17,7 +17,10 @@ export default function Footer() {
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               aria-label="StoryGrid Media - Back to top"
             >
-              <img src={logoUrl} alt="StoryGrid Media" className="h-8 w-auto" />
+              <span className="flex items-center gap-2.5">
+                <img src={logoUrl} alt="" className="h-7 w-auto" aria-hidden="true" />
+                <span className="text-xl font-bold font-display">StoryGrid <span className="text-[#FFC107]">Media</span></span>
+              </span>
             </a>
             <p className="text-[#9A9A9A] max-w-xs">
               Building structured content systems for creators, founders, and companies that refuse to stay invisible.

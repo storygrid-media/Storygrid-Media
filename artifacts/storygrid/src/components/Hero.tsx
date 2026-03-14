@@ -37,7 +37,7 @@ function CountUp({ target, suffix = "", display, duration = 2000 }: { target: nu
   }, [isInView, target, duration]);
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-display font-bold text-[#FFC107]">
+    <div ref={ref} className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">
       {display(count)}{count >= target ? suffix : ""}
     </div>
   );
@@ -95,26 +95,26 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center gap-8 max-w-5xl"
         >
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-[88px] leading-[1.05] font-bold tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-bold tracking-tight">
             We Build Content Systems
             <br />
             That{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-black px-4 py-1">Scale Founders</span>
+              <span className="relative z-10 text-black px-3 py-0.5">Scale Founders</span>
               <span className="absolute inset-0 bg-[#FFC107]" />
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-[#9A9A9A] max-w-2xl leading-relaxed">
+          <p className="text-base md:text-lg text-[#9A9A9A] max-w-xl leading-relaxed">
             Stop guessing with your content. We engineer end-to-end media systems
             for creators and founders - designed to capture attention and drive
             serious growth.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Button
               size="lg"
-              className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold text-lg h-14 px-10"
+              className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold text-base h-12 px-8"
               onClick={scrollToContact}
               data-testid="button-hero-cta-primary"
             >
@@ -123,7 +123,7 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/20 hover:bg-white/5 text-white h-14 px-10 text-lg"
+              className="border-white/20 hover:bg-white/5 text-white h-12 px-8 text-base"
               onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="button-hero-cta-secondary"
             >
