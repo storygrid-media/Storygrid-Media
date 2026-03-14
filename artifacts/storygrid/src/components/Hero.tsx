@@ -1,7 +1,7 @@
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 function CountUp({ target, suffix = "", display, duration = 2000 }: { target: number; suffix?: string; display: (n: number) => string; duration?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -25,17 +25,15 @@ function CountUp({ target, suffix = "", display, duration = 2000 }: { target: nu
   }, [isInView, target, duration]);
 
   return (
-    <div ref={ref} className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">
+    <div ref={ref} className="text-4xl md:text-5xl font-display font-bold text-[#FFC107]">
       {display(count)}{count >= target ? suffix : ""}
     </div>
   );
 }
 
-export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"], layoutEffect: false });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+const YOUTUBE_VIDEO_ID = "6HBxWrmI8OU";
 
+export default function Hero() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -45,98 +43,103 @@ export default function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="min-h-[100svh] pt-32 pb-20 flex items-center relative overflow-hidden" style={{ position: 'relative' }}>
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: bgY }}
-      >
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-[120px]" />
-      </motion.div>
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 hidden md:block">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080`}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{ width: "120vw", height: "120vh", minWidth: "120vw", minHeight: "120vh" }}
+          allow="autoplay; encrypted-media"
+          tabIndex={-1}
+          title="Background video"
+          loading="eager"
+        />
+      </div>
 
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.03] mix-blend-overlay" aria-hidden="true">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/80 via-[#0B0B0B]/60 to-[#0B0B0B]/95 z-[1]" />
+      <div className="absolute inset-0 bg-[#0B0B0B] md:hidden z-[0]" />
+
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04] mix-blend-overlay z-[2]" aria-hidden="true">
         <filter id="grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
         </filter>
         <rect width="100%" height="100%" filter="url(#grain)" />
       </svg>
-      
-      <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
+
+      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24 text-center flex flex-col items-center gap-10 pt-32 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col gap-8"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="flex flex-col items-center gap-8 max-w-5xl"
         >
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-[80px] leading-[1.1] font-bold tracking-tight">
-            We Build Content Systems That <br />
-            <span className="text-[#FFC107]">Scale Founders</span>
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-[88px] leading-[1.05] font-bold tracking-tight">
+            We Build Content Systems
+            <br />
+            That{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-black px-4 py-1">Scale Founders</span>
+              <span className="absolute inset-0 bg-[#FFC107] -skew-x-3 rounded-sm" />
+            </span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-            Stop guessing with your content. We engineer end-to-end media systems for creators and founders designed to capture attention and drive serious growth.
+
+          <p className="text-lg md:text-xl text-[#9A9A9A] max-w-2xl leading-relaxed">
+            Stop guessing with your content. We engineer end-to-end media systems
+            for creators and founders — designed to capture attention and drive
+            serious growth.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <Button 
-              size="lg" 
-              className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold text-lg h-14 px-8"
+            <Button
+              size="lg"
+              className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold text-lg h-14 px-10"
               onClick={scrollToContact}
               data-testid="button-hero-cta-primary"
             >
               Book a Growth Call
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white/20 hover:bg-white/5 text-white h-14 px-8 text-lg"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 hover:bg-white/5 text-white h-14 px-10 text-lg"
               onClick={scrollToWork}
               data-testid="button-hero-cta-secondary"
             >
               See Our Work
             </Button>
           </div>
-
-          <div className="grid grid-cols-3 gap-6 pt-10 border-t border-white/10 mt-4">
-            <div>
-              <CountUp target={2} suffix="M+" display={(n) => `${n}`} duration={1500} />
-              <div className="text-sm text-muted-foreground mt-1">Audience Reached</div>
-            </div>
-            <div>
-              <CountUp target={1} suffix="M+" display={(n) => `${n}`} duration={1800} />
-              <div className="text-sm text-muted-foreground mt-1">Views Generated</div>
-            </div>
-            <div>
-              <CountUp target={3500} suffix="" display={(n) => n === 0 ? "0" : n >= 3500 ? "3.5K" : `${(n / 1000).toFixed(1)}K`} duration={2200} />
-              <div className="text-sm text-muted-foreground mt-1">Subscriber Growth</div>
-            </div>
-          </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="grid grid-cols-2 gap-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          className="grid grid-cols-3 gap-8 md:gap-16 pt-10 border-t border-white/10 w-full max-w-3xl"
         >
-          {[1, 2, 3, 4].map((i) => (
-            <div 
-              key={i} 
-              className={`relative rounded-2xl bg-[#141414] border border-white/5 aspect-[4/5] overflow-hidden group ${i % 2 === 0 ? 'translate-y-8' : ''}`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-[#FFC107] group-hover:text-black text-white cursor-pointer">
-                  <Play className="w-5 h-5 ml-1" fill="currentColor" />
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 z-20">
-                <div className="text-xs font-medium px-2 py-1 rounded-md bg-white/10 backdrop-blur-md text-white inline-block">
-                  {i === 1 ? 'Podcast' : i === 2 ? 'Shorts' : i === 3 ? 'YouTube' : 'Reels'}
-                </div>
-              </div>
-            </div>
-          ))}
+          <div className="text-center">
+            <CountUp target={2} suffix="M+" display={(n) => `${n}`} duration={1500} />
+            <div className="text-sm text-[#9A9A9A] mt-2">Audience Reached</div>
+          </div>
+          <div className="text-center">
+            <CountUp target={1} suffix="M+" display={(n) => `${n}`} duration={1800} />
+            <div className="text-sm text-[#9A9A9A] mt-2">Views Generated</div>
+          </div>
+          <div className="text-center">
+            <CountUp target={3500} suffix="" display={(n) => n === 0 ? "0" : n >= 3500 ? "3.5K" : `${(n / 1000).toFixed(1)}K`} duration={2200} />
+            <div className="text-sm text-[#9A9A9A] mt-2">Subscriber Growth</div>
+          </div>
         </motion.div>
+
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          onClick={scrollToWork}
+          className="mt-8 text-white/40 hover:text-[#FFC107] transition-colors animate-bounce"
+          aria-label="Scroll down"
+        >
+          <ChevronDown size={32} />
+        </motion.button>
       </div>
     </section>
   );

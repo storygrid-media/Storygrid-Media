@@ -47,26 +47,26 @@ function FormFields({ submitting, errors, disabled }: { submitting: boolean; err
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="name" className="text-white/80">Name</Label>
-          <Input 
-            id="name" 
-            type="text" 
-            name="name" 
-            placeholder="John Doe" 
-            required 
+          <Input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            required
             className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
             data-testid="input-name"
           />
           {errors && <ValidationError prefix="Name" field="name" errors={errors} className="text-red-500 text-sm" />}
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="email" className="text-white/80">Email</Label>
-          <Input 
-            id="email" 
-            type="email" 
-            name="email" 
-            placeholder="john@example.com" 
-            required 
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="john@example.com"
+            required
             className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
             data-testid="input-email"
           />
@@ -76,11 +76,11 @@ function FormFields({ submitting, errors, disabled }: { submitting: boolean; err
 
       <div className="space-y-2">
         <Label htmlFor="channel" className="text-white/80">YouTube / Instagram Link</Label>
-        <Input 
-          id="channel" 
-          type="url" 
-          name="channel" 
-          placeholder="https://youtube.com/@yourchannel" 
+        <Input
+          id="channel"
+          type="url"
+          name="channel"
+          placeholder="https://youtube.com/@yourchannel"
           className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
           data-testid="input-channel"
         />
@@ -89,24 +89,24 @@ function FormFields({ submitting, errors, disabled }: { submitting: boolean; err
 
       <div className="space-y-2">
         <Label htmlFor="message" className="text-white/80">Tell us about your goals</Label>
-        <Textarea 
-          id="message" 
-          name="message" 
-          placeholder="What are you trying to achieve in the next 6 months?" 
-          required 
+        <Textarea
+          id="message"
+          name="message"
+          placeholder="What are you trying to achieve in the next 6 months?"
+          required
           className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[120px] resize-none"
           data-testid="input-message"
         />
         {errors && <ValidationError prefix="Message" field="message" errors={errors} className="text-red-500 text-sm" />}
       </div>
 
-      <Button 
-        type="submit" 
+      <Button
+        type="submit"
         disabled={submitting || disabled}
         className="w-full bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-bold h-14 text-lg mt-4 disabled:opacity-50"
         data-testid="button-submit-contact"
       >
-        {submitting ? "Sending..." : "Let's Talk"}
+        {submitting ? "Sending..." : "Let's Build Your Engine"}
       </Button>
     </>
   );
@@ -117,11 +117,11 @@ export default function ContactForm() {
   const isConfigured = Boolean(FORMSPREE_ID);
 
   return (
-    <section id="contact" className="py-24 bg-[#0F0F0F] relative overflow-hidden">
+    <section id="contact" className="py-32 md:py-40 bg-[#080808] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC107]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FFC107]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 relative z-10 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,9 +129,14 @@ export default function ContactForm() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-4xl md:text-6xl font-bold mb-4">Ready to Scale Your Content?</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Drop us your details and channel link. We'll review your current setup and reach out to schedule a growth mapping call.
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
+            Your Audience Won't Wait.
+            <br />
+            <span className="text-[#FFC107]">Neither Should You.</span>
+          </h2>
+          <p className="text-[#9A9A9A] text-lg max-w-2xl mx-auto">
+            Drop us your details and channel link. We'll review your current
+            setup and reach out to schedule a growth mapping call.
           </p>
         </motion.div>
 
@@ -180,7 +185,7 @@ export default function ContactForm() {
                 <CheckCircle2 size={32} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Thanks!</h3>
-              <p className="text-muted-foreground">
+              <p className="text-[#9A9A9A]">
                 Our team is reviewing your channel and will reach out shortly.
               </p>
             </motion.div>

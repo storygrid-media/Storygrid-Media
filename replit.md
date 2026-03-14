@@ -61,15 +61,17 @@ Single-page agency landing site for StoryGrid Media — a digital content produc
 
 ### Sections
 1. Navbar (sticky, glass-morphism, mobile hamburger)
-2. Hero (oversized headline, authority metrics, media grid)
-3. Work Showcase (6-card project grid)
-4. Case Study (Startup Seekho — 0→3.5K subscribers)
-5. Services (Podcast, YouTube, Short-form)
-6. Positioning ("We're Not Another Agency" comparison)
-7. Testimonials (DM-style + video placeholders)
-8. Founder (story + philosophy quote)
+2. Hero (full-viewport YouTube video background loop, centered headline with yellow highlight box, CountUp stats, scroll indicator, mobile static fallback)
+3. Work Showcase (6-card click-to-play YouTube iframe grid with thumbnail previews)
+4. Case Study (Startup Seekho — 0→3.5K subscribers, growth chart SVG)
+5. Services (Podcast Growth System, YouTube Channel Management, Founder Brand Engine)
+6. Positioning ("The Choice Is Yours" — two cards: "Work With Us" vs "Stay Stuck", yellow/red accent)
+7. Testimonials (text cards + click-to-play YouTube video testimonials)
+8. Founder (full-bleed split layout: left photo placeholder, right yellow #FFC107 panel with bio + stats)
 9. Contact Form (Formspree integration, VITE_FORMSPREE_ID env var)
 10. Footer (nav, social icons, contact email)
+- SectionDivider (yellow gradient 1px line) between all sections
+- Alternating section backgrounds: #0B0B0B, #080808, #0F0F0F
 
 ### Environment Variables
 - `VITE_FORMSPREE_ID` — Formspree form ID for the contact form (defaults to placeholder)
@@ -120,7 +122,7 @@ StoryGrid Media agency website. Static React + Vite SPA with Tailwind CSS, Frame
 
 - Entry: `src/main.tsx` — sets dark mode class, renders App
 - App: `src/App.tsx` — single-page layout rendering all sections
-- Components: `src/components/` — Navbar, Hero, WorkShowcase, CaseStudy, Services, Positioning, Testimonials, Founder, ContactForm, Footer
+- Components: `src/components/` — Navbar, Hero, WorkShowcase, CaseStudy, Services, Positioning, Testimonials, Founder, ContactForm, Footer, SectionDivider
 - `pnpm --filter @workspace/storygrid run dev` — run the dev server
 - `pnpm --filter @workspace/storygrid run build` — production static build (`dist/public/`)
 

@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import Founder from "@/components/Founder";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 function App() {
   return (
@@ -18,12 +19,19 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <SectionDivider />
           <WorkShowcase />
+          <SectionDivider />
           <CaseStudy />
+          <SectionDivider />
           <Services />
+          <SectionDivider />
           <Positioning />
+          <SectionDivider />
           <Testimonials />
+          <SectionDivider />
           <Founder />
+          <SectionDivider />
           <ContactForm />
         </main>
         <Footer />
