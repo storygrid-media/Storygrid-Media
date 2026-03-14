@@ -117,7 +117,7 @@ export default function ContactForm() {
   const isConfigured = Boolean(FORMSPREE_ID);
 
   return (
-    <section id="contact" className="py-32 md:py-40 bg-[#080808] relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-20 bg-[#080808] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC107]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FFC107]/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -127,7 +127,7 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
             Your Audience Won't Wait.

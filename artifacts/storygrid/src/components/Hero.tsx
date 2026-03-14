@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(() =>
@@ -51,18 +50,14 @@ export default function Hero() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollToWork = () => {
-    document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: "clamp(500px, 56.25vw, 100vh)" }}>
       {isDesktop && (
       <div className="absolute inset-0">
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080`}
+          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&origin=https://storygridmedia.in&widget_referrer=storygridmedia.in`}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{ width: "120vw", height: "120vh", minWidth: "120vw", minHeight: "120vh" }}
           allow="autoplay; encrypted-media"
@@ -93,7 +88,7 @@ export default function Hero() {
         <rect width="100%" height="100%" filter="url(#grain)" />
       </svg>
 
-      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24 text-center flex flex-col items-center gap-10 pt-32 pb-20">
+      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24 text-center flex flex-col items-center gap-10 pt-24 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,13 +101,13 @@ export default function Hero() {
             That{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-black px-4 py-1">Scale Founders</span>
-              <span className="absolute inset-0 bg-[#FFC107] -skew-x-3 rounded-sm" />
+              <span className="absolute inset-0 bg-[#FFC107]" />
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-[#9A9A9A] max-w-2xl leading-relaxed">
             Stop guessing with your content. We engineer end-to-end media systems
-            for creators and founders — designed to capture attention and drive
+            for creators and founders - designed to capture attention and drive
             serious growth.
           </p>
 
@@ -129,7 +124,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               className="border-white/20 hover:bg-white/5 text-white h-14 px-10 text-lg"
-              onClick={scrollToWork}
+              onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="button-hero-cta-secondary"
             >
               See Our Work
@@ -156,17 +151,6 @@ export default function Hero() {
             <div className="text-sm text-[#9A9A9A] mt-2">Subscriber Growth</div>
           </div>
         </motion.div>
-
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          onClick={scrollToWork}
-          className="mt-8 text-white/40 hover:text-[#FFC107] transition-colors animate-bounce"
-          aria-label="Scroll down"
-        >
-          <ChevronDown size={32} />
-        </motion.button>
       </div>
     </section>
   );

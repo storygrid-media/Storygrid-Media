@@ -70,25 +70,25 @@ export default function Testimonials() {
   const videoTestimonials = [
     {
       title: "How We Grew 3x in 6 Months",
-      client: "Alex M. — Tech Founder",
+      client: "Alex M. - Tech Founder",
       videoId: "6HBxWrmI8OU",
     },
     {
       title: "From Zero to 10K Subscribers",
-      client: "Sarah J. — Creator",
+      client: "Sarah J. - Creator",
       videoId: "6HBxWrmI8OU",
     },
   ];
 
   return (
-    <section className="py-32 md:py-40 bg-[#0F0F0F]">
+    <section className="py-16 md:py-20 bg-[#0F0F0F]">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             Don't Take Our Word For It

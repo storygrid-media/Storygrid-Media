@@ -66,14 +66,14 @@ export default function WorkShowcase() {
   ];
 
   return (
-    <section id="work" className="py-32 md:py-40 bg-[#080808]">
+    <section id="work" className="py-16 md:py-20 bg-[#080808]">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
+          className="mb-10"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             Proof Over Promises

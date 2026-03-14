@@ -39,17 +39,12 @@ export default function Founder() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="grid lg:grid-cols-2 min-h-[700px]"
+        className="grid lg:grid-cols-2"
       >
         <div
-          className="relative overflow-hidden min-h-[500px] lg:min-h-0 bg-cover bg-center bg-no-repeat"
+          className="relative overflow-hidden min-h-[300px] lg:min-h-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundColor: "#181818" }}
         >
-          {/*
-            Replace the placeholder below with a real founder photo:
-            Add style={{ backgroundImage: "url('/founder-photo.jpg')" }} to the parent div
-            and remove this placeholder block.
-          */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#222] via-[#181818] to-[#0D0D0D]" />
 
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" aria-hidden="true">
@@ -76,17 +71,17 @@ export default function Founder() {
           </div>
         </div>
 
-        <div className="bg-[#FFC107] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-24">
+        <div className="bg-[#FFC107] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-10 lg:py-14">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-5"
           >
             <div>
               <div className="text-sm uppercase tracking-[0.3em] text-black/50 font-bold mb-4">Meet the Founder</div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-black leading-[1.1] uppercase">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[40px] font-bold text-black leading-[1.1] uppercase">
                 The Story Behind StoryGrid
               </h2>
             </div>
@@ -95,12 +90,9 @@ export default function Founder() {
               <p>
                 After spending years navigating the chaotic world of digital media
                 and seeing founders burn out trying to "be creators," I realized
-                something was fundamentally broken.
-              </p>
-              <p>
-                Content shouldn't be a random act of hope. It should be a
-                predictable system. That's why StoryGrid Media was born — to bring
-                engineering precision to creative output.
+                something was fundamentally broken. Content shouldn't be a random
+                act of hope - it should be a predictable system. That's why
+                StoryGrid Media was born.
               </p>
             </div>
 

@@ -39,21 +39,21 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-32 md:py-40 bg-[#0F0F0F]">
+    <section id="services" className="py-16 md:py-20 bg-[#0F0F0F]">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
             Your Content Engine, Built to Compound
           </h2>
           <p className="text-[#9A9A9A] text-lg max-w-2xl mx-auto">
             We don't just edit videos. We build complete content machines that
-            turn your expertise into scalable media assets — month after month.
+            turn your expertise into scalable media assets - month after month.
           </p>
         </motion.div>
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logoUrl from "@assets/storygridmedia_logo_1773491928917.avif";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +41,9 @@ export default function Navbar() {
           className="text-2xl font-bold font-display"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           data-testid="link-logo"
-          aria-label="StoryGrid Media — Back to top"
+          aria-label="StoryGrid Media - Back to top"
         >
-          StoryGrid <span className="text-[#FFC107]">Media</span>
+          <img src={logoUrl} alt="StoryGrid Media" className="h-8 w-auto" />
         </a>
 
         {/* Desktop Nav */}

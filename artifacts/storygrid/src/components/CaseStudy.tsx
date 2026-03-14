@@ -3,14 +3,14 @@ import { AlertCircle, Target, Trophy } from "lucide-react";
 
 export default function CaseStudy() {
   return (
-    <section id="case-studies" className="py-32 md:py-40 bg-[#0B0B0B] relative">
+    <section id="case-studies" className="py-16 md:py-20 bg-[#0B0B0B] relative">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
+          className="mb-10"
         >
           <div className="text-[#FFC107] font-semibold tracking-wider uppercase text-sm mb-3">Featured Case Study</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold">

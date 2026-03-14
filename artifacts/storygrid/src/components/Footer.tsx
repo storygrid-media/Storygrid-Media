@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
+import logoUrl from "@assets/storygridmedia_logo_1773491928917.avif";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -6,7 +7,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#080808] border-t border-white/5 pt-20 pb-8">
+    <footer className="bg-[#080808] border-t border-white/5 pt-12 pb-8">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="flex flex-col gap-4">
@@ -14,9 +15,9 @@ export default function Footer() {
               href="#"
               className="text-2xl font-bold font-display"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-              aria-label="StoryGrid Media — Back to top"
+              aria-label="StoryGrid Media - Back to top"
             >
-              StoryGrid <span className="text-[#FFC107]">Media</span>
+              <img src={logoUrl} alt="StoryGrid Media" className="h-8 w-auto" />
             </a>
             <p className="text-[#9A9A9A] max-w-xs">
               Building structured content systems for creators, founders, and companies that refuse to stay invisible.
@@ -34,8 +35,8 @@ export default function Footer() {
 
           <div className="flex flex-col gap-4 md:items-end">
             <h4 className="font-bold text-white mb-2">Contact</h4>
-            <a href="mailto:hello@storygridmedia.in" className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors">
-              hello@storygridmedia.in
+            <a href="mailto:team@storygridmedia.in" className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors">
+              team@storygridmedia.in
             </a>
             <div className="flex gap-4 mt-4">
               <a href="https://instagram.com/storygridmedia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-instagram" aria-label="Instagram">
