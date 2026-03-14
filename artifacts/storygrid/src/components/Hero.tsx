@@ -1,16 +1,15 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 
-function CountUp({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
+function CountUp({ target, suffix = "", display, duration = 2000 }: { target: number; suffix?: string; display: (n: number) => string; duration?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!isInView) return;
-    let start = 0;
     const startTime = performance.now();
 
     function animate(now: number) {
@@ -27,13 +26,16 @@ function CountUp({ target, suffix = "", duration = 2000 }: { target: number; suf
 
   return (
     <div ref={ref} className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">
-      {count >= 1000 ? `${(count / 1000).toFixed(count >= target ? 1 : 0).replace(/\.0$/, '')}K` : count}
-      {count >= target ? suffix : ""}
+      {display(count)}{count >= target ? suffix : ""}
     </div>
   );
 }
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"], layoutEffect: false });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -43,8 +45,20 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[100svh] pt-32 pb-20 flex items-center relative overflow-hidden">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section ref={sectionRef} className="min-h-[100svh] pt-32 pb-20 flex items-center relative overflow-hidden" style={{ position: 'relative' }}>
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ y: bgY }}
+      >
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-[120px]" />
+      </motion.div>
+
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.03] mix-blend-overlay" aria-hidden="true">
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain)" />
+      </svg>
       
       <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
         <motion.div
@@ -84,15 +98,15 @@ export default function Hero() {
 
           <div className="grid grid-cols-3 gap-6 pt-10 border-t border-white/10 mt-4">
             <div>
-              <CountUp target={2000} suffix="+" duration={2000} />
+              <CountUp target={2} suffix="M+" display={(n) => `${n}`} duration={1500} />
               <div className="text-sm text-muted-foreground mt-1">Audience Reached</div>
             </div>
             <div>
-              <CountUp target={1000} suffix="+" duration={2200} />
+              <CountUp target={1} suffix="M+" display={(n) => `${n}`} duration={1800} />
               <div className="text-sm text-muted-foreground mt-1">Views Generated</div>
             </div>
             <div>
-              <CountUp target={3500} duration={2400} />
+              <CountUp target={3500} suffix="" display={(n) => n === 0 ? "0" : n >= 3500 ? "3.5K" : `${(n / 1000).toFixed(1)}K`} duration={2200} />
               <div className="text-sm text-muted-foreground mt-1">Subscriber Growth</div>
             </div>
           </div>
