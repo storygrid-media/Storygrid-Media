@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, X } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import type { FieldValues, SubmissionError } from "@formspree/core";
 
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "";
 
@@ -40,7 +41,7 @@ function UnconfiguredForm() {
   );
 }
 
-function FormFields({ submitting, errors, disabled }: { submitting: boolean; errors: any; disabled: boolean }) {
+function FormFields({ submitting, errors, disabled }: { submitting: boolean; errors: SubmissionError<FieldValues> | null; disabled: boolean }) {
   return (
     <>
       <div className="grid md:grid-cols-2 gap-6">
