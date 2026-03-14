@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "StoryGrid Media"
+version = "1.0.0"
+id = "artifacts/storygrid"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 22046
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/storygrid run dev"
+
+[services.env]
+PORT = "22046"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/storygrid", "run", "build"]
+publicDir = "artifacts/storygrid/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

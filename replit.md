@@ -21,7 +21,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── storygrid/          # StoryGrid Media website (React + Vite SPA)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -29,11 +30,62 @@ artifacts-monorepo/
 │   └── db/                 # Drizzle ORM schema + DB connection
 ├── scripts/                # Utility scripts (single workspace package)
 │   └── src/                # Individual .ts scripts, run via `pnpm --filter @workspace/scripts run <script>`
+├── .github/workflows/      # GitHub Actions CI/CD for Vercel deployment
+├── DEPLOYMENT.md           # Deployment guide: Vercel, custom domain, Formspree, scheduling
 ├── pnpm-workspace.yaml     # pnpm workspace (artifacts/*, lib/*, lib/integrations/*, scripts)
 ├── tsconfig.base.json      # Shared TS options (composite, bundler resolution, es2022)
 ├── tsconfig.json           # Root TS project references
 └── package.json            # Root package with hoisted devDeps
 ```
+
+## StoryGrid Media Website (`artifacts/storygrid`)
+
+Single-page agency landing site for StoryGrid Media — a digital content production agency.
+
+### Tech Stack
+- React + Vite (static SPA)
+- Tailwind CSS (dark theme, custom design tokens)
+- Framer Motion (scroll-triggered animations)
+- @formspree/react (contact form)
+- Lucide React (icons)
+- Fonts: Inter (body) + Space Grotesk (display headlines)
+
+### Brand Colors
+- Background: #0B0B0B (dark)
+- Primary/Accent: #FFC107 (yellow)
+- Destructive: #FF3B30 (red)
+- Foreground: #EAEAEA (off-white)
+- Muted: #9A9A9A (grey)
+- Card: #141414
+- Border: #1F1F1F
+
+### Sections
+1. Navbar (sticky, glass-morphism, mobile hamburger)
+2. Hero (oversized headline, authority metrics, media grid)
+3. Work Showcase (6-card project grid)
+4. Case Study (Startup Seekho — 0→3.5K subscribers)
+5. Services (Podcast, YouTube, Short-form)
+6. Positioning ("We're Not Another Agency" comparison)
+7. Testimonials (DM-style + video placeholders)
+8. Founder (story + philosophy quote)
+9. Contact Form (Formspree integration, VITE_FORMSPREE_ID env var)
+10. Footer (nav, social icons, contact email)
+
+### Environment Variables
+- `VITE_FORMSPREE_ID` — Formspree form ID for the contact form (defaults to placeholder)
+
+### SEO
+- Title, meta description, Open Graph, Twitter card meta tags in index.html
+- Canonical URL: https://storygridmedia.in/
+- `public/sitemap.xml` and `public/robots.txt`
+- Keyword-optimized content in all headings
+- All images have alt text
+
+### Deployment
+- Target: Vercel (free tier) with custom domain storygridmedia.in
+- `vercel.json` — SPA routing config
+- `.github/workflows/deploy.yml` — GitHub Actions CI/CD
+- See `DEPLOYMENT.md` for full setup instructions
 
 ## TypeScript & Composite Projects
 
@@ -62,35 +114,34 @@ Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` 
 - `pnpm --filter @workspace/api-server run build` — production esbuild bundle (`dist/index.cjs`)
 - Build bundles an allowlist of deps (express, cors, pg, drizzle-orm, zod, etc.) and externalizes the rest
 
+### `artifacts/storygrid` (`@workspace/storygrid`)
+
+StoryGrid Media agency website. Static React + Vite SPA with Tailwind CSS, Framer Motion animations, and Formspree contact form.
+
+- Entry: `src/main.tsx` — sets dark mode class, renders App
+- App: `src/App.tsx` — single-page layout rendering all sections
+- Components: `src/components/` — Navbar, Hero, WorkShowcase, CaseStudy, Services, Positioning, Testimonials, Founder, ContactForm, Footer
+- `pnpm --filter @workspace/storygrid run dev` — run the dev server
+- `pnpm --filter @workspace/storygrid run build` — production static build (`dist/public/`)
+
 ### `lib/db` (`@workspace/db`)
 
 Database layer using Drizzle ORM with PostgreSQL. Exports a Drizzle client instance and schema models.
 
-- `src/index.ts` — creates a `Pool` + Drizzle instance, exports schema
-- `src/schema/index.ts` — barrel re-export of all models
-- `src/schema/<modelname>.ts` — table definitions with `drizzle-zod` insert schemas (no models definitions exist right now)
-- `drizzle.config.ts` — Drizzle Kit config (requires `DATABASE_URL`, automatically provided by Replit)
-- Exports: `.` (pool, db, schema), `./schema` (schema only)
-
-Production migrations are handled by Replit when publishing. In development, we just use `pnpm --filter @workspace/db run push`, and we fallback to `pnpm --filter @workspace/db run push-force`.
-
 ### `lib/api-spec` (`@workspace/api-spec`)
 
-Owns the OpenAPI 3.1 spec (`openapi.yaml`) and the Orval config (`orval.config.ts`). Running codegen produces output into two sibling packages:
-
-1. `lib/api-client-react/src/generated/` — React Query hooks + fetch client
-2. `lib/api-zod/src/generated/` — Zod schemas
+Owns the OpenAPI 3.1 spec (`openapi.yaml`) and the Orval config (`orval.config.ts`). Running codegen produces output into two sibling packages.
 
 Run codegen: `pnpm --filter @workspace/api-spec run codegen`
 
 ### `lib/api-zod` (`@workspace/api-zod`)
 
-Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used by `api-server` for response validation.
+Generated Zod schemas from the OpenAPI spec. Used by `api-server` for response validation.
 
 ### `lib/api-client-react` (`@workspace/api-client-react`)
 
-Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
+Generated React Query hooks and fetch client from the OpenAPI spec.
 
 ### `scripts` (`@workspace/scripts`)
 
-Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`.
