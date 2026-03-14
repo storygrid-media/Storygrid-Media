@@ -34,6 +34,7 @@ function App() {
           <SectionDivider />
           <ContactForm />
         </main>
+        <SectionDivider />
         <Footer />
       </div>
       <Toaster />
