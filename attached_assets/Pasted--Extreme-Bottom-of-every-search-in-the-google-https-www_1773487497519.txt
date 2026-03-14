@@ -1,0 +1,239 @@
+# [Extreme Bottom of every search in the google](https://www.mindmeister.com/app/map/3954691985)
+
+
+
+# [Instead of synonyms, use terms that frequently co-occur with your topic (e.g., for "running shoes," use "marathon," "track shoes," "trail running")](https://www.mindmeister.com/app/map/3954690564)
+
+ - Extreme Bottom of every search inthe google
+
+# [= (No.of keywords occurance/total word count) x 100](https://www.mindmeister.com/app/map/3954692933)
+
+
+
+# [For every 100 words use only 1-2% of targeted keywords 100 words - 2 times 200 words - 4 times](https://www.mindmeister.com/app/map/3954693159)
+
+
+
+# [Including Keyword in the URL](https://www.mindmeister.com/app/map/3954684483)
+
+
+
+# [Things to keep in mind: 1. Size the image properly 2. Using primary keyword to the image file 3. ALT tag](https://www.mindmeister.com/app/map/3954696256)
+
+
+
+# [Hypertext 1. Internal linking 2. External linking](https://www.mindmeister.com/app/map/3954699994)
+
+
+
+# [Adding social sharing links](https://www.mindmeister.com/app/map/3954676650)
+
+
+
+# [SEO friendly content](https://www.mindmeister.com/app/map/3954701060)
+
+ - Content for both Humans andRobots
+
+# [Expertise - Authoritativeness - Trustworthiness (OFF Page SEO)](https://www.mindmeister.com/app/map/3954701659)
+
+
+
+# [E-A-T](https://www.mindmeister.com/app/map/3954677142)
+
+ - Expertise - Authoritativeness - Trustworthiness
+   
+   (OFF Page SEO)
+
+# [Meta description optimization](https://www.mindmeister.com/app/map/3954673300)
+
+ - Using target keywords in thedescription as well
+ - <= 158 characters
+
+# [Heading optimization](https://www.mindmeister.com/app/map/3954674363)
+
+ - Header Tags - h1, h2, h3, h4, h5, h6
+ - Only one H1 tag per page
+
+# [Keyword optimization](https://www.mindmeister.com/app/map/3954674777)
+
+ - Using the targeted keywords in thefirst 150 words
+ - Using LSI (Latent SemanticIndexing)
+    - Instead of synonyms, use termsthat frequently co-occur with yourtopic (e.g., for "running shoes," use"marathon," "track shoes," "trailrunning")
+        - Extreme Bottom of every search inthe google
+ - Keyword density
+    - = (No.of keywords occurance/totalword count) x 100
+    - For every 100 words
+      
+      use only 1-2% of targeted keywords
+      
+      100 words - 2 times
+      200 words - 4 times
+
+# [URL optimization](https://www.mindmeister.com/app/map/3954675088)
+
+ - it needs to be short
+ - Including Keyword in the URL
+
+# [Image optimization](https://www.mindmeister.com/app/map/3954675619)
+
+ - Things to keep in mind:
+   
+   1. Size the image properly
+   2. Using primary keyword to the image file
+   3. ALT tag
+
+# [HyperLinks](https://www.mindmeister.com/app/map/3954676070)
+
+ - Hypertext
+   
+   1. Internal linking
+   2. External linking
+
+# [Title optimization](https://www.mindmeister.com/app/map/3954672916)
+
+ - Using Primary keyword in the title
+ - <= 60 characters
+
+# [Using Primary keyword in the title](https://www.mindmeister.com/app/map/3954679041)
+
+
+
+# [<= 60 characters](https://www.mindmeister.com/app/map/3954679091)
+
+
+
+# [Using target keywords in the description as well](https://www.mindmeister.com/app/map/3954680025)
+
+
+
+# [<= 158 characters](https://www.mindmeister.com/app/map/3954680476)
+
+
+
+# [Header Tags - h1, h2, h3, h4, h5, h6](https://www.mindmeister.com/app/map/3954685034)
+
+
+
+# [Only one H1 tag per page](https://www.mindmeister.com/app/map/3954685967)
+
+
+
+# [Using the targeted keywords in the first 150 words](https://www.mindmeister.com/app/map/3954689297)
+
+
+
+# [Using LSI (Latent Semantic Indexing)](https://www.mindmeister.com/app/map/3954690018)
+
+ - Instead of synonyms, use termsthat frequently co-occur with yourtopic (e.g., for "running shoes," use"marathon," "track shoes," "trailrunning")
+    - Extreme Bottom of every search inthe google
+
+# [Keyword density](https://www.mindmeister.com/app/map/3954692218)
+
+ - = (No.of keywords occurance/totalword count) x 100
+ - For every 100 words
+   
+   use only 1-2% of targeted keywords
+   
+   100 words - 2 times
+   200 words - 4 times
+
+# [it needs to be short](https://www.mindmeister.com/app/map/3954684788)
+
+
+
+# [Content for both Humans and Robots](https://www.mindmeister.com/app/map/3954701404)
+
+
+
+# [Major factors (On page seo)](https://www.mindmeister.com/app/map/3954671610)
+
+ - Title optimization
+    - Using Primary keyword in the title
+    - <= 60 characters
+ - Meta description optimization
+    - Using target keywords in thedescription as well
+    - <= 158 characters
+ - Heading optimization
+    - Header Tags - h1, h2, h3, h4, h5, h6
+    - Only one H1 tag per page
+ - Keyword optimization
+    - Using the targeted keywords in thefirst 150 words
+    - Using LSI (Latent SemanticIndexing)
+        - Instead of synonyms, use termsthat frequently co-occur with yourtopic (e.g., for "running shoes," use"marathon," "track shoes," "trailrunning")
+            - Extreme Bottom of every search inthe google
+    - Keyword density
+        - = (No.of keywords occurance/totalword count) x 100
+        - For every 100 words
+          
+          use only 1-2% of targeted keywords
+          
+          100 words - 2 times
+          200 words - 4 times
+ - URL optimization
+    - it needs to be short
+    - Including Keyword in the URL
+ - Image optimization
+    - Things to keep in mind:
+      
+      1. Size the image properly
+      2. Using primary keyword to the image file
+      3. ALT tag
+ - HyperLinks
+    - Hypertext
+      
+      1. Internal linking
+      2. External linking
+ - Adding social sharing links
+ - SEO friendly content
+    - Content for both Humans andRobots
+ - E-A-T
+    - Expertise - Authoritativeness - Trustworthiness
+      
+      (OFF Page SEO)
+
+# [OFF PAGE SEO](https://www.mindmeister.com/app/map/3954666559)
+
+ - Major factors (On page seo)
+    - Title optimization
+        - Using Primary keyword in the title
+        - <= 60 characters
+    - Meta description optimization
+        - Using target keywords in thedescription as well
+        - <= 158 characters
+    - Heading optimization
+        - Header Tags - h1, h2, h3, h4, h5, h6
+        - Only one H1 tag per page
+    - Keyword optimization
+        - Using the targeted keywords in thefirst 150 words
+        - Using LSI (Latent SemanticIndexing)
+            - Instead of synonyms, use termsthat frequently co-occur with yourtopic (e.g., for "running shoes," use"marathon," "track shoes," "trailrunning")
+                - Extreme Bottom of every search inthe google
+        - Keyword density
+            - = (No.of keywords occurance/totalword count) x 100
+            - For every 100 words
+              
+              use only 1-2% of targeted keywords
+              
+              100 words - 2 times
+              200 words - 4 times
+    - URL optimization
+        - it needs to be short
+        - Including Keyword in the URL
+    - Image optimization
+        - Things to keep in mind:
+          
+          1. Size the image properly
+          2. Using primary keyword to the image file
+          3. ALT tag
+    - HyperLinks
+        - Hypertext
+          
+          1. Internal linking
+          2. External linking
+    - Adding social sharing links
+    - SEO friendly content
+        - Content for both Humans andRobots
+    - E-A-T
+        - Expertise - Authoritativeness - Trustworthiness
+          
+          (OFF Page SEO)

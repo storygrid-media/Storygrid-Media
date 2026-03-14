@@ -1,0 +1,415 @@
+1. Project Overview
+
+StoryGrid Media is a digital media and content production agency that helps creators, founders, and companies scale their online presence through structured content systems.
+
+The core idea behind the brand:
+
+Story → narrative and personal brand
+
+Grid → structured content systems
+
+Media → digital platforms like YouTube, Instagram, podcasts
+
+Positioning philosophy:
+
+StoryGrid Media builds structured content systems that help creators grow consistently rather than chasing virality.
+
+The company aims to be positioned not as a typical editing agency but as a content systems partner.
+
+2. Core Services
+Podcast Post-Production
+
+Podcast video editing
+
+Audio cleanup
+
+Multi-camera edits
+
+Podcast clips for social media
+
+Upload management
+
+Short-Form Content Creation
+
+Instagram Reels
+
+YouTube Shorts
+
+TikTok edits
+
+Captioning and subtitles
+
+Hook optimization
+
+Founder Personal Branding
+
+Helping founders build authority through content:
+
+Talking-head videos
+
+Storytelling clips
+
+Content planning
+
+Distribution support
+
+YouTube Channel Management
+
+Thumbnail design
+
+SEO optimization
+
+Upload management
+
+Retention editing
+
+Analytics reporting
+
+Content System Development
+
+StoryGrid focuses on:
+
+content pipelines
+
+repurposing workflows
+
+posting schedules
+
+clip extraction systems
+
+3. Website Strategy
+
+The StoryGrid Media website is designed to function as a conversion-focused agency landing page.
+
+Primary goal:
+
+Capture inbound leads from creators, founders, and companies looking for content production and management.
+
+Pricing will not be shown on the website.
+
+Clients must fill a form or book a call.
+
+4. Website Section Structure
+Navigation Bar
+
+Items:
+
+Services
+
+Case Studies
+
+About
+
+Contact
+
+CTA button:
+
+Book a Growth Call
+
+Hero Section
+
+Headline concept:
+
+We Build Content Systems That Scale Founders
+
+Subtext:
+
+Podcast production, short-form distribution and YouTube management designed for consistent growth.
+
+Right side contains:
+
+video thumbnails
+
+short-form clips
+
+podcast examples
+
+CTAs:
+
+Book a Growth Call
+
+See Our Work
+
+Authority Metrics
+
+Example numbers:
+
+2M+ audience reached
+
+1M+ views generated
+
+0 → 3.5K growth in 6 months
+
+Purpose:
+
+Instant credibility.
+
+Work Showcase
+
+Displays selected client content such as:
+
+podcast clips
+
+YouTube videos
+
+short-form reels
+
+founder videos
+
+Only high-quality work should be displayed.
+
+Case Study Section
+
+Example structure:
+
+Client: Startup Seekho
+
+Problem:
+Inconsistent content uploads.
+
+System Built:
+Content calendar + podcast clips + short-form repurposing.
+
+Execution:
+3 long-form videos + 12 short clips per month.
+
+Result:
+0 → 3.5K subscribers in 6 months.
+
+Services Section
+
+Three productized offerings:
+
+Podcast Growth System
+
+Founder Brand Engine
+
+YouTube Channel Management
+
+Each includes editing, distribution, and content optimization.
+
+Positioning Section
+
+Headline:
+
+We’re Not Another Agency
+
+Message:
+
+Most agencies promise virality and deliver chaos.
+StoryGrid focuses on structured systems and long-term growth.
+
+Testimonials
+
+Two types:
+
+Chat-style testimonials
+
+Examples:
+
+WhatsApp messages
+
+Instagram DM screenshots
+
+Telegram messages
+
+Video testimonials
+
+Two creators or YouTubers providing short testimonials.
+
+Founder Section
+
+Purpose:
+
+Humanize the brand.
+
+Content includes:
+
+founder photo
+
+story behind the agency
+
+philosophy about content systems
+
+Lead Capture Section
+
+Form fields:
+
+Name
+
+Email
+
+YouTube / Instagram channel link
+
+Message
+
+Success popup:
+
+Thanks! Our team is reviewing your channel and will reach out shortly.
+
+Footer
+
+Contains:
+
+logo
+
+navigation links
+
+contact email
+
+social media links
+
+5. Brand Identity
+
+Logo concept:
+
+A grid-based logo representing structured storytelling.
+
+Visual elements:
+
+grid blocks
+
+media play icon
+
+modern rounded geometry
+
+Brand Colors
+
+Primary yellow
+#FFC107
+
+Accent red
+#FF3B30
+
+Black background
+#0B0B0B
+
+White text
+#EAEAEA
+
+Secondary grey
+#9A9A9A
+
+Design style:
+
+dark theme
+
+bold typography
+
+minimal UI
+
+high contrast
+
+6. Technology Stack (Current Plan)
+
+Development environment:
+
+Replit Core subscription ($20/month)
+
+Deployment plan:
+
+Download project ZIP → host on Hostinger.
+
+Hosting provider:
+
+Hostinger (3-year plan approx ₹2500).
+
+The website should ideally be a static build for easier deployment.
+
+Possible tech stack:
+
+React / Next.js
+
+HTML / CSS / JS
+
+static build output
+
+Form handling options:
+
+Formspree
+
+Firebase
+
+backend API (optional)
+
+7. Email Setup
+
+Professional email purchased from GoDaddy.
+
+Product:
+
+Professional Email Pro Light
+
+1 mailbox for 12 months.
+
+Example addresses that can be used:
+
+hello@storygridmedia.com
+
+team@storygridmedia.com
+
+founder@storygridmedia.com
+
+Email domain remains fixed but mailbox name can be changed.
+
+8. Assets Required
+
+The website will need:
+
+Video Content
+
+6 showcase clips
+
+podcast examples
+
+short-form reels
+
+Testimonials
+
+3 chat screenshots
+
+2 video testimonials
+
+Branding
+
+logo (SVG)
+
+founder photo
+
+thumbnails
+
+9. Strategic Positioning
+
+StoryGrid Media is positioned as:
+
+a content systems partner
+
+not:
+
+freelance video editor
+
+generic social media agency
+
+Key messaging:
+
+systems over virality
+
+consistency over trends
+
+creator-focused workflows
+
+10. Ideal Clients
+
+StoryGrid Media primarily targets:
+
+podcasters
+
+YouTubers
+
+startup founders
+
+venture capital creators
+
+personal brands
+
+companies building social presence
