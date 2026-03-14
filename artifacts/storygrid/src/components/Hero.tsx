@@ -1,6 +1,37 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+
+function CountUp({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let start = 0;
+    const startTime = performance.now();
+
+    function animate(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      setCount(current);
+      if (progress < 1) requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  }, [isInView, target, duration]);
+
+  return (
+    <div ref={ref} className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">
+      {count >= 1000 ? `${(count / 1000).toFixed(count >= target ? 1 : 0).replace(/\.0$/, '')}K` : count}
+      {count >= target ? suffix : ""}
+    </div>
+  );
+}
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -13,7 +44,6 @@ export default function Hero() {
 
   return (
     <section className="min-h-[100svh] pt-32 pb-20 flex items-center relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
@@ -54,15 +84,15 @@ export default function Hero() {
 
           <div className="grid grid-cols-3 gap-6 pt-10 border-t border-white/10 mt-4">
             <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">2M+</div>
+              <CountUp target={2000} suffix="+" duration={2000} />
               <div className="text-sm text-muted-foreground mt-1">Audience Reached</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">1M+</div>
+              <CountUp target={1000} suffix="+" duration={2200} />
               <div className="text-sm text-muted-foreground mt-1">Views Generated</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-[#FFC107]">3.5K</div>
+              <CountUp target={3500} duration={2400} />
               <div className="text-sm text-muted-foreground mt-1">Subscriber Growth</div>
             </div>
           </div>

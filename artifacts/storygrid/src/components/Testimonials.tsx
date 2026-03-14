@@ -23,6 +23,19 @@ export default function Testimonials() {
     }
   ];
 
+  const videoTestimonials = [
+    {
+      title: "How We Grew 3x in 6 Months",
+      client: "Alex M. — Tech Founder",
+      embedUrl: ""
+    },
+    {
+      title: "From Zero to 10K Subscribers",
+      client: "Sarah J. — Creator",
+      embedUrl: ""
+    }
+  ];
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
@@ -39,7 +52,6 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        {/* DM Style Testimonials */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {testimonials.map((t, i) => (
             <motion.div
@@ -67,9 +79,8 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Video Testimonials */}
         <div className="grid md:grid-cols-2 gap-6">
-          {[1, 2].map((i) => (
+          {videoTestimonials.map((video, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -77,20 +88,35 @@ export default function Testimonials() {
               transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
               className="bg-[#141414] border border-white/5 rounded-2xl aspect-video relative group cursor-pointer overflow-hidden"
+              data-testid={`video-testimonial-${i}`}
             >
-              <div className="absolute inset-0 bg-[#1F1F1F] transition-transform duration-500 group-hover:scale-[1.02]"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-              
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-[#FFC107] group-hover:text-black text-white">
-                  <Play className="w-6 h-6 ml-1" fill="currentColor" />
-                </div>
-              </div>
-
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="text-white font-bold text-lg">Client Success Story</div>
-                <div className="text-[#FFC107] text-sm">Watch Video</div>
-              </div>
+              {video.embedUrl ? (
+                <iframe
+                  src={video.embedUrl}
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={video.title}
+                  loading="lazy"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-[#1F1F1F] transition-transform duration-500 group-hover:scale-[1.02]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-[#FFC107] group-hover:text-black text-white">
+                      <Play className="w-6 h-6 ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="text-xs bg-white/10 backdrop-blur-md text-white/60 px-3 py-1 rounded-full">Video coming soon</span>
+                  </div>
+                  <div className="absolute bottom-6 left-6 z-20">
+                    <div className="text-white font-bold text-lg">{video.title}</div>
+                    <div className="text-[#FFC107] text-sm">{video.client}</div>
+                  </div>
+                </>
+              )}
             </motion.div>
           ))}
         </div>

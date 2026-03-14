@@ -5,7 +5,7 @@ export default function Services() {
   const services = [
     {
       icon: <Mic className="w-8 h-8" />,
-      title: "Podcast Production",
+      title: "Podcast Growth System",
       features: [
         "End-to-end studio setup guidance",
         "Multi-cam video editing",
@@ -16,7 +16,7 @@ export default function Services() {
     },
     {
       icon: <Youtube className="w-8 h-8" />,
-      title: "YouTube Management",
+      title: "YouTube Channel Management",
       features: [
         "Channel strategy & positioning",
         "Ideation & script structuring",
@@ -27,7 +27,7 @@ export default function Services() {
     },
     {
       icon: <User className="w-8 h-8" />,
-      title: "Short-Form Content",
+      title: "Founder Brand Engine",
       features: [
         "Viral hook scripting",
         "Dynamic pacing & visual hooks",
