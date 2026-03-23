@@ -3,7 +3,7 @@ import { AlertCircle, Target, Trophy } from "lucide-react";
 
 export default function CaseStudy() {
   return (
-    <section id="case-studies" className="py-16 md:py-20 bg-[#0B0B0B] relative">
+    <section id="case-studies" className="py-12 md:py-20 bg-[#0B0B0B] relative">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -13,7 +13,7 @@ export default function CaseStudy() {
           className="mb-10"
         >
           <div className="text-[#FFC107] font-semibold tracking-wider uppercase text-sm mb-3">Featured Case Study</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">
+          <h2 className="font-display text-3xl md:text-5xl font-bold">
             Startup Seekho: From Zero to Authority
           </h2>
         </motion.div>
@@ -27,7 +27,7 @@ export default function CaseStudy() {
         >
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16 border-b border-white/5 pb-16">
             <div>
-              <div className="text-7xl md:text-8xl font-display font-bold text-[#FFC107] leading-none mb-4">
+              <div className="text-6xl md:text-8xl font-display font-bold text-[#FFC107] leading-none mb-4">
                 0 <span className="text-white/20">→</span> 3,500
               </div>
               <p className="text-2xl text-white font-medium mb-2">Subscribers in 6 months</p>

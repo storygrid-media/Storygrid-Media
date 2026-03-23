@@ -17,7 +17,7 @@ export default function Positioning() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-[#080808] relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-[#080808] relative overflow-hidden">
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.03] mix-blend-overlay" aria-hidden="true">
         <filter id="grain-pos">
           <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
@@ -33,7 +33,7 @@ export default function Positioning() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-10"
         >
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-tight">
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-tight">
             The Choice Is <span className="text-[#FFC107]">Yours</span>
           </h2>
           <p className="text-[#9A9A9A] text-lg max-w-2xl mx-auto">

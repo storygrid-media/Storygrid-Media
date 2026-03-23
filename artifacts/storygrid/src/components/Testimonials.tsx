@@ -81,7 +81,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-[#0F0F0F]">
+    <section className="py-12 md:py-20 bg-[#0F0F0F]">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -90,7 +90,7 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-10"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Don't Take Our Word For It
           </h2>
           <p className="text-[#9A9A9A] text-lg max-w-2xl mx-auto">

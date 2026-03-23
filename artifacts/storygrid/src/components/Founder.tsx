@@ -71,7 +71,7 @@ export default function Founder() {
           </div>
         </div>
 
-        <div className="bg-[#FFC107] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-10 lg:py-14">
+        <div className="bg-[#FFC107] flex flex-col justify-center px-6 md:px-16 lg:px-20 py-12 lg:py-14">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,7 +81,7 @@ export default function Founder() {
           >
             <div>
               <div className="text-sm uppercase tracking-[0.3em] text-black/50 font-bold mb-4">Meet the Founder</div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[40px] font-bold text-black leading-[1.1] uppercase">
+              <h2 className="font-display text-3xl md:text-5xl lg:text-[40px] font-bold text-black leading-[1.1] uppercase">
                 The Story Behind StoryGrid
               </h2>
             </div>

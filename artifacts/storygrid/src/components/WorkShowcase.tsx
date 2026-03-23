@@ -27,13 +27,13 @@ function VideoCard({ title, category, videoId, index }: { title: string; categor
       ) : (
         <>
           <img
-            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
             loading="lazy"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-10" />
 
           <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="w-16 h-16 rounded-full bg-[#FFC107] text-black flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_30px_rgba(255,193,7,0.3)]">
@@ -42,7 +42,7 @@ function VideoCard({ title, category, videoId, index }: { title: string; categor
           </div>
 
           <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-            <div className="text-[#FFC107] text-xs font-semibold uppercase tracking-wider mb-2">
+            <div className="text-[#FFC107] text-[10px] font-bold uppercase tracking-widest mb-2">
               {category}
             </div>
             <h3 className="text-xl font-bold text-white group-hover:text-[#FFC107] transition-colors">
@@ -57,34 +57,38 @@ function VideoCard({ title, category, videoId, index }: { title: string; categor
 
 export default function WorkShowcase() {
   const projects = [
-    { title: "Startup Seekho", category: "Podcast Production", videoId: "6HBxWrmI8OU" },
-    { title: "Brand Growth", category: "YouTube Strategy", videoId: "6HBxWrmI8OU" },
-    { title: "Founder Stories", category: "Short-form Content", videoId: "6HBxWrmI8OU" },
-    { title: "Tech Insights", category: "Video Editing", videoId: "6HBxWrmI8OU" },
-    { title: "Scale Up", category: "Full Channel Management", videoId: "6HBxWrmI8OU" },
-    { title: "Creator Spotlight", category: "Documentary Style", videoId: "6HBxWrmI8OU" },
+    { title: "The Art of Scaling", category: "Podcast Production", videoId: "6HBxWrmI8OU" },
+    { title: "0 to 1M Views", category: "Viral Strategy", videoId: "6HBxWrmI8OU" },
+    { title: "Founder Blueprint", category: "Brand Management", videoId: "6HBxWrmI8OU" },
+    { title: "Modern Media", category: "Content Engine", videoId: "6HBxWrmI8OU" },
+    { title: "YouTube Growth", category: "Channel Strategy", videoId: "6HBxWrmI8OU" },
+    { title: "Retention Mastery", category: "Premium Editing", videoId: "6HBxWrmI8OU" },
   ];
 
   return (
-    <section id="work" className="py-16 md:py-20 bg-[#080808]">
-      <div className="container mx-auto px-6 md:px-16 lg:px-24">
+    <section id="work" className="py-12 md:py-24 bg-[#080808] relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-10"
+          className="mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px w-12 bg-[#FFC107]" />
+            <span className="text-[#9A9A9A] text-sm tracking-widest uppercase">Portfolio</span>
+          </div>
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
             Proof Over Promises
           </h2>
-          <p className="text-[#9A9A9A] text-lg max-w-2xl">
+          <p className="text-[#9A9A9A] text-lg max-w-2xl leading-relaxed">
             We've built systems that drive millions of views. Here's what happens
             when strategy meets relentless execution.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <VideoCard
               key={i}

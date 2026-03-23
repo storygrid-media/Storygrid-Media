@@ -4,23 +4,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development tsx ./src/index.ts",
+    "dev": "tsx --env-file=.env ./src/index.ts",
     "build": "tsx ./build.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@workspace/db": "workspace:*",
     "@workspace/api-zod": "workspace:*",
+    "@workspace/db": "workspace:*",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2",
     "drizzle-orm": "catalog:",
     "express": "^5",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2"
+    "nodemailer": "^8.0.2"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "@types/express": "^5.0.6",
-    "@types/cors": "^2.8.19",
     "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "catalog:",
+    "@types/nodemailer": "^7.0.11",
     "esbuild": "^0.27.3",
     "tsx": "catalog:"
   }
