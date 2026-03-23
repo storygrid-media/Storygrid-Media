@@ -207,6 +207,16 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+
+  ::selection {
+    background-color: #FFC107;
+    color: #000000;
+  }
+
+  .selection-invert ::selection {
+    background-color: #000000;
+    color: #FFC107;
+  }
 }
 
 @layer utilities {
@@ -277,5 +287,9 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  .radial-vignette {
+    background: radial-gradient(circle at center, transparent 0%, rgba(11, 11, 11, 0.4) 40%, rgba(11, 11, 11, 0.85) 100%);
   }
 }

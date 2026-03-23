@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import logoUrl from "@assets/logo_(1)_1773492679483.avif";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -14,127 +13,78 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (id: string) => {
-    setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const navLinks = [
-    { label: "Services", id: "services" },
-    { label: "Case Studies", id: "case-studies" },
-    { label: "About", id: "about" },
-    { label: "Contact", id: "contact" },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
-      }`}
-    >
-      <div className="container mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between">
-        <a 
-          href="#"
-          className="flex items-center gap-2.5"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          data-testid="link-logo"
-          aria-label="StoryGrid Media - Back to top"
+    <nav className="fixed top-6 left-0 w-full z-50 pointer-events-none">
+      <div className="container mx-auto px-6 flex justify-center">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className={`pointer-events-auto flex items-center justify-between gap-8 md:gap-12 px-6 md:px-8 py-2 md:py-3 rounded-full border transition-all duration-500 w-full max-w-[95%] md:max-w-2xl ${
+            scrolled 
+              ? "bg-black/40 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]" 
+              : "bg-white/5 backdrop-blur-md border-white/5"
+          }`}
         >
-          <img src={logoUrl} alt="" className="h-8 w-auto" aria-hidden="true" />
-          <span className="text-xl font-bold font-display">StoryGrid <span className="text-[#FFC107]">Media</span></span>
-        </a>
+          <a 
+            href="#"
+            className="flex items-center gap-2 group shrink-0"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            aria-label="StoryGrid Media - Home"
+          >
+            <img src={logoUrl} alt="" className="h-6 md:h-7 w-auto transition-transform group-hover:scale-110" aria-hidden="true" />
+            <span className="text-sm md:text-base font-bold font-display">
+              StoryGrid <span className="text-[#FFC107]">Media</span>
+            </span>
+          </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          <div className="flex items-center gap-3 md:gap-8 shrink-0">
             <button
-              key={link.id}
-              onClick={() => scrollTo(link.id)}
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
-              data-testid={`link-nav-${link.id}`}
+              onClick={() => scrollTo("work")}
+              className="text-[10px] md:text-sm font-medium text-white/70 hover:text-white transition-colors"
             >
-              {link.label}
+              Work
             </button>
-          ))}
-          <Button 
-            className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold"
-            onClick={() => scrollTo("contact")}
-            data-testid="button-nav-cta"
-          >
-            Book a Growth Call
-          </Button>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white w-10 h-10 flex items-center justify-center relative z-[60]"
-          onClick={() => setIsOpen(!isOpen)}
-          data-testid="button-mobile-menu"
-          aria-expanded={isOpen}
-          aria-controls="mobile-nav"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <motion.path
-              d="M4 6H20"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              animate={isOpen ? { d: "M6 18L18 6" } : { d: "M4 6H20" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
-            <motion.path
-              d="M4 12H20"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
-            <motion.path
-              d="M4 18H20"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              animate={isOpen ? { d: "M6 6L18 18" } : { d: "M4 18H20" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            id="mobile-nav"
-            className="absolute top-full left-0 w-full bg-[#0B0B0B] border-b border-white/10 py-6 px-6 md:hidden flex flex-col gap-4 shadow-2xl"
-          >
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-lg font-medium text-left text-muted-foreground hover:text-white py-2"
-                data-testid={`link-mobile-nav-${link.id}`}
-              >
-                {link.label}
-              </button>
-            ))}
-            <Button 
-              className="bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-semibold mt-4 w-full"
-              onClick={() => scrollTo("contact")}
-              data-testid="button-mobile-cta"
+            <button
+              onClick={() => scrollTo("services")}
+              className="text-[10px] md:text-sm font-medium text-white/70 hover:text-white transition-colors"
             >
-              Book a Growth Call
-            </Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              Services
+            </button>
+            <AnimatePresence mode="popLayout">
+              {scrolled && (
+                <motion.div
+                  initial={{ x: 10, opacity: 0, scale: 0.9 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={{ x: 10, opacity: 0, scale: 0.9 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                    opacity: { duration: 0.2 }
+                  }}
+                  className="shrink-0"
+                >
+                  <Button 
+                    variant="luxury"
+                    size="sm"
+                    className="font-bold rounded-xl px-3 md:px-6 h-8 md:h-10 text-[10px] md:text-sm shadow-lg shadow-[#FFC107]/20"
+                    onClick={() => scrollTo("contact")}
+                  >
+                    Book Call
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+      </div>
     </nav>
   );
 }
+

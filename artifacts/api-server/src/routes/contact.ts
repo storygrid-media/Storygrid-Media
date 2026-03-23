@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-contactRouter.post("/contact", async (req: Request, res: Response) => {
+contactRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { name, email, channel, message } = req.body;
 

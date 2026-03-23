@@ -2,12 +2,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import WorkShowcase from "@/components/WorkShowcase";
+import PortfolioLongform from "@/components/PortfolioLongform";
+import PortfolioShortform from "@/components/PortfolioShortform";
+import PortfolioThumbnails from "@/components/PortfolioThumbnails";
 import CaseStudy from "@/components/CaseStudy";
 import Services from "@/components/Services";
 import Positioning from "@/components/Positioning";
 import Testimonials from "@/components/Testimonials";
-import Founder from "@/components/Founder";
+import PathSwitcher from "@/components/PathSwitcher";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -20,18 +22,19 @@ function App() {
         <main>
           <Hero />
           <SectionDivider />
-          <WorkShowcase />
-          <SectionDivider />
-          <CaseStudy />
+          <PortfolioLongform />
+          <PortfolioShortform />
+          <PortfolioThumbnails />
           <SectionDivider />
           <Services />
           <SectionDivider />
+          <CaseStudy />
+          <SectionDivider />
           <Positioning />
           <SectionDivider />
+          <PathSwitcher />
+          <SectionDivider />
           <Testimonials />
-          <SectionDivider />
-          <Founder />
-          <SectionDivider />
           <ContactForm />
         </main>
         <SectionDivider />

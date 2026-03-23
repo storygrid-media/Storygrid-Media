@@ -23,16 +23,23 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-[#9A9A9A] max-w-xs">
-              Building structured content systems for creators, founders, and companies that refuse to stay invisible.
+              Powering growth-focused content systems for founders and creators who refuse to stay invisible.
             </p>
           </div>
 
           <div className="flex flex-col gap-4 md:items-center">
             <h4 className="font-bold text-white mb-2">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              <button onClick={() => scrollTo("work")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">Our Work</button>
+              <button onClick={() => scrollTo("work")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">Success Stories</button>
               <button onClick={() => scrollTo("services")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">Services</button>
-              <button onClick={() => scrollTo("about")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">About</button>
+              <a 
+                href="https://forms.google.com/your-hiring-form" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors text-left md:text-center mt-2 font-medium border-t border-white/5 pt-2"
+              >
+                Join the Team
+              </a>
             </div>
           </div>
 

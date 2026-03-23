@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { X, Check, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Positioning() {
   const withUs = [
@@ -92,7 +93,7 @@ export default function Positioning() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFC107]/5 rounded-full blur-[80px] pointer-events-none" />
 
             <h3 className="text-3xl md:text-4xl font-display font-bold text-[#FFC107] mb-3 uppercase tracking-tight">
-              Work With Us
+              Your Growth Path
             </h3>
             <p className="text-[#9A9A9A] text-sm mb-10">What your next 90 days look like</p>
 
@@ -114,15 +115,14 @@ export default function Positioning() {
               ))}
             </ul>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Button
+              variant="luxury"
+              className="mt-10 w-full rounded-xl text-lg flex items-center justify-center gap-2 h-14"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="mt-10 w-full bg-[#FFC107] text-black font-bold py-4 rounded-xl text-lg hover:bg-[#FFC107]/90 transition-colors group/btn flex items-center justify-center gap-2"
             >
               Join Now
-              <ArrowRight size={20} className="opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all duration-300" />
-            </motion.button>
+              <ArrowRight size={20} className="-translate-x-1 group-hover/btn:translate-x-0 transition-transform duration-300" />
+            </Button>
           </motion.div>
         </div>
       </div>

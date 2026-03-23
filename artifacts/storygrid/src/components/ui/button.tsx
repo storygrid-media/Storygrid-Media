@@ -26,12 +26,13 @@ const buttonVariants = cva(
         // @replit no hover, transparent border
         ghost: "border border-transparent",
         link: "text-primary underline-offset-4 hover:underline",
+        luxury: "relative overflow-hidden bg-primary text-black border-transparent",
       },
       size: {
         // @replit changed sizes
         default: "min-h-9 px-4 py-2",
         sm: "min-h-8 rounded-md px-3 text-xs",
-        lg: "min-h-10 rounded-md px-8",
+        lg: "min-h-12 rounded-xl px-8 text-base",
         icon: "h-9 w-9",
       },
     },
@@ -49,14 +50,35 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    if (variant === "luxury") {
+      return (
+        <Comp
+          className={cn(buttonVariants({ variant, size, className }), "group/btn")}
+          ref={ref}
+          {...props}
+        >
+          {/* Slide-in background */}
+          <span className="absolute inset-0 w-full h-full bg-black translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+          
+          {/* Content */}
+          <span className="relative z-10 flex items-center justify-center gap-2 group-hover/btn:text-primary transition-colors duration-300">
+            {children}
+          </span>
+        </Comp>
+      )
+    }
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+      </Comp>
     )
   }
 )

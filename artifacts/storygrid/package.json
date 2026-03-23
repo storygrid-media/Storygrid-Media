@@ -75,6 +75,7 @@
     "zod": "catalog:"
   },
   "dependencies": {
-    "@formspree/react": "^3.0.0"
+    "@formspree/react": "^3.0.0",
+    "resend": "^6.9.3"
   }
 }

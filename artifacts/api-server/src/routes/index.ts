@@ -5,6 +5,6 @@ import contactRouter from "./contact";
 const router: IRouter = Router();
 
 router.use(healthRouter);
-router.use(contactRouter);
+router.use("/contact", contactRouter);
 
 export default router;

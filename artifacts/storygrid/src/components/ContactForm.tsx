@@ -3,13 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, X } from "lucide-react";
+import { CheckCircle2, X, ArrowRight } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
-function FormFields({ submitting, disabled }: { submitting: boolean; disabled: boolean }) {
+function FormFields({ 
+  submitting, 
+  disabled, 
+  placeholder 
+}: { 
+  submitting: boolean; 
+  disabled: boolean;
+  placeholder?: string;
+}) {
   return (
     <>
       <div className="grid md:grid-cols-2 gap-6">
+        {/* Name and Email inputs remain same */}
         <div className="space-y-2 text-left">
           <Label htmlFor="name" className="text-white/80">Name</Label>
           <Input
@@ -54,7 +63,7 @@ function FormFields({ submitting, disabled }: { submitting: boolean; disabled: b
         <Textarea
           id="message"
           name="message"
-          placeholder="What are you trying to achieve in the next 6 months?"
+          placeholder={placeholder || "What are you trying to achieve in the next 6 months?"}
           required
           className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[120px] resize-none"
           data-testid="input-message"
@@ -63,11 +72,18 @@ function FormFields({ submitting, disabled }: { submitting: boolean; disabled: b
 
       <Button
         type="submit"
+        variant="luxury"
+        size="lg"
         disabled={submitting || disabled}
-        className="w-full bg-[#FFC107] text-black hover:bg-[#FFC107]/90 font-bold h-14 text-lg mt-4 disabled:opacity-50 transition-all active:scale-[0.98]"
+        className="w-full mt-4 disabled:opacity-50"
         data-testid="button-submit-contact"
       >
-        {submitting ? "Processing..." : "Launch Your Show"}
+        {submitting ? "Processing..." : (
+          <>
+            {placeholder ? "Apply Now" : "Launch Your Show"}
+            <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+          </>
+        )}
       </Button>
     </>
   );
@@ -79,6 +95,7 @@ export default function ContactForm() {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    // ... logic remains same
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
@@ -87,7 +104,7 @@ export default function ContactForm() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,8 +112,15 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
+      const contentType = response.headers.get("content-type");
+      let result: any = {};
+      
+      if (contentType && contentType.includes("application/json")) {
+        result = await response.json();
+      }
+
       if (!response.ok) {
-        throw new Error("Failed to send message. Please try again later.");
+        throw new Error(result.error || `Server responded with ${response.status}.`);
       }
 
       setShowSuccess(true);
@@ -122,15 +146,31 @@ export default function ContactForm() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-left lg:col-span-2 pt-6"
           >
-            <h2 className="font-display text-4xl md:text-5xl xl:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl xl:text-6xl font-bold mb-6 leading-[1.1] tracking-tight text-white">
               Your Audience Won't Wait.
               <br />
               <span className="text-[#FFC107]">Neither Should You.</span>
             </h2>
-            <p className="text-[#9A9A9A] text-lg leading-relaxed mb-8">
-              Drop us your details and channel link. We'll review your current
-              setup and reach out to schedule a growth mapping call.
-            </p>
+            
+            <div className="space-y-6 mb-10">
+              <p className="text-[#9A9A9A] text-lg leading-relaxed">
+                Submit your link to receive:
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Manual channel performance audit",
+                  "Custom growth blueprint within 24 hours",
+                  "Direct link to book your strategy mapping",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-white/90 font-medium">
+                    <div className="bg-[#FFC107]/10 p-1 rounded-full">
+                      <CheckCircle2 className="w-5 h-5 text-[#FFC107]" />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
           <motion.div
