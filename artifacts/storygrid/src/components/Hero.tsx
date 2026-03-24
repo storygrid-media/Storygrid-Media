@@ -77,12 +77,12 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 md:gap-8 max-w-5xl"
         >
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.15] md:leading-[1.05] font-bold tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.1] md:leading-[1.05] font-bold tracking-tight">
             Scale Your Influence
             <br />
             With{" "}
             <span className="relative mt-2 selection-invert inline-block">
-              <span className="relative z-10 text-black px-3 py-0.5 bg-[#FFC107] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+              <span className="relative z-10 text-black px-2 md:px-3 py-0.5 bg-[#FFC107] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
                 Systems That Perform
               </span>
             </span>

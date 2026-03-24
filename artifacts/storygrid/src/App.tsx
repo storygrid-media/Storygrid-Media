@@ -8,8 +8,9 @@ import PortfolioThumbnails from "@/components/PortfolioThumbnails";
 import CaseStudy from "@/components/CaseStudy";
 import Services from "@/components/Services";
 import Positioning from "@/components/Positioning";
-import Testimonials from "@/components/Testimonials";
 import PathSwitcher from "@/components/PathSwitcher";
+import Testimonials from "@/components/Testimonials";
+import Workflow from "@/components/Workflow";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -27,6 +28,8 @@ function App() {
           <PortfolioThumbnails />
           <SectionDivider />
           <Services />
+          <SectionDivider />
+          <Workflow />
           <SectionDivider />
           <CaseStudy />
           <SectionDivider />

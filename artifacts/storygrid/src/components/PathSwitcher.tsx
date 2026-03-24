@@ -86,12 +86,7 @@ export default function PathSwitcher() {
                   <Button
                     variant="luxury"
                     className="h-16 px-12 text-lg shadow-[0_20px_50px_rgba(255,193,7,0.15)] min-w-[280px]"
-                    onClick={() => window.open(
-                      formMode === "client" 
-                        ? "https://forms.google.com/your-client-form" 
-                        : "https://forms.google.com/your-hiring-form", 
-                      "_blank"
-                    )}
+                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   >
                     {formMode === "client" ? "Start Your Audit" : "Apply for Intake"}
                     <ArrowRight className="w-6 h-6 ml-4 group-hover/btn:translate-x-2 transition-transform duration-300" />

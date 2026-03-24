@@ -71,12 +71,12 @@ export default function Testimonials() {
     {
       title: "How We Grew 3x in 6 Months",
       client: "Alex M. - Tech Founder",
-      videoId: "6HBxWrmI8OU",
+      videoId: "kPCUxqwADiU",
     },
     {
       title: "From Zero to 10K Subscribers",
       client: "Sarah J. - Creator",
-      videoId: "6HBxWrmI8OU",
+      videoId: "q5DQ9dbXn0g",
     },
   ];
 
@@ -123,7 +123,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {videoTestimonials.map((video, i) => (
             <VideoTestimonial
               key={i}
@@ -134,6 +134,49 @@ export default function Testimonials() {
             />
           ))}
         </div>
+
+        {/* Chat Testimonials Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold text-white mb-2">Real Results, Real Conversations</h3>
+            <p className="text-[#9A9A9A]">Direct feedback from our creator network.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { type: "WhatsApp", message: "Bro the new edit style is insane! Retention is up by 40% on this one.", status: "Just now" },
+              { type: "Instagram", message: "That clip just hit 100k in 2 hours. Whatever you guys did with the hook worked perfectly.", status: "2h ago" },
+              { type: "Telegram", message: "Final version approved. The system you built for the podcast is saving me 15 hours a week.", status: "Yesterday" }
+            ].map((chat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#141414] border border-white/5 rounded-2xl p-6 relative overflow-hidden group hover:border-[#FFC107]/30 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#9A9A9A]">{chat.type}</div>
+                  <div className="text-[10px] text-white/40">{chat.status}</div>
+                </div>
+                <div className="bg-black/30 rounded-xl p-4 border border-white/5 group-hover:bg-[#FFC107]/5 transition-colors">
+                  <p className="text-sm text-white/90 italic leading-relaxed">"{chat.message}"</p>
+                </div>
+                <div className="mt-4 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-[10px] text-green-500 font-medium">Verified Client</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,6 +10,7 @@ export interface ThumbnailItem {
   channelName: string;
   views: string;
   category: string;
+  ctr?: string;
 }
 
 interface CurvedSliderProps {
@@ -41,10 +42,11 @@ export default function CurvedSlider({
       const interval = setInterval(handleNext, autoPlayInterval);
       return () => clearInterval(interval);
     }
+    return undefined;
   }, [autoPlay, autoPlayInterval, isHovered, handleNext]);
 
   // Helper to get relative position for circular loop
-  const getRelativeIndex = (index: number) => {
+  const getRelativeIndex = (index: number): number | null => {
     if (index === currentIndex) return 0;
     
     // Right neighbor (including wrap-around)
@@ -58,7 +60,7 @@ export default function CurvedSlider({
 
   return (
     <div 
-      className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center overflow-hidden"
+      className="relative w-full h-[350px] md:h-[480px] flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -124,15 +126,27 @@ export default function CurvedSlider({
                   mass: 1.2,
                 }}
                 className={cn(
-                  "absolute w-[300px] sm:w-[400px] md:w-[500px] aspect-video rounded-[32px] overflow-hidden shadow-2xl border border-white/5 bg-[#111111]",
-                  isCenter ? "shadow-[#FFC107]/20" : "pointer-events-none"
+                  "absolute w-[280px] sm:w-[400px] md:w-[500px] aspect-video rounded-[24px] md:rounded-[32px] overflow-hidden shadow-2xl border border-white/5 bg-[#111111] group/card",
+                  isCenter ? "shadow-[#FFC107]/20 ring-1 ring-[#FFC107]/30" : "pointer-events-none"
                 )}
               >
+                {/* Scanner/Glow Effect for Center Card */}
+                {isCenter && (
+                   <motion.div 
+                      className="absolute inset-0 z-40 pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                   >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFC107]/10 to-transparent w-[200%] h-full -translate-x-full animate-[shimmer_3s_infinite]" />
+                      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFC107] to-transparent opacity-50 shadow-[0_0_15px_rgba(255,193,7,0.5)]" />
+                   </motion.div>
+                )}
                 {/* Image */}
                 <img 
                   src={item.image} 
                   alt={item.title} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
 
                 {/* Overlays */}
@@ -152,9 +166,13 @@ export default function CurvedSlider({
                    >
                       <div className="flex items-center gap-3 mb-3">
                          <span className="bg-[#FFC107] text-black text-[9px] font-black uppercase px-2 py-0.5 rounded-sm tracking-[0.1em]">
-                            Case Study
+                            Performance Optimized
                          </span>
-                         <span className="text-white/40 text-xs font-semibold uppercase tracking-widest">
+                         <div className="flex items-center gap-1.5 px-2 py-0.5 bg-white/10 rounded-sm border border-white/5">
+                            <span className="text-[#FFC107] text-[10px] font-black">{item.ctr || "12.4%"}</span>
+                            <span className="text-white/40 text-[8px] font-bold uppercase tracking-tighter">CTR</span>
+                         </div>
+                         <span className="text-white/40 text-xs font-semibold uppercase tracking-widest ml-auto">
                             {item.channelName}
                          </span>
                       </div>
@@ -196,7 +214,7 @@ export default function CurvedSlider({
       </div>
 
       {/* Progress Line */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
         <span className="text-white/40 text-[10px] font-black uppercase tracking-widest">0{(currentIndex % length) + 1}</span>
         <div className="w-24 md:w-32 h-1 bg-white/5 rounded-full overflow-hidden">
            <motion.div 
