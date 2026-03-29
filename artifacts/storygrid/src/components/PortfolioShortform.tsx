@@ -6,28 +6,26 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
 const SHORTFORM_PROJECTS = [
-  { id: 0, title: "High-Tier Growth Breakdown", views: "420K", videoId: "z58LBmp6-Io" },
-  { id: 1, title: "Performance Hooks", views: "245K", videoId: "9w9-LGDtzj4" },
-  { id: 2, title: "Viral Pacing", views: "185K", videoId: "NJXGLzF7ig4" },
-  { id: 3, title: "Retention Strategy", views: "312K", videoId: "N8H9PbA8BJ0" },
-  { id: 4, title: "Algorithm Scale", views: "215K", videoId: "kBg0bdCyOkE" },
-  { id: 5, title: "Engagement Flow", views: "154K", videoId: "Fu1AtrAYMFs" },
-  { id: 6, title: "Market Influence", views: "282K", videoId: "VIeyoYx0ATs" },
-  { id: 7, title: "Storyselling Logic", views: "198K", videoId: "bQKkOdT3K-w" },
-  { id: 8, title: "Revenue Conversion", views: "342K", videoId: "cj4bdMtIbSY" },
-  { id: 9, title: "Brand Synergy", views: "228K", videoId: "HUO17-EocXQ" },
-  { id: 10, title: "Growth Architecture", views: "175K", videoId: "hd-EV2I7PJ8" },
-  { id: 11, title: "Strategic Pacing", views: "264K", videoId: "pj7Stteb1M0" },
-  { id: 12, title: "Authority Design", views: "328K", videoId: "bx_Ndv0dAFU" },
-  { id: 13, title: "Scale Operations", views: "142K", videoId: "J_hmHVG_r-8" },
-  { id: 14, title: "Audience Lifecycle", views: "296K", videoId: "t1s4jibhX2E" },
-  { id: 15, title: "Leveraged Editing", views: "258K", videoId: "9GmEoBlXHSo" },
+  { id: 0, title: "High-Tier Growth Breakdown", views: "184.3K", videoId: "z58LBmp6-Io" },
+  { id: 1, title: "Performance Hooks", views: "124.6K", videoId: "9w9-LGDtzj4" },
+  { id: 2, title: "Viral Pacing", views: "42.1K", videoId: "NJXGLzF7ig4" },
+  { id: 3, title: "Retention Strategy", views: "156.8K", videoId: "N8H9PbA8BJ0" },
+  { id: 4, title: "Algorithm Scale", views: "89.2K", videoId: "kBg0bdCyOkE" },
+  { id: 5, title: "Engagement Flow", views: "31.4K", videoId: "Fu1AtrAYMFs" },
+  { id: 6, title: "Market Influence", views: "94.7K", videoId: "VIeyoYx0ATs" },
+  { id: 7, title: "Storyselling Logic", views: "67.1K", videoId: "bQKkOdT3K-w" },
+  { id: 8, title: "Revenue Conversion", views: "142.5K", videoId: "cj4bdMtIbSY" },
+  { id: 9, title: "Brand Synergy", views: "78.9K", videoId: "HUO17-EocXQ" },
+  { id: 10, title: "Growth Architecture", views: "56.4K", videoId: "hd-EV2I7PJ8" },
+  { id: 11, title: "Strategic Pacing", views: "112.3K", videoId: "pj7Stteb1M0" },
+  { id: 12, title: "Authority Design", views: "164.2K", videoId: "bx_Ndv0dAFU" },
+  { id: 13, title: "Scale Operations", views: "28.5K", videoId: "J_hmHVG_r-8" },
+  { id: 14, title: "Audience Lifecycle", views: "91.7K", videoId: "t1s4jibhX2E" },
+  { id: 15, title: "Leveraged Editing", views: "108.4K", videoId: "9GmEoBlXHSo" },
 ];
 
 interface ShortVideoLoopProps {
@@ -77,13 +75,13 @@ function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
 
 function ShortPortfolioItem({ project }: { project: typeof SHORTFORM_PROJECTS[0] }) {
   return (
-    <CarouselItem className="pl-4 md:pl-6 basis-[75%] sm:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+    <CarouselItem className="pl-6 md:pl-10 basis-[85%] sm:basis-1/3 lg:basis-1/4 xl:basis-1/5">
       <motion.div
         layout
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="group/card flex flex-col gap-3"
+        className="group/card flex flex-col gap-4"
       >
         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#141414] border border-white/10 w-full aspect-[9/16] shadow-xl transition-transform duration-500 group-hover/card:scale-[1.02]">
           <div className="absolute top-3 right-3 z-30">
@@ -165,16 +163,12 @@ export default function PortfolioShortform() {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-8 md:-ml-12">
+            <CarouselContent className="-ml-6 md:-ml-10">
               {SHORTFORM_PROJECTS.map((project) => (
                 <ShortPortfolioItem key={`${project.id}-${project.videoId}`} project={project} />
               ))}
             </CarouselContent>
             
-            <div className="flex justify-center gap-6 mt-16">
-               <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-               <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-            </div>
           </Carousel>
         </div>
       </div>

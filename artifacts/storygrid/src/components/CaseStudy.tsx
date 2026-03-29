@@ -85,7 +85,7 @@ export default function CaseStudy() {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#FFC107]" />
-                  1M+ views
+                  250K+ views
                 </li>
               </ul>
             </div>

@@ -159,11 +159,11 @@ export default function Hero() {
         >
           <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8">
             <div className="text-center px-2">
-              <CountUp target={2} suffix="M+" display={(n) => `${n}`} duration={1500} />
+              <CountUp target={480} suffix="K+" display={(n) => `${n}`} duration={1500} />
               <div className="text-xs sm:text-sm text-[#9A9A9A] mt-1 font-medium">Audience Reached</div>
             </div>
             <div className="text-center px-2">
-              <CountUp target={1} suffix="M+" display={(n) => `${n}`} duration={1800} />
+              <CountUp target={320} suffix="K+" display={(n) => `${n}`} duration={1800} />
               <div className="text-xs sm:text-sm text-[#9A9A9A] mt-1 font-medium">Views Generated</div>
             </div>
             <div className="text-center px-2">

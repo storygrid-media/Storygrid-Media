@@ -26,7 +26,7 @@ const buttonVariants = cva(
         // @replit no hover, transparent border
         ghost: "border border-transparent",
         link: "text-primary underline-offset-4 hover:underline",
-        luxury: "relative overflow-hidden bg-black text-primary border border-primary",
+        luxury: "relative overflow-hidden bg-primary text-black border-transparent",
       },
       size: {
         // @replit changed sizes
@@ -61,10 +61,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {...props}
         >
           {/* Slide-in background */}
-          <span className="absolute inset-0 w-full h-full bg-primary translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+          <span className="absolute inset-0 w-full h-full bg-black translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
           
           {/* Content */}
-          <span className="relative z-10 flex items-center justify-center gap-2 group-hover/btn:text-black transition-colors duration-300">
+          <span className="relative z-10 flex items-center justify-center gap-2 group-hover/btn:text-primary transition-colors duration-300">
             {children}
           </span>
         </Comp>
