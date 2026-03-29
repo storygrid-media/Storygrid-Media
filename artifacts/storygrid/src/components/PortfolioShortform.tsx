@@ -12,22 +12,22 @@ import {
 } from "@/components/ui/carousel";
 
 const SHORTFORM_PROJECTS = [
-  { id: 0, title: "High-Tier Growth Breakdown", views: "4.2M", videoId: "z58LBmp6-Io" },
-  { id: 1, title: "Performance Hooks", views: "2.4M", videoId: "9w9-LGDtzj4" },
-  { id: 2, title: "Viral Pacing", views: "1.8M", videoId: "NJXGLzF7ig4" },
-  { id: 3, title: "Retention Strategy", views: "3.1M", videoId: "N8H9PbA8BJ0" },
-  { id: 4, title: "Algorithm Scale", views: "2.1M", videoId: "kBg0bdCyOkE" },
-  { id: 5, title: "Engagement Flow", views: "1.5M", videoId: "Fu1AtrAYMFs" },
-  { id: 6, title: "Market Influence", views: "2.8M", videoId: "VIeyoYx0ATs" },
-  { id: 7, title: "Storyselling Logic", views: "1.9M", videoId: "bQKkOdT3K-w" },
-  { id: 8, title: "Revenue Conversion", views: "3.4M", videoId: "cj4bdMtIbSY" },
-  { id: 9, title: "Brand Synergy", views: "2.2M", videoId: "HUO17-EocXQ" },
-  { id: 10, title: "Growth Architecture", views: "1.7M", videoId: "hd-EV2I7PJ8" },
-  { id: 11, title: "Strategic Pacing", views: "2.6M", videoId: "pj7Stteb1M0" },
-  { id: 12, title: "Authority Design", views: "3.2M", videoId: "bx_Ndv0dAFU" },
-  { id: 13, title: "Scale Operations", views: "1.4M", videoId: "J_hmHVG_r-8" },
-  { id: 14, title: "Audience Lifecycle", views: "2.9M", videoId: "t1s4jibhX2E" },
-  { id: 15, title: "Leveraged Editing", views: "2.5M", videoId: "9GmEoBlXHSo" },
+  { id: 0, title: "High-Tier Growth Breakdown", views: "420K", videoId: "z58LBmp6-Io" },
+  { id: 1, title: "Performance Hooks", views: "245K", videoId: "9w9-LGDtzj4" },
+  { id: 2, title: "Viral Pacing", views: "185K", videoId: "NJXGLzF7ig4" },
+  { id: 3, title: "Retention Strategy", views: "312K", videoId: "N8H9PbA8BJ0" },
+  { id: 4, title: "Algorithm Scale", views: "215K", videoId: "kBg0bdCyOkE" },
+  { id: 5, title: "Engagement Flow", views: "154K", videoId: "Fu1AtrAYMFs" },
+  { id: 6, title: "Market Influence", views: "282K", videoId: "VIeyoYx0ATs" },
+  { id: 7, title: "Storyselling Logic", views: "198K", videoId: "bQKkOdT3K-w" },
+  { id: 8, title: "Revenue Conversion", views: "342K", videoId: "cj4bdMtIbSY" },
+  { id: 9, title: "Brand Synergy", views: "228K", videoId: "HUO17-EocXQ" },
+  { id: 10, title: "Growth Architecture", views: "175K", videoId: "hd-EV2I7PJ8" },
+  { id: 11, title: "Strategic Pacing", views: "264K", videoId: "pj7Stteb1M0" },
+  { id: 12, title: "Authority Design", views: "328K", videoId: "bx_Ndv0dAFU" },
+  { id: 13, title: "Scale Operations", views: "142K", videoId: "J_hmHVG_r-8" },
+  { id: 14, title: "Audience Lifecycle", views: "296K", videoId: "t1s4jibhX2E" },
+  { id: 15, title: "Leveraged Editing", views: "258K", videoId: "9GmEoBlXHSo" },
 ];
 
 interface ShortVideoLoopProps {
@@ -100,7 +100,7 @@ function ShortPortfolioItem({ project }: { project: typeof SHORTFORM_PROJECTS[0]
         </div>
 
         <div className="px-1 flex items-center justify-between gap-3">
-          <h3 className="text-lg md:text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-1 leading-tight flex-grow">
+          <h3 className="text-lg md:text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-3 leading-tight flex-grow">
             {project.title}
           </h3>
           <a 

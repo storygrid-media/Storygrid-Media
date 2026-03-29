@@ -7,7 +7,29 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#080808] border-t border-white/5 pt-12 pb-8">
+    <footer className="bg-[#080808] border-t border-white/5 pt-24 pb-12">
+      {/* High-Impact CTA Banner */}
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-24">
+        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#141414] to-black border border-white/10 p-12 md:p-20 flex flex-col items-center text-center">
+           {/* Background Glow */}
+           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[#FFC107]/5 blur-[100px] pointer-events-none" />
+           
+           <h3 className="font-display text-4xl md:text-6xl font-black mb-8 leading-tight text-white relative z-10">
+              Ready to <span className="text-[#FFC107]">Scale</span> Your Influence?
+           </h3>
+           <p className="text-[#9A9A9A] text-xl max-w-2xl mb-12 font-medium relative z-10">
+              Join the world's most ambitious creators and founders. 
+              Let's build your content system today.
+           </p>
+           <button 
+              onClick={() => scrollTo("contact")}
+              className="relative z-10 px-10 py-5 bg-[#FFC107] text-black font-black uppercase tracking-widest rounded-xl hover:scale-105 transition-all shadow-2xl shadow-[#FFC107]/20"
+           >
+              Book Your Growth Audit
+           </button>
+        </div>
+      </div>
+
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="flex flex-col gap-4">

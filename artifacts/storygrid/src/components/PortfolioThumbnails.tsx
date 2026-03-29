@@ -131,7 +131,7 @@ function ThumbnailCard({ item }: { item: ThumbnailItem }) {
               <span className="text-black text-[9px] font-black uppercase tracking-wider">{item.tag}</span>
            </div>
         </div>
-        <h3 className="text-lg md:text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-2 leading-snug">
+        <h3 className="text-lg md:text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-3 leading-snug">
           {item.title}
         </h3>
       </div>

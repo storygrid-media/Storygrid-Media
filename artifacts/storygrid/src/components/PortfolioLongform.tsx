@@ -289,7 +289,7 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
             <div className="text-[#FFC107] text-[11px] font-bold uppercase tracking-widest mb-1.5 opacity-90">
               {project.channelName}
             </div>
-            <h3 className="text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-1">
+            <h3 className="text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-3">
               {project.title}
             </h3>
           </div>

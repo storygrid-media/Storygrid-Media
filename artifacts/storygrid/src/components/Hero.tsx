@@ -1,9 +1,42 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 
+
+function RotatingText() {
+  const words = ["Podcasts", "YouTube", "Shorts", "Authority"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <span className="relative inline-block align-top perspective-[1000px] h-[1.2em] mb-[-0.2em]">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={words[index]}
+          initial={{ rotateX: 90, opacity: 0, y: 10 }}
+          animate={{ rotateX: 0, opacity: 1, y: 0 }}
+          exit={{ rotateX: -90, opacity: 0, y: -10 }}
+          transition={{ 
+            duration: 0.6, 
+            ease: [0.23, 1, 0.32, 1] // Custom cubic-bezier for snappy mechanical feel
+          }}
+          className="relative z-10 text-black px-3 md:px-4 py-0.5 bg-[#FFC107] [box-decoration-break:clone] [-webkit-box-decoration-break:clone] inline-block font-black tracking-tighter"
+          style={{ transformOrigin: "center center" }}
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 function CountUp({ target, suffix = "", display, duration = 2000 }: { target: number; suffix?: string; display: (n: number) => string; duration?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,6 +67,9 @@ function CountUp({ target, suffix = "", display, duration = 2000 }: { target: nu
 }
 
 export default function Hero() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -42,10 +78,10 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden min-h-screen lg:min-h-[100dvh]">
-      <div className="absolute inset-0 z-0">
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <iframe
           src={`https://www.youtube.com/embed/6HBxWrmI8OU?autoplay=1&mute=1&loop=1&playlist=6HBxWrmI8OU&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=0`}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none scale-115 md:scale-110"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none scale-125 md:scale-115"
           style={{ 
             width: "max(100vw, 177.77vh)", 
             height: "max(56.25vw, 100vh)",
@@ -57,7 +93,7 @@ export default function Hero() {
           title="Background video"
           loading="eager"
         />
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/95 via-transparent to-[#0B0B0B] z-[1]" />
       <div className="absolute inset-0 bg-[#0B0B0B]/40 backdrop-brightness-[0.8] radial-vignette z-[1]" />
@@ -77,15 +113,11 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 md:gap-8 max-w-5xl"
         >
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] md:leading-[1.05] font-bold tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl leading-[1.1] md:leading-[1.05] font-black tracking-tighter">
             Scale Your Influence
             <br />
             With{" "}
-            <span className="relative mt-2 selection-invert inline-block">
-              <span className="relative z-10 text-black px-2 md:px-3 py-0.5 bg-[#FFC107] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
-                Systems That Perform
-              </span>
-            </span>
+            <RotatingText />
           </h1>
 
           <p className="text-base md:text-lg text-[#9A9A9A] max-w-xl leading-relaxed">

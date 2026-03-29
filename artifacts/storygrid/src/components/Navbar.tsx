@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoUrl from "@assets/logo_(1)_1773492679483.avif";
@@ -7,6 +7,13 @@ import logoUrl from "@assets/logo_(1)_1773492679483.avif";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -34,6 +41,12 @@ export default function Navbar() {
               : "bg-white/5 backdrop-blur-md border-white/5"
           }`}
         >
+          {/* Scroll Progress Indicator */}
+          <motion.div 
+            className="absolute bottom-0 left-0 h-[2px] bg-[#FFC107] z-50 rounded-full"
+            style={{ scaleX, transformOrigin: "left" }}
+          />
+
           <a 
             href="#"
             className="flex items-center gap-2 group shrink-0"
