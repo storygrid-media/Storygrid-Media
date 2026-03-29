@@ -19,7 +19,7 @@ const Circle = forwardRef<
   { className?: string; children?: React.ReactNode; label?: string }
 >(({ className, children, label }, ref) => {
   return (
-    <div className="flex flex-col items-center gap-2 z-10">
+    <div className="flex flex-col items-center z-10">
       <div
         ref={ref}
         className={cn(
@@ -30,7 +30,13 @@ const Circle = forwardRef<
         <div className="absolute inset-0 bg-[#FFC107] blur-[20px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-full" />
         {children}
       </div>
-      {label && <span className="text-[10px] uppercase font-bold tracking-widest text-[#9A9A9A]">{label}</span>}
+      {label && (
+        <div className="h-0 w-full flex justify-center overflow-visible mt-2">
+          <span className="text-[10px] font-bold tracking-widest text-[#9A9A9A] whitespace-nowrap">
+            {label}
+          </span>
+        </div>
+      )}
     </div>
   );
 });
@@ -51,43 +57,11 @@ export default function Workflow() {
     <section className="py-24 bg-[#080808] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-[#FFC107] font-semibold tracking-wider uppercase text-sm mb-4">The Content Engine</div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
-              Automated Pipeline for <br/> 
-              <span className="text-white/40 italic">Maximum Leverage</span>
-            </h2>
-            <p className="text-[#9A9A9A] text-lg mb-8 leading-relaxed max-w-xl">
-              We don't just edit videos. We build a proprietary systems-level engine that 
-              takes your raw input and distributes synchronized, high-retention content 
-              across your entire digital ecosystem.
-            </p>
-            
-            <div className="space-y-4">
-              {[
-                "AI-Powered Hook Optimization",
-                "Automated Multi-Platform Syncing",
-                "Dynamic Viral Pacing Systems",
-                "Cloud-Native Distribution Architecture"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FFC107]" />
-                  <span className="text-white/80 font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
           <div
-            className="relative flex h-[450px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/5 bg-[#0F0F0F] p-6 shadow-3xl"
+            className="relative flex h-[450px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/5 bg-[#0F0F0F] p-6 shadow-3xl lg:order-1"
             ref={containerRef}
           >
-            <div className="flex size-full flex-col items-stretch justify-center gap-8 max-w-sm">
+            <div className="flex size-full flex-col items-stretch justify-center gap-12 max-w-sm">
               <div className="flex flex-row items-center justify-between">
                 <Circle ref={div1Ref} label="Raw Media">
                   <Database className="w-6 h-6 text-[#FFC107]" />
@@ -173,6 +147,25 @@ export default function Workflow() {
               gradientStopColor="#FFD54F"
             />
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:order-2"
+          >
+            <div className="text-[#FFC107] font-semibold tracking-wider uppercase text-sm mb-4">The Content Engine</div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              Automated Pipeline for <br/> 
+              <span className="text-white/40 italic">Maximum Leverage</span>
+            </h2>
+            <p className="text-[#9A9A9A] text-lg mb-8 leading-relaxed max-w-xl">
+              We don't just edit videos. We build a proprietary systems-level engine that 
+              takes your raw input and distributes synchronized, high-retention content 
+              across your entire digital ecosystem.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
