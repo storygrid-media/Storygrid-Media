@@ -38,7 +38,7 @@ interface ShortVideoLoopProps {
 function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
   const [isReady, setIsReady] = useState(false);
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.1, once: false });
+  const isInView = useInView(containerRef, { margin: "300px", once: false });
 
   const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 

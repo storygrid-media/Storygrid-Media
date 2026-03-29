@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 
 const LONGFORM_PROJECTS = [
-  // Initial requested set
+  // Podcasts First
   { 
     id: 1, 
     title: "The Future of AI", 
@@ -22,16 +22,6 @@ const LONGFORM_PROJECTS = [
     start: 0,
     end: 60 
   },
-  { 
-    id: 2, 
-    title: "Why Startups Fail in 2024", 
-    channelName: "FounderBrand", 
-    category: "Talking Head",
-    videoId: "kPCUxqwADiU",
-    start: 30, 
-    end: 90 
-  },
-  // Highly edited videos
   { 
     id: 4, 
     title: "Building a Multi-Crore Fashion Empire", 
@@ -59,7 +49,6 @@ const LONGFORM_PROJECTS = [
     start: 0,
     end: 60 
   },
-  // Rest
   { 
     id: 7, 
     title: "Ayodhya & Indian Identity", 
@@ -113,6 +102,16 @@ const LONGFORM_PROJECTS = [
     videoId: "EgIv8k17kRE",
     start: 0,
     end: 60 
+  },
+  // Talking Heads
+  { 
+    id: 2, 
+    title: "Why Startups Fail in 2024", 
+    channelName: "FounderBrand", 
+    category: "Talking Head",
+    videoId: "kPCUxqwADiU",
+    start: 30, 
+    end: 90 
   },
   { 
     id: 13, 
@@ -169,7 +168,7 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.1, once: false });
+  const isInView = useInView(containerRef, { margin: "300px", once: false });
 
   // Re-sync isReady when coming back into view
   useEffect(() => {
@@ -232,7 +231,7 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
             className="absolute inset-0 w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             onLoad={() => {
-              setTimeout(() => setIsReady(true), 500);
+              setIsReady(true);
             }}
             title={title}
           />
@@ -311,7 +310,7 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
 }
 
 export default function PortfolioLongform() {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("Podcast");
   const [api, setApi] = useState<any>();
 
   // Autoplay Effect
