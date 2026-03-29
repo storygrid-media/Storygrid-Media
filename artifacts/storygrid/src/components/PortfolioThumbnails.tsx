@@ -1,73 +1,163 @@
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CurvedSlider, { ThumbnailItem } from "./CurvedSlider";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Zap, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+
+interface ThumbnailItem {
+  id: string;
+  image: string;
+  title: string;
+  ctr: string;
+  tag: string;
+}
 
 const ALL_THUMBNAILS: ThumbnailItem[] = [
   {
-    id: "fin-1",
-    category: "Finance",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&auto=format&fit=crop&q=60",
-    title: "10X Your Portfolio with These 3 Assets",
-    channelName: "WealthWise",
-    views: "1.2M+"
+    id: "thumb-1",
+    image: "/assets/thumbnails/How Ram Mandir Changed Ayodhya, India & Our Identity_converted.avif",
+    title: "How Ram Mandir Changed Ayodhya & Our Identity",
+    ctr: "14.5%",
+    tag: "VIRAL LAYOUT"
   },
   {
-    id: "fin-2",
-    category: "Finance",
-    image: "https://images.unsplash.com/photo-1611974717525-58a36190d605?w=800&auto=format&fit=crop&q=60",
-    title: "The Stock Market Crash No One Sees Coming",
-    channelName: "FinanceDaily",
-    views: "2.1M+"
+    id: "thumb-2",
+    image: "/assets/thumbnails/Akash Gupta, Co-Founder of Zypp (₹450 Cr Revenue $3B Val.) on Building India’s EV Logistics Backbone_converted.avif",
+    title: "Building India's EV Logistics Backbone: Akash Gupta",
+    ctr: "13.8%",
+    tag: "PERFORMANCE ENGINEERED"
   },
   {
-    id: "tech-1",
-    category: "Tech",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=60",
-    title: "iPhone 16: Everything We Know So Far",
-    channelName: "TechInsider",
-    views: "4.5M+"
+    id: "thumb-3",
+    image: "/assets/thumbnails/India is Fighting a SILENT WAR and NO ones talking about it!_converted.avif",
+    title: "India's Silent War: What No One is Talking About",
+    ctr: "15.2%",
+    tag: "RETENTION FOCUSED"
   },
   {
-    id: "tech-2",
-    category: "Tech",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=60",
-    title: "Why AI is Actually GOOD for Your Career",
-    channelName: "FutureTech",
-    views: "920K+"
+    id: "thumb-4",
+    image: "/assets/thumbnails/Dr. Amit - Everything You Know About Plastic Surgery Is Wrong_converted.avif",
+    title: "Everything You Know About Plastic Surgery Is Wrong",
+    ctr: "12.9%",
+    tag: "A/B TESTED"
   },
   {
-    id: "story-1",
-    category: "Storytelling",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&auto=format&fit=crop&q=60",
-    title: "How StoryGrid Crafts Billion-Dollar Stories",
-    channelName: "StoryGrid Originals",
-    views: "3.1M+"
+    id: "thumb-5",
+    image: "/assets/thumbnails/Anshita Mehrotra, Fix My Curls - How She Built a Multi-Crore D2C Beauty Brand from Scratch at 26_converted.avif",
+    title: "Building Fix My Curls: The Multi-Crore D2C Journey",
+    ctr: "13.1%",
+    tag: "HIGH-CTR SCRIPT"
   },
   {
-    id: "story-2",
-    category: "Storytelling",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&auto=format&fit=crop&q=60",
-    title: "Mastering the Art of the YouTube Hook",
-    channelName: "CreatorAcademy",
-    views: "1.8M+"
+    id: "thumb-6",
+    image: "/assets/thumbnails/Shankar Singh - Why India Is Still Dirty, Bureaucracy Problems & Clean-Up Missions_converted.avif",
+    title: "Why India is Still Dirty: Bureaucracy & Clean-Up",
+    ctr: "11.8%",
+    tag: "ALGORITHM OPTIMIZED"
+  },
+  {
+    id: "thumb-7",
+    image: "/assets/thumbnails/How to Stand Out for Y Combinator_converted.avif",
+    title: "How to Actually Stand Out for Y Combinator",
+    ctr: "12.4%",
+    tag: "A/B TESTED"
+  },
+  {
+    id: "thumb-8",
+    image: "/assets/thumbnails/Aakriti Rawal - How She Built a Multi-Crore Modern Fashion Empire from Indian Craft_converted.avif",
+    title: "Building a Multi-Crore Fashion Empire from Craft",
+    ctr: "13.5%",
+    tag: "PERFORMANCE ENGINEERED"
+  },
+  {
+    id: "thumb-9",
+    image: "/assets/thumbnails/Sikandar Ali - How to Start a Clothing Brand in 2025 (Full guide)_converted.avif",
+    title: "The 2025 Clothing Brand Guide: Sikandar Ali",
+    ctr: "14.2%",
+    tag: "VIRAL LAYOUT"
+  },
+  {
+    id: "thumb-10",
+    image: "/assets/thumbnails/Kashish Anand on Content Creation, Marriage Showoffs, Relationships & Real Life_converted.avif",
+    title: "Content Creation vs Real Life: Kashish Anand",
+    ctr: "12.1%",
+    tag: "RETENTION FOCUSED"
+  },
+  {
+    id: "thumb-11",
+    image: "/assets/thumbnails/Inside WearDuds Factory - How Sikandar Ali Built a Clothing Brand from Scratch_converted.avif",
+    title: "Inside the Factory: Building WearDuds from Scratch",
+    ctr: "11.5%",
+    tag: "ALGORITHM OPTIMIZED"
+  },
+  {
+    id: "thumb-12",
+    image: "/assets/thumbnails/My First Q&A - My Life, Business, Content Creation & Future Goals!_converted.avif",
+    title: "My Journey: Life, Business & Future Goals",
+    ctr: "10.9%",
+    tag: "PERFORMANCE ENGINEERED"
   }
 ];
 
-const CATEGORIES = ["All", "Finance", "Tech", "Storytelling"];
+
+
+function ThumbnailCard({ item }: { item: ThumbnailItem }) {
+  return (
+    <div className="group/card flex flex-col gap-5">
+      {/* Image Container */}
+      <div className="relative rounded-2xl overflow-hidden bg-[#141414] border border-white/5 w-full aspect-video shadow-xl group/card">
+        <img 
+          src={item.image} 
+          alt={item.title} 
+          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Info Container - Placed BELOW the image */}
+      <div className="px-1 space-y-3">
+        <div className="flex items-center gap-3">
+           <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg border border-white/10 group-hover/card:border-[#FFC107]/50 transition-colors">
+              <span className="text-[#FFC107] text-[11px] font-black">{item.ctr}</span>
+              <span className="text-white/40 text-[9px] font-bold uppercase tracking-tight">CTR</span>
+           </div>
+           <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#FFC107] rounded-lg">
+              <Zap className="w-3 h-3 text-black fill-black" />
+              <span className="text-black text-[9px] font-black uppercase tracking-wider">{item.tag}</span>
+           </div>
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-2 leading-snug">
+          {item.title}
+        </h3>
+      </div>
+    </div>
+  );
+}
 
 export default function PortfolioThumbnails() {
-  const [activeTab, setActiveTab] = useState("All");
+  const [api, setApi] = useState<CarouselApi>();
 
-  const filteredItems = useMemo(() => {
-    if (activeTab === "All") return ALL_THUMBNAILS;
-    return ALL_THUMBNAILS.filter(item => item.category === activeTab);
-  }, [activeTab]);
+  // Autoplay Effect
+  useEffect(() => {
+    if (!api) return;
+    
+    const intervalId = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [api]);
 
   return (
-    <section id="work" className="py-12 md:py-16 bg-[#080808] relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-6">
+    <section id="work-thumbnails" className="py-16 md:py-24 bg-[#080808] relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-2">
         <motion.div
            initial={{ opacity: 0, y: 40 }}
            whileInView={{ opacity: 1, y: 0 }}
@@ -75,79 +165,41 @@ export default function PortfolioThumbnails() {
            viewport={{ once: true, margin: "-100px" }}
            className="mb-8"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-12 bg-[#FFC107]" />
-            <span className="text-[#9A9A9A] text-sm tracking-widest uppercase">The Performance</span>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
-                 Engineered for <span className="text-[#FFC107]">the Click.</span>
-              </h2>
-              <p className="text-[#9A9A9A] text-lg max-w-xl leading-relaxed">
-                 High-converting thumbnails rigorously tested through our internal proprietary 
-                 A/B testing engine to secure 12%+ CTRs as a standard.
-              </p>
-            </div>
+          <div className="flex flex-col items-center text-center pb-6">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+               Engineered for <span className="text-[#FFC107]">the Click.</span>
+            </h2>
+            <p className="text-[#9A9A9A] text-lg max-w-2xl leading-relaxed">
+               High-converting thumbnails rigorously tested to secure 12%+ CTRs and maximum reach through proprietary A/B optimization.
+            </p>
           </div>
         </motion.div>
       </div>
       
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
-        {/* Categories Tab - Improved for Mobile */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveTab(cat)}
-              className={cn(
-                "px-5 py-2.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 border mb-2",
-                activeTab === cat
-                  ? "bg-[#FFC107] text-black border-[#FFC107] shadow-lg shadow-[#FFC107]/20"
-                  : "bg-white/5 text-white/60 border-white/10 hover:border-white/20 hover:text-white"
-              )}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-      
-      <div className="relative">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
+        <div className="relative group/carousel">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
           >
-            <CurvedSlider items={filteredItems} />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Background Stats */}
-      <div className="container mx-auto px-6 md:px-16 lg:px-24 mt-8">
-         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-4 border-t border-white/5">
-            <div className="flex flex-col">
-               <span className="text-[#FFC107] text-2xl font-bold font-display">14.2%</span>
-               <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Avg CTR</span>
+            <CarouselContent className="-ml-4 md:-ml-8">
+              {ALL_THUMBNAILS.map((item) => (
+                <CarouselItem key={item.id} className="pl-4 md:pl-8 basis-[90%] sm:basis-1/2 lg:basis-1/3">
+                  <ThumbnailCard item={item} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="flex justify-center gap-6 mt-16">
+               <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+               <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
-            <div className="flex flex-col">
-               <span className="text-white text-2xl font-bold font-display">25M+</span>
-               <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Impressions</span>
-            </div>
-            <div className="flex flex-col">
-               <span className="text-[#FFC107] text-2xl font-bold font-display">3.2min</span>
-               <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Avg Watch Time</span>
-            </div>
-            <div className="flex flex-col">
-               <span className="text-white text-2xl font-bold font-display">120+</span>
-               <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Projects Done</span>
-            </div>
-         </div>
+          </Carousel>
+        </div>
       </div>
     </section>
   );

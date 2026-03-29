@@ -7,9 +7,9 @@ export interface ThumbnailItem {
   id: string | number;
   image: string;
   title: string;
-  channelName: string;
-  views: string;
-  category: string;
+  channelName?: string;
+  views?: string;
+  category?: string;
   ctr?: string;
 }
 
@@ -172,25 +172,11 @@ export default function CurvedSlider({
                             <span className="text-[#FFC107] text-[10px] font-black">{item.ctr || "12.4%"}</span>
                             <span className="text-white/40 text-[8px] font-bold uppercase tracking-tighter">CTR</span>
                          </div>
-                         <span className="text-white/40 text-xs font-semibold uppercase tracking-widest ml-auto">
-                            {item.channelName}
-                         </span>
                       </div>
                       
-                      <h3 className="text-xl md:text-3xl font-display font-bold text-white mb-3 line-clamp-1">
+                      <h3 className="text-xl md:text-3xl font-display font-bold text-white mb-2 line-clamp-1">
                          {item.title}
                       </h3>
-
-                      <div className="flex items-center gap-5">
-                         <div className="flex items-center gap-2 text-white font-bold text-sm">
-                            <Eye className="w-4 h-4 text-[#FFC107]" />
-                            <span>{item.views} Views</span>
-                         </div>
-                         <div className="h-4 w-px bg-white/10" />
-                         <span className="text-[#9A9A9A] text-xs font-medium uppercase tracking-widest">
-                            {item.category}
-                         </span>
-                      </div>
                    </motion.div>
                 </div>
 

@@ -70,14 +70,14 @@ export default function Hero() {
       </svg>
 
 
-      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24 text-center flex flex-col items-center gap-8 md:gap-12 pt-24 pb-12">
+      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24 text-center flex flex-col items-center gap-10 md:gap-16 pt-32 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 md:gap-8 max-w-5xl"
         >
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.1] md:leading-[1.05] font-bold tracking-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] md:leading-[1.05] font-bold tracking-tight">
             Scale Your Influence
             <br />
             With{" "}
@@ -110,7 +110,7 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 text-white h-14 px-8 text-base font-medium w-full sm:w-auto transition-all"
+              className="border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 text-white w-full sm:w-auto transition-all"
               onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="button-hero-cta-secondary"
             >

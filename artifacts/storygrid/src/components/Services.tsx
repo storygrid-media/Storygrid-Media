@@ -136,7 +136,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-12 md:py-24 bg-[#0B0B0B] relative overflow-hidden">
+    <section id="services" className="py-16 md:py-24 bg-[#0B0B0B] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC107]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-6 md:px-16 lg:px-24 relative z-10">
@@ -145,7 +145,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-10"
+          className="text-center mb-16"
         >
           <div className="text-[#FFC107] font-semibold tracking-wider uppercase text-sm mb-4">Your Growth Engine</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
@@ -178,7 +178,7 @@ export default function Services() {
             variant="luxury"
             size="lg"
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="h-14 px-10 rounded-xl group"
+            className="group"
           >
             Start Your Growth Audit
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

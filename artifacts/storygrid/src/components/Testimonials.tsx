@@ -48,25 +48,69 @@ function VideoTestimonial({ title, client, videoId, index }: { title: string; cl
   );
 }
 
-export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Alex M.",
-      role: "Tech Founder",
-      content: "StoryGrid took our messy podcast process and turned it into a machine. We've seen a 3x increase in inbound leads strictly from YouTube.",
-    },
-    {
-      name: "Sarah J.",
-      role: "Creator",
-      content: "The shorts strategy alone paid for itself in week 2. They just understand pacing and retention better than anyone else I've worked with.",
-    },
-    {
-      name: "David K.",
-      role: "Agency Owner",
-      content: "Finally, an agency that doesn't just edit, but actually strategizes. They're a core part of our growth team now.",
-    },
-  ];
+const TESTIMONIALS = [
+  {
+    name: "Alex M.",
+    role: "Tech Founder",
+    content: "StoryGrid took our messy podcast process and turned it into a machine. We've seen a 3x increase in inbound leads strictly from YouTube.",
+  },
+  {
+    name: "Sarah J.",
+    role: "Creator",
+    content: "The shorts strategy alone paid for itself in week 2. They just understand pacing and retention better than anyone else I've worked with.",
+  },
+  {
+    name: "David K.",
+    role: "Agency Owner",
+    content: "Finally, an agency that doesn't just edit, but actually strategizes. They're a core part of our growth team now.",
+  },
+  {
+    name: "James L.",
+    role: "Director @ Scale",
+    content: "Standardizing our workflows saved us 20 hours a week on post-production. The ROI on their system is immediate and clear.",
+  },
+  {
+    name: "Emily R.",
+    role: "E-com Founder",
+    content: "The CTR optimization and thumbnail strategy increased our organic sales by 45% in Q3. They are masters of the attention economy.",
+  },
+  {
+    name: "Michael T.",
+    role: "Finance Expert",
+    content: "StoryGrid doesn't just edit; they understand high-leverage business content. My retention hopped from 32% to 58% in one month.",
+  },
+  {
+    name: "Sophie H.",
+    role: "Course Creator",
+    content: "Their pacing strategy is next level. My audience is finally finishing my videos and reaching the call-to-actions.",
+  },
+  {
+    name: "Ryan B.",
+    role: "SaaS Co-founder",
+    content: "Professional, data-driven, and results-oriented. A complete game changer for our YouTube distribution strategy.",
+  },
+];
 
+function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
+  return (
+    <div className="bg-[#141414] border border-white/5 rounded-2xl p-6 md:p-8 w-[280px] md:w-[350px] shadow-2xl flex flex-col shrink-0 whitespace-normal">
+      <div className="mb-6">
+        <p className="text-white/80 leading-relaxed text-sm md:text-base">"{t.content}"</p>
+      </div>
+      <div className="flex items-center gap-4 pt-6 border-t border-white/5 mt-auto">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1F1F1F] flex items-center justify-center font-bold text-[#FFC107] text-base md:text-lg shrink-0">
+          {t.name.charAt(0)}
+        </div>
+        <div className="min-w-0">
+          <div className="font-bold text-white text-sm md:text-base truncate">{t.name}</div>
+          <div className="text-[10px] text-[#9A9A9A] uppercase tracking-widest font-bold truncate">{t.role}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Testimonials() {
   const videoTestimonials = [
     {
       title: "How We Grew 3x in 6 Months",
@@ -80,50 +124,60 @@ export default function Testimonials() {
     },
   ];
 
+  // Marquee Row Component
+  const MarqueeRow = ({ direction = "left" }: { direction?: "left" | "right" }) => {
+    const marqueeItems = [...TESTIMONIALS, ...TESTIMONIALS]; // Duplicate for seamless loop
+    
+    return (
+      <div className="flex overflow-hidden group/marquee py-10">
+        <motion.div
+          animate={{ x: direction === "left" ? [0, -3100] : [-3100, 0] }} // Adjusted for 8 + 8 items
+          transition={{
+            repeat: Infinity,
+            duration: 60,
+            ease: "linear",
+          }}
+          className="flex gap-6 md:gap-8"
+        >
+          {marqueeItems.map((t, i) => (
+            <TestimonialCard key={`${i}-${t.name}`} t={t} />
+          ))}
+        </motion.div>
+      </div>
+    );
+  };
+
   return (
-    <section className="py-12 md:py-20 bg-[#0F0F0F]">
+    <section id="proof" className="pt-16 md:pt-24 pb-12 md:pb-16 bg-[#0F0F0F] relative overflow-hidden">
+      {/* Side Fades for Marquee */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0F0F0F] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0F0F0F] to-transparent z-10 pointer-events-none" />
+
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-10"
+          className="text-center mb-0 md:mb-8"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Don't Take Our Word For It
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-white">
+            Proof of <span className="text-[#FFC107]">Performance</span>
           </h2>
-          <p className="text-[#9A9A9A] text-lg max-w-2xl mx-auto">
-            Hear directly from founders and creators who trusted us to build
-            their content engines.
+          <p className="text-[#9A9A9A] text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+            Helping the world's most ambitious creators and founders transform 
+            raw attention into compounding authority.
           </p>
         </motion.div>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="bg-[#141414] border border-white/5 rounded-2xl p-8"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-[#1F1F1F] flex items-center justify-center font-bold text-[#FFC107] text-lg">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="font-bold text-white">{t.name}</div>
-                  <div className="text-xs text-[#9A9A9A]">{t.role}</div>
-                </div>
-              </div>
-              <p className="text-white/80 leading-relaxed">{t.content}</p>
-            </motion.div>
-          ))}
-        </div>
+      {/* Marquee Row */}
+      <div className="w-full">
+         <MarqueeRow />
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 mt-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
           {videoTestimonials.map((video, i) => (
             <VideoTestimonial
               key={i}
@@ -134,49 +188,6 @@ export default function Testimonials() {
             />
           ))}
         </div>
-
-        {/* Chat Testimonials Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-white mb-2">Real Results, Real Conversations</h3>
-            <p className="text-[#9A9A9A]">Direct feedback from our creator network.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { type: "WhatsApp", message: "Bro the new edit style is insane! Retention is up by 40% on this one.", status: "Just now" },
-              { type: "Instagram", message: "That clip just hit 100k in 2 hours. Whatever you guys did with the hook worked perfectly.", status: "2h ago" },
-              { type: "Telegram", message: "Final version approved. The system you built for the podcast is saving me 15 hours a week.", status: "Yesterday" }
-            ].map((chat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-[#141414] border border-white/5 rounded-2xl p-6 relative overflow-hidden group hover:border-[#FFC107]/30 transition-colors"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#9A9A9A]">{chat.type}</div>
-                  <div className="text-[10px] text-white/40">{chat.status}</div>
-                </div>
-                <div className="bg-black/30 rounded-xl p-4 border border-white/5 group-hover:bg-[#FFC107]/5 transition-colors">
-                  <p className="text-sm text-white/90 italic leading-relaxed">"{chat.message}"</p>
-                </div>
-                <div className="mt-4 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] text-green-500 font-medium">Verified Client</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, ExternalLink } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import {
@@ -12,10 +12,12 @@ import {
 } from "@/components/ui/carousel";
 
 const LONGFORM_PROJECTS = [
+  // Initial requested set
   { 
     id: 1, 
-    title: "The Future of AI - Expert Panel", 
-    category: "Podcast", 
+    title: "The Future of AI", 
+    channelName: "FutureTech", 
+    category: "Podcast",
     videoId: "sDbufh727Rc",
     start: 0,
     end: 60 
@@ -23,25 +25,129 @@ const LONGFORM_PROJECTS = [
   { 
     id: 2, 
     title: "Why Startups Fail in 2024", 
-    category: "Talking Head", 
+    channelName: "FounderBrand", 
+    category: "Talking Head",
     videoId: "kPCUxqwADiU",
     start: 30, 
     end: 90 
   },
-  { 
-    id: 3, 
-    title: "Scaling Modern Media Engines", 
-    category: "Podcast", 
-    videoId: "q5DQ9dbXn0g",
-    start: 10,
-    end: 70 
-  },
+  // Highly edited videos
   { 
     id: 4, 
-    title: "The Architecture of Virality", 
-    category: "Talking Head", 
-    videoId: "dQw4w9WgXcQ",
+    title: "Building a Multi-Crore Fashion Empire", 
+    channelName: "FashionInsider", 
+    category: "Podcast",
+    videoId: "vxnc3ee-Y20",
     start: 0,
+    end: 60 
+  },
+  { 
+    id: 5, 
+    title: "Clothing Brand Guide (2025)", 
+    channelName: "MarketGrowth", 
+    category: "Podcast",
+    videoId: "cUYNkC96vHo",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 6, 
+    title: "Beauty Brand from Scratch", 
+    channelName: "BrandBuilder", 
+    category: "Podcast",
+    videoId: "aTWUBaab0Zk",
+    start: 0,
+    end: 60 
+  },
+  // Rest
+  { 
+    id: 7, 
+    title: "Ayodhya & Indian Identity", 
+    channelName: "IdentitySeries", 
+    category: "Podcast",
+    videoId: "qKCHicakDmY",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 8, 
+    title: "Job Market Reality & Recruitment", 
+    channelName: "CareerLogic", 
+    category: "Podcast",
+    videoId: "EcinScx3q40",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 9, 
+    title: "Delhi Development & Elections", 
+    channelName: "RegionalGrowth", 
+    category: "Podcast",
+    videoId: "O46GhLcvGkM",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 10, 
+    title: "Building a ₹40 Cr Fashion Brand", 
+    channelName: "FashionInsider", 
+    category: "Podcast",
+    videoId: "xG2DsoNr9R8",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 11, 
+    title: "The Textile Business Explained", 
+    channelName: "BusinessBasics", 
+    category: "Podcast",
+    videoId: "DwXzDIq7RQY",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 12, 
+    title: "Y Combinator Founder Tips", 
+    channelName: "FounderLogic", 
+    category: "Podcast",
+    videoId: "EgIv8k17kRE",
+    start: 0,
+    end: 60 
+  },
+  { 
+    id: 13, 
+    title: "Gold & Silver Buying Guide (2026)", 
+    channelName: "FinanceWeekly", 
+    category: "Talking Head",
+    videoId: "SHsb2snNbdg",
+    start: 0, 
+    end: 60 
+  },
+  { 
+    id: 14, 
+    title: "SAFE Funding & 100% Ownership", 
+    channelName: "StartupFund", 
+    category: "Talking Head",
+    videoId: "oWn-84Fk4tM",
+    start: 0, 
+    end: 60 
+  },
+  { 
+    id: 15, 
+    title: "Startup Funding Rounds Explained", 
+    channelName: "StartupFund", 
+    category: "Talking Head",
+    videoId: "xM5RTXM9kCA",
+    start: 0, 
+    end: 60 
+  },
+  { 
+    id: 16, 
+    title: "Equity & Dilution for Founders", 
+    channelName: "StartupFund", 
+    category: "Talking Head",
+    videoId: "bzvHF34rgQQ",
+    start: 0, 
     end: 60 
   },
 ];
@@ -179,13 +285,25 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
           />
         </div>
 
-        <div className="px-1">
-          <div className="text-[#FFC107] text-[11px] font-bold uppercase tracking-widest mb-1.5 opacity-90">
-            {project.category}
+        <div className="px-1 flex items-start justify-between gap-4">
+          <div className="flex-grow">
+            <div className="text-[#FFC107] text-[11px] font-bold uppercase tracking-widest mb-1.5 opacity-90">
+              {project.channelName}
+            </div>
+            <h3 className="text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-1">
+              {project.title}
+            </h3>
           </div>
-          <h3 className="text-xl font-bold text-white group-hover/card:text-[#FFC107] transition-colors line-clamp-1">
-            {project.title}
-          </h3>
+          <a 
+            href={`https://youtube.com/watch?v=${project.videoId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 flex items-center gap-1.5 px-2 py-1 bg-white/5 text-[#9A9A9A] border border-white/10 rounded-lg text-[9px] font-black uppercase tracking-wider hover:bg-[#FFC107] hover:text-black transition-all shadow-lg shrink-0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink className="w-3 h-3" />
+            YT
+          </a>
         </div>
       </motion.div>
     </CarouselItem>
@@ -194,6 +312,18 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
 
 export default function PortfolioLongform() {
   const [activeTab, setActiveTab] = useState("All");
+  const [api, setApi] = useState<any>();
+
+  // Autoplay Effect
+  useEffect(() => {
+    if (!api) return;
+    
+    const intervalId = setInterval(() => {
+      api.scrollNext();
+    }, 4000); // Scroll every 4 seconds
+
+    return () => clearInterval(intervalId);
+  }, [api]);
 
   const filteredProjects =
     activeTab === "All"
@@ -201,7 +331,7 @@ export default function PortfolioLongform() {
       : LONGFORM_PROJECTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="work" className="py-12 md:py-16 bg-[#080808] relative overflow-hidden">
+    <section id="work" className="py-16 md:py-24 bg-[#080808] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -210,17 +340,13 @@ export default function PortfolioLongform() {
           viewport={{ once: true, margin: "-100px" }}
           className="mb-8"
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
-            <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-white">
-                Longform & Podcasts
-              </h2>
-              <p className="text-[#9A9A9A] text-lg max-w-2xl leading-relaxed">
-                <span className="text-white font-medium">Podcasts:</span> Scalable authority through high-retention longform conversations. 
-                <br />
-                <span className="text-white font-medium">Talking Heads:</span> Expert-led content designed to establish immediate market leadership.
-              </p>
-            </div>
+          <div className="flex flex-col items-center text-center pb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-white">
+              Longform & Podcasts
+            </h2>
+            <p className="text-[#9A9A9A] text-lg max-w-2xl leading-relaxed">
+              High-retention conversations and expert-led content designed to establish immediate market leadership through authority and scale.
+            </p>
           </div>
         </motion.div>
 
@@ -244,6 +370,7 @@ export default function PortfolioLongform() {
 
         <div className="relative group/carousel">
           <Carousel
+            setApi={setApi}
             opts={{
               align: "start",
               loop: true,
@@ -258,9 +385,9 @@ export default function PortfolioLongform() {
               </AnimatePresence>
             </CarouselContent>
             
-            <div className="flex justify-end gap-3 mt-6 pr-4 md:pr-6">
-               <CarouselPrevious className="relative left-0 top-0 translate-y-0 h-10 w-10 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black backdrop-blur-md text-white shadow-lg" />
-               <CarouselNext className="relative right-0 top-0 translate-y-0 h-10 w-10 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black backdrop-blur-md text-white shadow-lg" />
+            <div className="flex justify-center gap-6 mt-16">
+               <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+               <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
           </Carousel>
         </div>

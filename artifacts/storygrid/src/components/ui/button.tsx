@@ -32,7 +32,7 @@ const buttonVariants = cva(
         // @replit changed sizes
         default: "min-h-9 px-4 py-2",
         sm: "min-h-8 rounded-md px-3 text-xs",
-        lg: "min-h-12 rounded-xl px-8 text-base",
+        lg: "h-14 rounded-xl px-8 text-base font-medium",
         icon: "h-9 w-9",
       },
     },
