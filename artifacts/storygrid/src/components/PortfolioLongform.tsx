@@ -13,141 +13,177 @@ import {
 
 const LONGFORM_PROJECTS = [
   // Podcasts First
-  { 
-    id: 1, 
-    title: "The Future of AI", 
-    channelName: "FutureTech", 
+  {
+    id: 1,
+    title: "The Future of AI",
+    channelName: "FutureTech",
     category: "Podcast",
     videoId: "sDbufh727Rc",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 4, 
-    title: "Building a Multi-Crore Fashion Empire", 
-    channelName: "FashionInsider", 
+  {
+    id: 4,
+    title: "Building a Multi-Crore Fashion Empire",
+    channelName: "FashionInsider",
     category: "Podcast",
     videoId: "vxnc3ee-Y20",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 5, 
-    title: "Clothing Brand Guide (2025)", 
-    channelName: "MarketGrowth", 
+  {
+    id: 5,
+    title: "Clothing Brand Guide (2025)",
+    channelName: "MarketGrowth",
     category: "Podcast",
     videoId: "cUYNkC96vHo",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 6, 
-    title: "Beauty Brand from Scratch", 
-    channelName: "BrandBuilder", 
+  {
+    id: 6,
+    title: "Beauty Brand from Scratch",
+    channelName: "BrandBuilder",
     category: "Podcast",
     videoId: "aTWUBaab0Zk",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 7, 
-    title: "Ayodhya & Indian Identity", 
-    channelName: "IdentitySeries", 
+  {
+    id: 7,
+    title: "Ayodhya & Indian Identity",
+    channelName: "IdentitySeries",
     category: "Podcast",
     videoId: "qKCHicakDmY",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 8, 
-    title: "Job Market Reality & Recruitment", 
-    channelName: "CareerLogic", 
+  {
+    id: 8,
+    title: "Job Market Reality & Recruitment",
+    channelName: "CareerLogic",
     category: "Podcast",
     videoId: "EcinScx3q40",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 9, 
-    title: "Delhi Development & Elections", 
-    channelName: "RegionalGrowth", 
+  {
+    id: 9,
+    title: "Delhi Development & Elections",
+    channelName: "RegionalGrowth",
     category: "Podcast",
     videoId: "O46GhLcvGkM",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 10, 
-    title: "Building a ₹40 Cr Fashion Brand", 
-    channelName: "FashionInsider", 
+  {
+    id: 10,
+    title: "Building a ₹40 Cr Fashion Brand",
+    channelName: "FashionInsider",
     category: "Podcast",
     videoId: "xG2DsoNr9R8",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 11, 
-    title: "The Textile Business Explained", 
-    channelName: "BusinessBasics", 
+  {
+    id: 11,
+    title: "The Textile Business Explained",
+    channelName: "BusinessBasics",
     category: "Podcast",
     videoId: "DwXzDIq7RQY",
     start: 0,
-    end: 60 
+    end: 60
   },
-  { 
-    id: 12, 
-    title: "Y Combinator Founder Tips", 
-    channelName: "FounderLogic", 
+  {
+    id: 12,
+    title: "Y Combinator Founder Tips",
+    channelName: "FounderLogic",
     category: "Podcast",
     videoId: "EgIv8k17kRE",
     start: 0,
-    end: 60 
+    end: 60
   },
   // Talking Heads
-  { 
-    id: 2, 
-    title: "Why Startups Fail in 2024", 
-    channelName: "FounderBrand", 
-    category: "Talking Head",
-    videoId: "kPCUxqwADiU",
-    start: 30, 
-    end: 90 
-  },
-  { 
-    id: 13, 
-    title: "Gold & Silver Buying Guide (2026)", 
-    channelName: "FinanceWeekly", 
+  {
+    id: 13,
+    title: "Gold & Silver Buying Guide (2026)",
+    channelName: "FinanceWeekly",
     category: "Talking Head",
     videoId: "SHsb2snNbdg",
-    start: 0, 
-    end: 60 
+    start: 0,
+    end: 60
   },
-  { 
-    id: 14, 
-    title: "SAFE Funding & 100% Ownership", 
-    channelName: "StartupFund", 
+  {
+    id: 17,
+    title: "Competitive Programming Roadmap",
+    channelName: "Priyansh Agarwal",
+    category: "Talking Head",
+    videoId: "n-Xkbqcfi9w",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 14,
+    title: "SAFE Funding & 100% Ownership",
+    channelName: "Finance Insider",
     category: "Talking Head",
     videoId: "oWn-84Fk4tM",
-    start: 0, 
-    end: 60 
+    start: 0,
+    end: 60
   },
-  { 
-    id: 15, 
-    title: "Startup Funding Rounds Explained", 
-    channelName: "StartupFund", 
+  {
+    id: 20,
+    title: "Gurgaon Tech Hub & Google Tour",
+    channelName: "Shivangi Tiwari",
+    category: "Talking Head",
+    videoId: "QaRJlrGeh5s",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 18,
+    title: "Logic & Problem Solving Mastery",
+    channelName: "Priyansh Agarwal",
+    category: "Talking Head",
+    videoId: "qrexfVoXCDo",
+    start: 30,
+    end: 90
+  },
+  {
+    id: 15,
+    title: "Startup Funding Rounds Explained",
+    channelName: "Finance Insider",
     category: "Talking Head",
     videoId: "xM5RTXM9kCA",
-    start: 0, 
-    end: 60 
+    start: 0,
+    end: 60
   },
-  { 
-    id: 16, 
-    title: "Equity & Dilution for Founders", 
-    channelName: "StartupFund", 
+  {
+    id: 19,
+    title: "Cracking Amazon SDE-2 Offer",
+    channelName: "Priyansh Agarwal",
+    category: "Talking Head",
+    videoId: "ce5eZnut9go",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 21,
+    title: "10 Remote Jobs: No Degree Needed",
+    channelName: "Shivangi Tiwari",
+    category: "Talking Head",
+    videoId: "ZiFqX6AwOrc",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 16,
+    title: "Equity & Dilution for Founders",
+    channelName: "Finance Insider",
     category: "Talking Head",
     videoId: "bzvHF34rgQQ",
-    start: 0, 
-    end: 60 
+    start: 0,
+    end: 60
   },
 ];
 
@@ -166,7 +202,7 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
   const [isMuted, setIsMuted] = useState(true);
   const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  
+
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "300px", once: false });
 
@@ -241,8 +277,8 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
       {/* Controls Overlay - only visible if in view */}
       {isInView && (
         <div className="absolute inset-0 z-40 opacity-0 group-hover/vid:opacity-100 transition-opacity duration-300">
-          <div 
-            className="absolute inset-0 flex items-center justify-center cursor-pointer" 
+          <div
+            className="absolute inset-0 flex items-center justify-center cursor-pointer"
             onClick={togglePlay}
           >
             <div className="w-16 h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white scale-90 hover:scale-100 transition-transform">
@@ -251,12 +287,12 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
           </div>
 
           <div className="absolute bottom-4 right-4 flex items-center gap-2">
-             <button 
-               onClick={toggleMute}
-               className="w-10 h-10 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-[#FFC107] hover:text-black transition-colors"
-             >
-               {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-             </button>
+            <button
+              onClick={toggleMute}
+              className="w-10 h-10 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-[#FFC107] hover:text-black transition-colors"
+            >
+              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+            </button>
           </div>
         </div>
       )}
@@ -276,9 +312,9 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
         className="group/card flex flex-col gap-4"
       >
         <div className="relative rounded-xl overflow-hidden bg-[#141414] border border-white/10 w-full aspect-video shadow-lg group/card">
-          <VideoLoop 
-            videoId={project.videoId} 
-            title={project.title} 
+          <VideoLoop
+            videoId={project.videoId}
+            title={project.title}
             start={project.start}
             end={project.end}
           />
@@ -293,7 +329,7 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
               {project.title}
             </h3>
           </div>
-          <a 
+          <a
             href={`https://youtube.com/watch?v=${project.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -316,7 +352,7 @@ export default function PortfolioLongform() {
   // Autoplay Effect
   useEffect(() => {
     if (!api) return;
-    
+
     const intervalId = setInterval(() => {
       api.scrollNext();
     }, 4000); // Scroll every 4 seconds
@@ -383,10 +419,10 @@ export default function PortfolioLongform() {
                 ))}
               </AnimatePresence>
             </CarouselContent>
-            
+
             <div className="flex justify-center gap-6 mt-16">
-               <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-               <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
           </Carousel>
         </div>

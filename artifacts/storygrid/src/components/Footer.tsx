@@ -54,14 +54,6 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <button onClick={() => scrollTo("work")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">Success Stories</button>
               <button onClick={() => scrollTo("services")} className="text-[#9A9A9A] hover:text-white transition-colors text-left md:text-center">Services</button>
-              <a 
-                href="https://forms.google.com/your-hiring-form" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors text-left md:text-center mt-2 font-medium border-t border-white/5 pt-2"
-              >
-                Join the Team
-              </a>
             </div>
           </div>
 

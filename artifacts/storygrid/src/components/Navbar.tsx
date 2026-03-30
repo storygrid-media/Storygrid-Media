@@ -63,7 +63,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8 shrink-0">
             <button onClick={() => scrollTo("work")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Work</button>
             <button onClick={() => scrollTo("services")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</button>
-            <button onClick={() => scrollTo("case-studies")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Case Studies</button>
             <AnimatePresence mode="popLayout">
               {scrolled && (
                 <motion.div
@@ -106,7 +105,6 @@ export default function Navbar() {
             <div className="flex flex-col p-6 space-y-4">
               <button onClick={() => scrollTo("work")} className="text-lg font-bold text-white/90 text-left py-2 border-b border-white/5">Work</button>
               <button onClick={() => scrollTo("services")} className="text-lg font-bold text-white/90 text-left py-2 border-b border-white/5">Services</button>
-              <button onClick={() => scrollTo("case-studies")} className="text-lg font-bold text-white/90 text-left py-2 border-b border-white/5">Case Studies</button>
               <Button variant="luxury" size="lg" className="w-full font-bold h-14 text-lg" onClick={() => scrollTo("contact")}>
                 Book a Call
               </Button>

@@ -42,11 +42,7 @@ function App() {
           <SectionDivider />
           <Workflow />
           <SectionDivider />
-          <CaseStudy />
-          <SectionDivider />
           <Positioning />
-          <SectionDivider />
-          <PathSwitcher />
           <SectionDivider />
           <Testimonials />
           <ContactForm />

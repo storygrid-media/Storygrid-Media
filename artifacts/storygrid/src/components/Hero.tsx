@@ -159,15 +159,15 @@ export default function Hero() {
         >
           <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-8">
             <div className="text-center px-2">
-              <CountUp target={480} suffix="K+" display={(n) => `${n}`} duration={1500} />
+              <CountUp target={20} suffix="M+" display={(n) => `${n}`} duration={1500} />
               <div className="text-xs sm:text-sm text-[#9A9A9A] mt-1 font-medium">Audience Reached</div>
             </div>
             <div className="text-center px-2">
-              <CountUp target={320} suffix="K+" display={(n) => `${n}`} duration={1800} />
+              <CountUp target={100} suffix="M+" display={(n) => `${n}`} duration={1800} />
               <div className="text-xs sm:text-sm text-[#9A9A9A] mt-1 font-medium">Views Generated</div>
             </div>
             <div className="text-center px-2">
-              <CountUp target={3500} suffix="" display={(n) => n === 0 ? "0" : n >= 3500 ? "3.5K" : `${(n / 1000).toFixed(1)}K`} duration={2200} />
+              <CountUp target={750} suffix="K+" display={(n) => `${n}`} duration={2200} />
               <div className="text-xs sm:text-sm text-[#9A9A9A] mt-1 font-medium">Subscriber Growth</div>
             </div>
           </div>
