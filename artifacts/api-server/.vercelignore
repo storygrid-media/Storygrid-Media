@@ -1,4 +1,1 @@
-# Do not deploy source code to the runtime
-src/
-tsconfig.json
-README.md
+# Completely empty to allow Vercel to see all files for the build
