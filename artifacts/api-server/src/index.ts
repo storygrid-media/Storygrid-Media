@@ -17,7 +17,9 @@ process.on("uncaughtException", (err) => {
 });
 
 app.listen(port, () => {
+  const env = process.env.VERCEL_ENV || process.env.NODE_ENV || "development";
   console.log(`Server listening on port ${port}`);
+  console.log(`Environment: ${env}`);
 });
 
 // Keep process alive for debugging if needed

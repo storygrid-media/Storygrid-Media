@@ -5,7 +5,8 @@
   "type": "module",
   "main": "dist/index.cjs",
   "scripts": {
-    "dev": "tsx --env-file=.env ./src/index.ts",
+    "dev": "tsx --env-file=.env.local --env-file=.env ./src/index.ts",
+    "pull-env": "vercel env pull .env.local",
     "build": "tsx ./build.ts && node -e \"require('fs').mkdirSync('public', { recursive: true })\"",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

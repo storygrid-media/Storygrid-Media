@@ -55,16 +55,26 @@ pnpm --filter @workspace/storygrid dev
 
 The app will be available at `http://localhost:5173`.
 
+### 🔐 Environment Management
+
+We use Vercel's multi-environment system (Local, Preview, Production). To sync your local machine with the project's secrets:
+
+1. **Install Vercel CLI**: `npm i -g vercel`
+2. **Link Project**: `vercel link` (Follow prompts for `storygridmedia.in`)
+3. **Pull Variables**:
+   - For API: `cd artifacts/api-server && pnpm pull-env`
+   - For Frontend: `cd artifacts/storygrid && pnpm pull-env`
+
+This will create a `.env.local` file that is ignored by Git but used by your local development server.
+
 ## 🚢 Deployment (Vercel)
 
-This project is configured as a PNPM monorepo. When deploying to Vercel, use the following settings:
-
+This project is configured as a PNPM monorepo.
+- **Production Domain**: `storygridmedia.in`
 - **Framework Preset**: Vite
 - **Root Directory**: `artifacts/storygrid`
 - **Build Command**: `pnpm build`
 - **Install Command**: `pnpm install`
-
-Make sure to add your environment variables (`.env`) in the Vercel Project Settings.
 
 ## 🧹 Codebase Cleanup
 
