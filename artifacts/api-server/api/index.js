@@ -1,1 +1,2 @@
-export { default } from "../dist/index.cjs";
+import app from "../dist/index.cjs";
+export default app;
