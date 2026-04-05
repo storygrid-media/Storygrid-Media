@@ -1,10 +1,10 @@
-import express, { type Express } from "express";
+import express, { type Request, type Response, type NextFunction } from "express";
 import cors from "cors";
 import router from "./routes/index.js";
 
-const app: Express = express();
+const app = express();
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
