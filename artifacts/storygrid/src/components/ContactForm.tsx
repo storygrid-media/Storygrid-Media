@@ -6,19 +6,42 @@ import { Label } from "@/components/ui/label";
 import { CheckCircle2, X, ArrowRight } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
+const GOAL_OPTIONS = [
+  "Full-form Production",
+  "Clips & Shorts Strategy",
+  "Growth & Distribution",
+  "Content Audit",
+  "Other"
+];
+
 function FormFields({ 
   submitting, 
   disabled, 
-  placeholder 
+  placeholder,
+  selectedGoals,
+  setSelectedGoals,
+  otherGoalText,
+  setOtherGoalText
 }: { 
   submitting: boolean; 
   disabled: boolean;
   placeholder?: string;
+  selectedGoals: string[];
+  setSelectedGoals: (goals: string[]) => void;
+  otherGoalText: string;
+  setOtherGoalText: (text: string) => void;
 }) {
+  const toggleGoal = (goal: string) => {
+    if (selectedGoals.includes(goal)) {
+      setSelectedGoals(selectedGoals.filter(g => g !== goal));
+    } else {
+      setSelectedGoals([...selectedGoals, goal]);
+    }
+  };
+
   return (
     <>
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Name and Email inputs remain same */}
         <div className="space-y-2 text-left">
           <Label htmlFor="name" className="text-white/80">Name</Label>
           <Input
@@ -46,36 +69,89 @@ function FormFields({
         </div>
       </div>
 
-      <div className="space-y-2 text-left">
-        <Label htmlFor="channel" className="text-white/80">YouTube / Instagram Link</Label>
-        <Input
-          id="channel"
-          type="url"
-          name="channel"
-          placeholder="https://youtube.com/@yourchannel"
-          className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
-          data-testid="input-channel"
-        />
+      <div className="space-y-1.5 text-left">
+        <Label htmlFor="channel" className="text-white/80">
+          YouTube / Instagram Handle
+          <span className="text-[10px] text-white/40 font-normal ml-1.5 lowercase">(No link needed, just your handle)</span>
+        </Label>
+        <div className="relative group/input">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors">@</span>
+          <Input
+            id="channel"
+            type="text"
+            name="channel"
+            placeholder="your-handle"
+            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 pl-10"
+            data-testid="input-channel"
+          />
+        </div>
       </div>
 
-      <div className="space-y-2 text-left">
-        <Label htmlFor="message" className="text-white/80">Tell us about your goals</Label>
-        <Textarea
-          id="message"
-          name="message"
-          placeholder={placeholder || "What are you trying to achieve in the next 6 months?"}
-          required
-          className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[120px] resize-none"
-          data-testid="input-message"
-        />
+      <div className="space-y-4 text-left">
+        <Label className="text-white/80">What are your goals?</Label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {GOAL_OPTIONS.map((goal) => (
+            <label
+              key={goal}
+              className="flex items-center space-x-3 group cursor-pointer"
+            >
+              <div className="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  checked={selectedGoals.includes(goal)}
+                  onChange={() => toggleGoal(goal)}
+                  className="peer sr-only"
+                />
+                <div className="h-5 w-5 rounded border border-white/20 bg-white/5 transition-all duration-300 peer-checked:bg-[#FFC107] peer-checked:border-[#FFC107] peer-focus-visible:ring-2 peer-focus-visible:ring-[#FFC107] peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-black" />
+                <svg
+                  className="absolute h-3.5 w-3.5 text-black opacity-0 transition-opacity duration-300 peer-checked:opacity-100 pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span className="text-white/70 group-hover:text-white transition-colors text-sm font-medium select-none">
+                {goal}
+              </span>
+            </label>
+          ))}
+        </div>
       </div>
+
+      <AnimatePresence>
+        {selectedGoals.includes("Other") && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="text-left overflow-hidden mt-3"
+          >
+            <Label htmlFor="message" className="text-white/80 text-[13px] ml-1 mb-1 block leading-none">Please specify your goals</Label>
+            <Textarea
+              id="message"
+              value={otherGoalText}
+              onChange={(e) => setOtherGoalText(e.target.value)}
+              placeholder="Tell us what you're looking to achieve..."
+              required
+              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[100px] resize-none"
+              data-testid="input-message"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Button
         type="submit"
         variant="luxury"
         size="lg"
-        disabled={submitting || disabled}
-        className="w-full mt-4 disabled:opacity-50"
+        disabled={submitting || disabled || (selectedGoals.length === 0)}
+        className="w-full mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
         data-testid="button-submit-contact"
       >
         {submitting ? "Processing..." : (
@@ -85,6 +161,9 @@ function FormFields({
           </>
         )}
       </Button>
+      {selectedGoals.length === 0 && !submitting && (
+        <p className="text-[11px] text-white/30 text-center mt-2">Select at least one goal to continue</p>
+      )}
     </>
   );
 }
@@ -93,15 +172,28 @@ export default function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
+  const [otherGoalText, setOtherGoalText] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    // ... logic remains same
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const rawData = Object.fromEntries(formData.entries());
+    
+    // Combine goals and other text into the final message
+    const finalGoals = selectedGoals.filter(g => g !== "Other");
+    let combinedMessage = `Selected Goals: ${finalGoals.join(", ")}`;
+    if (selectedGoals.includes("Other") && otherGoalText) {
+      combinedMessage += `\nAdditional Details: ${otherGoalText}`;
+    }
+
+    const data = {
+      ...rawData,
+      message: combinedMessage
+    };
 
     try {
       const response = await fetch("/api/contact", {
@@ -124,6 +216,8 @@ export default function ContactForm() {
       }
 
       setShowSuccess(true);
+      setSelectedGoals([]);
+      setOtherGoalText("");
       (e.target as HTMLFormElement).reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -186,8 +280,15 @@ export default function ContactForm() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6" data-testid="form-contact">
-              <FormFields submitting={isSubmitting} disabled={false} />
+            <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-contact">
+              <FormFields 
+                submitting={isSubmitting} 
+                disabled={false} 
+                selectedGoals={selectedGoals}
+                setSelectedGoals={setSelectedGoals}
+                otherGoalText={otherGoalText}
+                setOtherGoalText={setOtherGoalText}
+              />
             </form>
           </motion.div>
         </div>

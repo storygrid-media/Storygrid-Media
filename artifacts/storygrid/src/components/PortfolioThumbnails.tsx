@@ -101,6 +101,41 @@ const ALL_THUMBNAILS: ThumbnailItem[] = [
     title: "My Journey: Life, Business & Future Goals",
     ctr: "10.9%",
     tag: "PERFORMANCE ENGINEERED"
+  },
+  {
+    id: "thumb-13",
+    image: "/assets/thumbnails/Amazon SDE-2 Interview Experience - 65+ LPA Offer, Strategy, Preparation & Secret Opportunities_converted.avif",
+    title: "The 65+ LPA Amazon Interview Strategy",
+    ctr: "14.8%",
+    tag: "TECH STRATEGY"
+  },
+  {
+    id: "thumb-14",
+    image: "/assets/thumbnails/Cracked Amazon SDE-1 - Interview Process, Salary & Prep Strategy_converted.avif",
+    title: "Cracking Amazon SDE-1: Process & Prep",
+    ctr: "13.2%",
+    tag: "ALGORITHM OPTIMIZED"
+  },
+  {
+    id: "thumb-15",
+    image: "/assets/thumbnails/How I Cracked Multiple SDE-2 - My Interview Preparation & Roadmap_converted.avif",
+    title: "My Roadmap for Multiple SDE-2 Offers",
+    ctr: "15.4%",
+    tag: "HIGH REACH"
+  },
+  {
+    id: "thumb-16",
+    image: "/assets/thumbnails/How She Cracked DE Shaw, AmEx & Flipkart Internships - PPO at Flipkart_converted.avif",
+    title: "The Internship to PPO Playbook: Flipkart",
+    ctr: "12.7%",
+    tag: "RETENTION FOCUSED"
+  },
+  {
+    id: "thumb-17",
+    image: "/assets/thumbnails/Service to Product Switch Explained - Interview Prep & Mistakes_converted.avif",
+    title: "Switching from Service to Product Companies",
+    ctr: "14.1%",
+    tag: "A/B TESTED"
   }
 ];
 
@@ -141,6 +176,20 @@ function ThumbnailCard({ item }: { item: ThumbnailItem }) {
 
 export default function PortfolioThumbnails() {
   const [api, setApi] = useState<CarouselApi>();
+  const [shuffledThumbnails, setShuffledThumbnails] = useState<ThumbnailItem[]>([]);
+
+  // Randomize Thumbnails on Mount
+  useEffect(() => {
+    const shuffle = (array: ThumbnailItem[]) => {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    };
+    setShuffledThumbnails(shuffle(ALL_THUMBNAILS));
+  }, []);
 
   // Autoplay Effect
   useEffect(() => {
@@ -185,7 +234,7 @@ export default function PortfolioThumbnails() {
             className="w-full"
           >
             <CarouselContent className="-ml-4 md:-ml-8">
-              {ALL_THUMBNAILS.map((item) => (
+              {shuffledThumbnails.map((item) => (
                 <CarouselItem key={item.id} className="pl-4 md:pl-8 basis-[90%] sm:basis-1/2 lg:basis-1/3">
                   <ThumbnailCard item={item} />
                 </CarouselItem>

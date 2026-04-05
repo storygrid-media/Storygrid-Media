@@ -12,128 +12,137 @@ import {
 } from "@/components/ui/carousel";
 
 const LONGFORM_PROJECTS = [
-  // Podcasts First
+  // Podcasts First - High Authority Conversations
   {
     id: 1,
-    title: "The Future of AI",
-    channelName: "FutureTech",
+    title: "Decoding the Multi-Billion Dollar AI Economy",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "sDbufh727Rc",
     start: 0,
     end: 60
   },
   {
-    id: 4,
-    title: "Building a Multi-Crore Fashion Empire",
-    channelName: "FashionInsider",
+    id: 2,
+    title: "Inside a ₹450 Crore D2C Fashion Playbook",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "vxnc3ee-Y20",
     start: 0,
     end: 60
   },
   {
-    id: 5,
-    title: "Clothing Brand Guide (2025)",
-    channelName: "MarketGrowth",
+    id: 3,
+    title: "The 2025 Strategy for Clothing Brands",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "cUYNkC96vHo",
     start: 0,
     end: 60
   },
   {
-    id: 6,
-    title: "Beauty Brand from Scratch",
-    channelName: "BrandBuilder",
+    id: 4,
+    title: "Building a Multi-Crore Beauty Brand from Zero",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "aTWUBaab0Zk",
     start: 0,
     end: 60
   },
   {
-    id: 7,
-    title: "Ayodhya & Indian Identity",
-    channelName: "IdentitySeries",
-    category: "Podcast",
-    videoId: "qKCHicakDmY",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 8,
-    title: "Job Market Reality & Recruitment",
-    channelName: "CareerLogic",
-    category: "Podcast",
-    videoId: "EcinScx3q40",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 9,
-    title: "Delhi Development & Elections",
-    channelName: "RegionalGrowth",
-    category: "Podcast",
-    videoId: "O46GhLcvGkM",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 10,
-    title: "Building a ₹40 Cr Fashion Brand",
-    channelName: "FashionInsider",
-    category: "Podcast",
-    videoId: "xG2DsoNr9R8",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 11,
-    title: "The Textile Business Explained",
-    channelName: "BusinessBasics",
+    id: 5,
+    title: "Why Textile is India's Most Underrated Business",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "DwXzDIq7RQY",
     start: 0,
     end: 60
   },
   {
-    id: 12,
-    title: "Y Combinator Founder Tips",
-    channelName: "FounderLogic",
+    id: 6,
+    title: "How to Actually Stand Out for Y Combinator",
+    channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "EgIv8k17kRE",
     start: 0,
     end: 60
   },
-  // Talking Heads
   {
-    id: 13,
-    title: "Gold & Silver Buying Guide (2026)",
-    channelName: "FinanceWeekly",
+    id: 7,
+    title: "Building a ₹40 Cr Heritage Label in 2 Years",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "xG2DsoNr9R8",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 8,
+    title: "The Untold Story of Ram Mandir & Ayodhya",
+    channelName: "AKHIL KOTHARI",
+    category: "Podcast",
+    videoId: "qKCHicakDmY",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 9,
+    title: "The Future of Delhi: A Candid Conversation",
+    channelName: "AKHIL KOTHARI",
+    category: "Podcast",
+    videoId: "O46GhLcvGkM",
+    start: 0,
+    end: 60
+  },
+  // Talking Heads - Strategic Expertise
+  {
+    id: 11,
+    title: "Is Gold Still a Safe Investment in 2026?",
+    channelName: "Asad Siddiqui: Finance Insider",
     category: "Talking Head",
     videoId: "SHsb2snNbdg",
     start: 0,
     end: 60
   },
   {
-    id: 17,
-    title: "Competitive Programming Roadmap",
-    channelName: "Priyansh Agarwal",
-    category: "Talking Head",
-    videoId: "n-Xkbqcfi9w",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 14,
-    title: "SAFE Funding & 100% Ownership",
-    channelName: "Finance Insider",
+    id: 12,
+    title: "Warning: Don't Lose Control of Your Equity",
+    channelName: "Asad Siddiqui: Finance Insider",
     category: "Talking Head",
     videoId: "oWn-84Fk4tM",
     start: 0,
     end: 60
   },
   {
-    id: 20,
-    title: "Gurgaon Tech Hub & Google Tour",
+    id: 13,
+    title: "Startup Funding: From Seed to Series C",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "xM5RTXM9kCA",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 14,
+    title: "The Truth About Equity Dilution",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "bzvHF34rgQQ",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 15,
+    title: "The Reality of India's Startup Job Market",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "EcinScx3q40",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 16,
+    title: "Inside Google: A Tour of the Gurgaon HQ",
     channelName: "Shivangi Tiwari",
     category: "Talking Head",
     videoId: "QaRJlrGeh5s",
@@ -141,35 +150,8 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
-    id: 18,
-    title: "Logic & Problem Solving Mastery",
-    channelName: "Priyansh Agarwal",
-    category: "Talking Head",
-    videoId: "qrexfVoXCDo",
-    start: 30,
-    end: 90
-  },
-  {
-    id: 15,
-    title: "Startup Funding Rounds Explained",
-    channelName: "Finance Insider",
-    category: "Talking Head",
-    videoId: "xM5RTXM9kCA",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 19,
-    title: "Cracking Amazon SDE-2 Offer",
-    channelName: "Priyansh Agarwal",
-    category: "Talking Head",
-    videoId: "ce5eZnut9go",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 21,
-    title: "10 Remote Jobs: No Degree Needed",
+    id: 17,
+    title: "10 High-Paying Remote Jobs (No Degree)",
     channelName: "Shivangi Tiwari",
     category: "Talking Head",
     videoId: "ZiFqX6AwOrc",
@@ -177,11 +159,29 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
-    id: 16,
-    title: "Equity & Dilution for Founders",
-    channelName: "Finance Insider",
+    id: 18,
+    title: "The Complete 2024 Coding Roadmap",
+    channelName: "Priyansh Agarwal",
     category: "Talking Head",
-    videoId: "bzvHF34rgQQ",
+    videoId: "n-Xkbqcfi9w",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 19,
+    title: "Logic Mastery for Faster Problem Solving",
+    channelName: "Priyansh Agarwal",
+    category: "Talking Head",
+    videoId: "qrexfVoXCDo",
+    start: 30,
+    end: 90
+  },
+  {
+    id: 20,
+    title: "How I Mastered the Amazon SDE-2 Interview",
+    channelName: "Priyansh Agarwal",
+    category: "Talking Head",
+    videoId: "ce5eZnut9go",
     start: 0,
     end: 60
   },

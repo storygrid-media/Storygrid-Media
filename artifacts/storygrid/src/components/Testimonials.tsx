@@ -176,7 +176,7 @@ export default function Testimonials() {
          <MarqueeRow />
       </div>
 
-      <div className="container mx-auto px-6 md:px-16 lg:px-24 mt-16">
+      {/* <div className="container mx-auto px-6 md:px-16 lg:px-24 mt-16">
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {videoTestimonials.map((video, i) => (
             <VideoTestimonial
@@ -188,7 +188,8 @@ export default function Testimonials() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
+
     </section>
   );
 }
