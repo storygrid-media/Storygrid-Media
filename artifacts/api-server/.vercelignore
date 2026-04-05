@@ -1,0 +1,6 @@
+# Do not deploy source code to the runtime
+src/
+*.ts
+tsconfig.json
+build.ts
+README.md
