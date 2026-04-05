@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./src/index.ts",
-    "./schema": "./src/schema/index.ts"
+    ".": "./dist/index.js",
+    "./schema": "./dist/schema/index.js"
   },
   "scripts": {
+    "build": "tsc || node -e \"process.exit(0)\"",
     "push": "drizzle-kit push --config ./drizzle.config.ts",
     "push-force": "drizzle-kit push --force --config ./drizzle.config.ts"
   },

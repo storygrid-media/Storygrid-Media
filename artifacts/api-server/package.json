@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx --env-file=.env ./src/index.ts",
-    "build": "tsx ./build.ts && mkdir -p public && node -e \"require('fs').rmSync('tsconfig.json', { force: true })\"",
+    "build": "tsx ./build.ts && node -e \"require('fs').mkdirSync('public', { recursive: true }); require('fs').rmSync('tsconfig.json', { force: true })\"",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
