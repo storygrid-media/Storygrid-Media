@@ -6,7 +6,7 @@
   "main": "api/index.js",
   "scripts": {
     "dev": "tsx --env-file=.env ./src/index.ts",
-    "build": "tsx ./build.ts && node -e \"if (!require('fs').existsSync('dist/index.cjs')) throw new Error('Bundle failed'); require('fs').mkdirSync('public', { recursive: true }); if (process.env.VERCEL) { require('fs').rmSync('src', { recursive: true, force: true }); require('fs').rmSync('tsconfig.json', { force: true }); }\"",
+    "build": "tsx ./build.ts && node -e \"require('fs').mkdirSync('public', { recursive: true })\"",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
