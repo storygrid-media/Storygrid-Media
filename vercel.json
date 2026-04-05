@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "artifacts/api-server/api/index.js"
+      "destination": "artifacts/api-server/dist/index.cjs"
     }
   ]
 }
