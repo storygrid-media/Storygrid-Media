@@ -12,67 +12,13 @@ import {
 } from "@/components/ui/carousel";
 
 const LONGFORM_PROJECTS = [
-  // Podcasts First - High Authority Conversations
+  // Intermixed for Client Diversity
   {
     id: 1,
     title: "Decoding the Multi-Billion Dollar AI Economy",
     channelName: "Startup Seekho",
     category: "Podcast",
     videoId: "sDbufh727Rc",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 2,
-    title: "Inside a ₹450 Crore D2C Fashion Playbook",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "vxnc3ee-Y20",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 3,
-    title: "The 2025 Strategy for Clothing Brands",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "cUYNkC96vHo",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 4,
-    title: "Building a Multi-Crore Beauty Brand from Zero",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "aTWUBaab0Zk",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 5,
-    title: "Why Textile is India's Most Underrated Business",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "DwXzDIq7RQY",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 6,
-    title: "How to Actually Stand Out for Y Combinator",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "EgIv8k17kRE",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 7,
-    title: "Building a ₹40 Cr Heritage Label in 2 Years",
-    channelName: "Startup Seekho",
-    category: "Podcast",
-    videoId: "xG2DsoNr9R8",
     start: 0,
     end: 60
   },
@@ -86,16 +32,6 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
-    id: 9,
-    title: "The Future of Delhi: A Candid Conversation",
-    channelName: "AKHIL KOTHARI",
-    category: "Podcast",
-    videoId: "O46GhLcvGkM",
-    start: 0,
-    end: 60
-  },
-  // Talking Heads - Strategic Expertise
-  {
     id: 11,
     title: "Is Gold Still a Safe Investment in 2026?",
     channelName: "Asad Siddiqui: Finance Insider",
@@ -105,44 +41,17 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
-    id: 12,
-    title: "Warning: Don't Lose Control of Your Equity",
-    channelName: "Asad Siddiqui: Finance Insider",
-    category: "Talking Head",
-    videoId: "oWn-84Fk4tM",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 13,
-    title: "Startup Funding: From Seed to Series C",
-    channelName: "Asad Siddiqui: Finance Insider",
-    category: "Talking Head",
-    videoId: "xM5RTXM9kCA",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 14,
-    title: "The Truth About Equity Dilution",
-    channelName: "Asad Siddiqui: Finance Insider",
-    category: "Talking Head",
-    videoId: "bzvHF34rgQQ",
-    start: 0,
-    end: 60
-  },
-  {
-    id: 15,
-    title: "The Reality of India's Startup Job Market",
-    channelName: "Asad Siddiqui: Finance Insider",
-    category: "Talking Head",
-    videoId: "EcinScx3q40",
+    id: 2,
+    title: "Inside a ₹450 Crore D2C Fashion Playbook",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "vxnc3ee-Y20",
     start: 0,
     end: 60
   },
   {
     id: 16,
-    title: "Inside Google: A Tour of the Gurgaon HQ",
+    title: "Inside Google: A tour of the Gurgaon HQ",
     channelName: "Shivangi Tiwari",
     category: "Talking Head",
     videoId: "QaRJlrGeh5s",
@@ -150,11 +59,11 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
-    id: 17,
-    title: "10 High-Paying Remote Jobs (No Degree)",
-    channelName: "Shivangi Tiwari",
-    category: "Talking Head",
-    videoId: "ZiFqX6AwOrc",
+    id: 9,
+    title: "The Future of Delhi: A Candid Conversation",
+    channelName: "AKHIL KOTHARI",
+    category: "Podcast",
+    videoId: "O46GhLcvGkM",
     start: 0,
     end: 60
   },
@@ -168,6 +77,42 @@ const LONGFORM_PROJECTS = [
     end: 60
   },
   {
+    id: 3,
+    title: "The 2025 Strategy for Clothing Brands",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "cUYNkC96vHo",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 12,
+    title: "Warning: Don't Lose Control of Your Equity",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "oWn-84Fk4tM",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 17,
+    title: "10 High-Paying Remote Jobs (No Degree)",
+    channelName: "Shivangi Tiwari",
+    category: "Talking Head",
+    videoId: "ZiFqX6AwOrc",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 4,
+    title: "Building a Multi-Crore Beauty Brand from Zero",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "aTWUBaab0Zk",
+    start: 0,
+    end: 60
+  },
+  {
     id: 19,
     title: "Logic Mastery for Faster Problem Solving",
     channelName: "Priyansh Agarwal",
@@ -175,6 +120,24 @@ const LONGFORM_PROJECTS = [
     videoId: "qrexfVoXCDo",
     start: 30,
     end: 90
+  },
+  {
+    id: 13,
+    title: "Startup Funding: From Seed to Series C",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "xM5RTXM9kCA",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 5,
+    title: "Why Textile is India's Most Underrated Business",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "DwXzDIq7RQY",
+    start: 0,
+    end: 60
   },
   {
     id: 20,
@@ -185,7 +148,44 @@ const LONGFORM_PROJECTS = [
     start: 0,
     end: 60
   },
+  {
+    id: 6,
+    title: "How to Actually Stand Out for Y Combinator",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "EgIv8k17kRE",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 14,
+    title: "The Truth About Equity Dilution",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "bzvHF34rgQQ",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 7,
+    title: "Building a ₹40 Cr Heritage Label in 2 Years",
+    channelName: "Startup Seekho",
+    category: "Podcast",
+    videoId: "xG2DsoNr9R8",
+    start: 0,
+    end: 60
+  },
+  {
+    id: 15,
+    title: "The Reality of India's Startup Job Market",
+    channelName: "Asad Siddiqui: Finance Insider",
+    category: "Talking Head",
+    videoId: "EcinScx3q40",
+    start: 0,
+    end: 60
+  },
 ];
+
 
 const CATEGORIES = ["All", "Podcast", "Talking Head"];
 
@@ -366,7 +366,7 @@ export default function PortfolioLongform() {
       : LONGFORM_PROJECTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="work" className="py-16 md:py-24 bg-[#080808] relative overflow-hidden">
+    <section id="work" className="py-10 md:py-16 bg-[#080808] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

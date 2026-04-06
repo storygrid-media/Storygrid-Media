@@ -6,6 +6,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -136,24 +138,24 @@ export default function PortfolioShortform() {
   }, [api]);
 
   return (
-    <section id="work-shorts" className="py-16 md:py-24 bg-[#0B0B0B] relative overflow-hidden">
+    <section id="work-shorts" className="py-10 md:py-16 bg-[#0B0B0B] relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC107]/5 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.6 }}
+           viewport={{ once: true }}
+           className="mb-12"
         >
           <div className="flex flex-col items-center text-center pb-8 border-b border-white/5">
             <h2 className="font-display text-4xl md:text-5xl font-black mb-6 text-white tracking-tight">
-              Shorts & <span className="text-[#FFC107]">Reels.</span>
+               Shorts & <span className="text-[#FFC107]">Reels.</span>
             </h2>
             <p className="text-[#9A9A9A] text-xl max-w-2xl leading-relaxed font-medium">
-              High-velocity content engineered for algorithmic scale and seamless auto-looping engagement.
+               High-velocity content engineered for algorithmic scale and seamless auto-looping engagement.
             </p>
           </div>
         </motion.div>
@@ -174,6 +176,10 @@ export default function PortfolioShortform() {
               ))}
             </CarouselContent>
             
+            <div className="flex justify-center gap-6 mt-16">
+              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+            </div>
           </Carousel>
         </div>
       </div>

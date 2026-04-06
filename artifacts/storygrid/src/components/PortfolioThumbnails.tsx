@@ -6,6 +6,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -104,7 +106,7 @@ const ALL_THUMBNAILS: ThumbnailItem[] = [
   },
   {
     id: "thumb-13",
-    image: "/assets/thumbnails/Amazon SDE-2 Interview Experience - 65+ LPA Offer, Strategy, Preparation & Secret Opportunities_converted.avif",
+    image: "/assets/thumbnails/amazon-interview-strategy.avif",
     title: "The 65+ LPA Amazon Interview Strategy",
     ctr: "14.8%",
     tag: "TECH STRATEGY"
@@ -203,7 +205,7 @@ export default function PortfolioThumbnails() {
   }, [api]);
 
   return (
-    <section id="work-thumbnails" className="py-16 md:py-24 bg-[#080808] relative overflow-hidden">
+    <section id="work-thumbnails" className="py-10 md:py-16 bg-[#080808] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-2">
         <motion.div
            initial={{ opacity: 0, y: 40 }}
@@ -240,6 +242,11 @@ export default function PortfolioThumbnails() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            
+            <div className="flex justify-center gap-6 mt-12">
+              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+            </div>
           </Carousel>
         </div>
       </div>
