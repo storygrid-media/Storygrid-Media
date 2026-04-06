@@ -15,6 +15,13 @@ export default async function handler(req: Request) {
   }
 
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return new Response(JSON.stringify({ error: 'RESEND_API_KEY is not configured in Vercel.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     const { name, email, channel, message } = await req.json();
 
     if (!name || !email || !message) {
@@ -23,6 +30,8 @@ export default async function handler(req: Request) {
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // 1. Send Lead Notification to the Team
     const { error: teamError } = await resend.emails.send({
@@ -72,7 +81,9 @@ export default async function handler(req: Request) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err) {
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+    return new Response(JSON.stringify({ 
+      error: err instanceof Error ? err.message : 'Unknown error occurred' 
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
