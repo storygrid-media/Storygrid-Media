@@ -1,10 +1,10 @@
 import { Resend } from 'resend';
 
 export const config = {
-  runtime: 'edge',
+  runtime: 'nodejs',
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 export default async function handler(req: Request) {
   if (req.method !== 'POST') {
@@ -81,6 +81,7 @@ export default async function handler(req: Request) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err) {
+    console.error("DEBUG ERROR: ", err);
     return new Response(JSON.stringify({ 
       error: err instanceof Error ? err.message : 'Unknown error occurred' 
     }), {
