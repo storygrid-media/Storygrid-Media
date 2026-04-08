@@ -199,7 +199,7 @@ export default function PortfolioThumbnails() {
     
     const intervalId = setInterval(() => {
       api.scrollNext();
-    }, 5000);
+    }, 10000); // 10 seconds
 
     return () => clearInterval(intervalId);
   }, [api]);
@@ -232,6 +232,7 @@ export default function PortfolioThumbnails() {
             opts={{
               align: "start",
               loop: true,
+              duration: 50, // Slower slide transition
             }}
             className="w-full"
           >

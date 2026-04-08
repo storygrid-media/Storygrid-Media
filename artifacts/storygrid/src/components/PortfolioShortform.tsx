@@ -146,7 +146,7 @@ export default function PortfolioShortform() {
     
     const intervalId = setInterval(() => {
       api.scrollNext();
-    }, 7000);
+    }, 12000); // 12 seconds
 
     return () => clearInterval(intervalId);
   }, [api]);
@@ -181,6 +181,7 @@ export default function PortfolioShortform() {
             opts={{
               align: "start",
               loop: true,
+              duration: 50, // Slower slide transition
             }}
             className="w-full"
           >

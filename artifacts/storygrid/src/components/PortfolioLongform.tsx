@@ -342,7 +342,7 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
             href={`https://youtube.com/watch?v=${project.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 flex items-center gap-1.5 px-3 py-1.5 bg-white/5 text-[#9A9A9A] border border-white/10 rounded-lg text-[10px] font-black uppercase tracking-wider hover:bg-[#FFC107] hover:text-black transition-all shadow-lg shrink-0 group/yt"
+            className="mt-1 flex items-center gap-1.5 px-3 py-1.5 bg-[#FFC107] text-black border border-[#FFC107] rounded-lg text-[10px] font-black uppercase tracking-wider hover:bg-white hover:border-white transition-all shadow-lg shrink-0 group/yt"
             onClick={(e) => e.stopPropagation()}
             aria-label={`Watch ${project.title} on YouTube`}
           >
@@ -372,7 +372,7 @@ export default function PortfolioLongform() {
 
     const intervalId = setInterval(() => {
       api.scrollNext();
-    }, 4000); // Scroll every 4 seconds
+    }, 8000); // Scroll every 8 seconds
 
     return () => clearInterval(intervalId);
   }, [api]);
@@ -426,6 +426,7 @@ export default function PortfolioLongform() {
             opts={{
               align: "start",
               loop: true,
+              duration: 50, // Slower slide transition
             }}
             className="w-full"
           >
