@@ -1,4 +1,4 @@
-import { Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import logoUrl from "@assets/logo_(1)_1773492679483.avif";
 import { Link } from "wouter";
 
@@ -64,17 +64,13 @@ export default function Footer() {
               team@storygridmedia.in
             </a>
             <div className="flex gap-4 mt-4">
-              <a href="https://instagram.com/storygridmedia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-instagram" aria-label="Instagram">
+              <a href="https://www.instagram.com/storygrid_media/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-instagram" aria-label="Instagram">
+                <span className="sr-only">Instagram</span>
                 <Instagram size={18} />
               </a>
-              <a href="https://youtube.com/@storygridmedia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-youtube" aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UC1XfuIuPuSGrUMYzHGsGZWg" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-youtube" aria-label="YouTube">
+                <span className="sr-only">YouTube</span>
                 <Youtube size={18} />
-              </a>
-              <a href="https://linkedin.com/company/storygridmedia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-linkedin" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-              <a href="https://twitter.com/storygridmedia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-[#FFC107] hover:text-black transition-colors" data-testid="link-social-twitter" aria-label="Twitter">
-                <Twitter size={18} />
               </a>
             </div>
           </div>
