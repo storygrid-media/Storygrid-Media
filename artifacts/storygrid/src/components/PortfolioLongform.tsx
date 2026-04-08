@@ -209,7 +209,7 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+  const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const containerRef = useRef(null);
@@ -249,8 +249,8 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
   };
 
   const handleThumbError = () => {
-    if (thumbUrl.includes('hqdefault')) {
-      setThumbUrl(`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`);
+    if (thumbUrl.includes('maxresdefault')) {
+      setThumbUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
     }
   };
 
@@ -261,7 +261,6 @@ function VideoLoop({ videoId, title, start = 0, end = 60 }: VideoLoopProps) {
         src={thumbUrl}
         alt={title}
         onError={handleThumbError}
-        loading="lazy"
         className={cn(
           "absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-700",
           (isReady && isInView) ? "opacity-0 pointer-events-none" : "opacity-100"

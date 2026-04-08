@@ -54,7 +54,7 @@ function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "300px", once: false });
 
-  const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
     <div ref={containerRef} className="relative w-full h-full bg-black overflow-hidden rounded-2xl sm:rounded-3xl">
@@ -62,7 +62,6 @@ function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
       <img
         src={thumbUrl}
         alt={title}
-        loading="lazy"
         className={cn(
           "absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-700",
           (isReady && isInView) ? "opacity-0 pointer-events-none" : "opacity-100"
