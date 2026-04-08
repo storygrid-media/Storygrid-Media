@@ -6,7 +6,8 @@
     "build": "pnpm -r --if-present build",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck",
-    "pull-env": "pnpm --filter @workspace/api-server pull-env && pnpm --filter @workspace/storygrid pull-env"
+    "pull-env": "pnpm --filter @workspace/api-server pull-env && pnpm --filter @workspace/storygrid pull-env",
+    "postbuild": "copy robots.txt artifacts\\storygrid\\dist\\public\\robots.txt && copy sitemap.xml artifacts\\storygrid\\dist\\public\\sitemap.xml"
   },
   "packageManager": "pnpm@10.28.2",
   "engines": {
