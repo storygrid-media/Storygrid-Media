@@ -1,5 +1,6 @@
 import { Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
 import logoUrl from "@assets/logo_(1)_1773492679483.avif";
+import { Link } from "wouter";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -33,17 +34,17 @@ export default function Footer() {
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="flex flex-col gap-4">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="text-2xl font-bold font-display"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
               aria-label="StoryGrid Media - Back to top"
             >
               <span className="flex items-center gap-2.5">
                 <img src={logoUrl} alt="" className="h-7 w-auto" aria-hidden="true" />
                 <span className="text-xl font-bold font-display">StoryGrid <span className="text-[#FFC107]">Media</span></span>
               </span>
-            </a>
+            </Link>
             <p className="text-[#9A9A9A] max-w-xs">
               Powering growth-focused content systems for founders and creators who refuse to stay invisible.
             </p>
@@ -84,8 +85,8 @@ export default function Footer() {
             &copy; 2026 StoryGrid Media. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-[#9A9A9A]">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { useLocation, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoUrl from "@assets/logo_(1)_1773492679483.avif";
@@ -7,6 +8,7 @@ import logoUrl from "@assets/logo_(1)_1773492679483.avif";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -22,9 +24,20 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (location !== "/") {
+      setLocation("/");
+      // Use a small timeout to allow the home page to mount before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -47,17 +60,17 @@ export default function Navbar() {
             style={{ scaleX, transformOrigin: "left" }}
           />
 
-          <a 
-            href="#"
+          <Link 
+            href="/"
             className="flex items-center gap-2 group shrink-0"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            onClick={() => { if (location === "/") window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             aria-label="StoryGrid Media - Home"
           >
             <img src={logoUrl} alt="" className="h-6 md:h-7 w-auto transition-transform group-hover:scale-110" aria-hidden="true" />
             <span className="text-sm md:text-base font-bold font-display">
               StoryGrid <span className="text-[#FFC107]">Media</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 shrink-0">
