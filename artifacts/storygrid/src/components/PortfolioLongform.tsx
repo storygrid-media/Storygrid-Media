@@ -186,6 +186,15 @@ const LONGFORM_PROJECTS = [
   },
 ];
 
+function shuffleArray<T>(array: T[]): T[] {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
 
 const CATEGORIES = ["All", "Podcast", "Talking Head"];
 
@@ -333,10 +342,12 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
             href={`https://youtube.com/watch?v=${project.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 flex items-center gap-1.5 px-2 py-1 bg-white/5 text-[#9A9A9A] border border-white/10 rounded-lg text-[9px] font-black uppercase tracking-wider hover:bg-[#FFC107] hover:text-black transition-all shadow-lg shrink-0"
+            className="mt-1 flex items-center gap-1.5 px-3 py-1.5 bg-white/5 text-[#9A9A9A] border border-white/10 rounded-lg text-[10px] font-black uppercase tracking-wider hover:bg-[#FFC107] hover:text-black transition-all shadow-lg shrink-0 group/yt"
             onClick={(e) => e.stopPropagation()}
+            aria-label={`Watch ${project.title} on YouTube`}
           >
-            <ExternalLink className="w-3 h-3" />
+            <span className="hidden sm:inline">Watch on</span>
+            <ExternalLink className="w-3.5 h-3.5 group-hover/yt:rotate-12 transition-transform" />
             YT
           </a>
         </div>
@@ -346,8 +357,14 @@ function LongPortfolioItem({ project }: { project: typeof LONGFORM_PROJECTS[0] }
 }
 
 export default function PortfolioLongform() {
-  const [activeTab, setActiveTab] = useState("Podcast");
+  const [activeTab, setActiveTab] = useState("All");
+  const [shuffledProjects, setShuffledProjects] = useState(LONGFORM_PROJECTS);
   const [api, setApi] = useState<any>();
+
+  // Randomize on Mount
+  useEffect(() => {
+    setShuffledProjects(shuffleArray(LONGFORM_PROJECTS));
+  }, []);
 
   // Autoplay Effect
   useEffect(() => {
@@ -362,8 +379,8 @@ export default function PortfolioLongform() {
 
   const filteredProjects =
     activeTab === "All"
-      ? LONGFORM_PROJECTS
-      : LONGFORM_PROJECTS.filter((p) => p.category === activeTab);
+      ? shuffledProjects
+      : shuffledProjects.filter((p) => p.category === activeTab);
 
   return (
     <section id="work" className="py-10 md:py-16 bg-[#080808] relative overflow-hidden">
@@ -414,15 +431,15 @@ export default function PortfolioLongform() {
           >
             <CarouselContent className="-ml-4 md:-ml-6">
               <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
-                  <LongPortfolioItem key={`${project.id}-${project.videoId}`} project={project} />
+                {filteredProjects.map((project, idx) => (
+                  <LongPortfolioItem key={`${project.id}-${project.videoId}-${idx}`} project={project} />
                 ))}
               </AnimatePresence>
             </CarouselContent>
 
-            <div className="flex justify-center gap-6 mt-16">
-              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+            <div className="flex justify-center gap-6 mt-8">
+              <CarouselPrevious aria-label="Previous Project" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext aria-label="Next Project" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
           </Carousel>
         </div>

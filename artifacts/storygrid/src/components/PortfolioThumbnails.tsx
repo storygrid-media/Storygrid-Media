@@ -243,9 +243,9 @@ export default function PortfolioThumbnails() {
               ))}
             </CarouselContent>
             
-            <div className="flex justify-center gap-6 mt-12">
-              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+            <div className="flex justify-center gap-6 mt-6">
+              <CarouselPrevious aria-label="Previous Thumbnail" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext aria-label="Next Thumbnail" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
           </Carousel>
         </div>

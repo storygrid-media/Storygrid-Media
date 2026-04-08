@@ -35,6 +35,15 @@ const SHORTFORM_PROJECTS = [
   { id: 20, title: "The Path to Real Healing", views: "1.2K", videoId: "0TyrJ71aezE" },
 ];
 
+function shuffleArray<T>(array: T[]): T[] {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
 interface ShortVideoLoopProps {
   videoId: string;
   title: string;
@@ -126,6 +135,11 @@ function ShortPortfolioItem({ project }: { project: typeof SHORTFORM_PROJECTS[0]
 
 export default function PortfolioShortform() {
   const [api, setApi] = useState<CarouselApi>();
+  const [shuffledProjects, setShuffledProjects] = useState(SHORTFORM_PROJECTS);
+
+  useEffect(() => {
+    setShuffledProjects(shuffleArray(SHORTFORM_PROJECTS));
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -171,14 +185,14 @@ export default function PortfolioShortform() {
             className="w-full"
           >
             <CarouselContent className="-ml-6 md:-ml-10">
-              {SHORTFORM_PROJECTS.map((project) => (
-                <ShortPortfolioItem key={`${project.id}-${project.videoId}`} project={project} />
+              {shuffledProjects.map((project, idx) => (
+                <ShortPortfolioItem key={`${project.id}-${project.videoId}-${idx}`} project={project} />
               ))}
             </CarouselContent>
             
-            <div className="flex justify-center gap-6 mt-16">
-              <CarouselPrevious className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
-              <CarouselNext className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+            <div className="flex justify-center gap-6 mt-8">
+              <CarouselPrevious aria-label="Previous Short" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
+              <CarouselNext aria-label="Next Short" className="static translate-y-0 h-14 w-14 border-white/10 bg-white/5 hover:bg-[#FFC107] hover:text-black text-white transition-all duration-300 shadow-xl" />
             </div>
           </Carousel>
         </div>
