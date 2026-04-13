@@ -50,56 +50,69 @@ function VideoTestimonial({ title, client, videoId, index }: { title: string; cl
 
 const TESTIMONIALS = [
   {
-    name: "Alex M.",
-    role: "Tech Founder",
-    content: "StoryGrid took our messy podcast process and turned it into a machine. We've seen a 3x increase in inbound leads strictly from YouTube.",
+    name: "CareerWithRishab",
+    role: "Content Creator",
+    content: "I’ve been working with Saumya for the last two years, and the experience has been amazing. What really stands out is the **thought process behind the editing**, it’s **not random transitions**, it’s built around the audience and emotion I want to convey. She’s also **extremely punctual**, and I’ve never faced any delays. If you’re looking for premium video editing, Saumya and her team are a great choice.",
+    image: "/assets/testimonials/Rishab Bindal.jpg"
   },
   {
-    name: "Sarah J.",
-    role: "Creator",
-    content: "The shorts strategy alone paid for itself in week 2. They just understand pacing and retention better than anyone else I've worked with.",
+    name: "Asad Siddiqui",
+    role: "Strategic Partner",
+    content: "Working with StoryGrid Media doesn’t feel like a transaction, it feels like a **partnership**. They **don’t just edit, they think with you**, share insights, and help improve your content. The **editing quality is top-notch**, and the entire process is completely frictionless. If you’re serious about content, you don’t need just an editor, you need a partner.",
+    image: "/assets/testimonials/Asad Siddiqui.jpg"
   },
   {
-    name: "David K.",
-    role: "Agency Owner",
-    content: "Finally, an agency that doesn't just edit, but actually strategizes. They're a core part of our growth team now.",
+    name: "Akhil Kothari",
+    role: "Podcast Host",
+    content: "Podcast editing needs more than just cuts, it needs **structure and flow**, and that’s exactly what StoryGrid Media brings. They understand how to **keep conversations engaging** and turn them into high-quality content. Working with them has made my entire podcast process **much more effective**.",
+    image: "/assets/testimonials/Akhil Kothari.jpg"
   },
   {
-    name: "James L.",
-    role: "Director @ Scale",
-    content: "Standardizing our workflows saved us 20 hours a week on post-production. The ROI on their system is immediate and clear.",
+    name: "A2 Motivation",
+    role: "Impact Creator",
+    content: "I’ve worked with different editors before, but StoryGrid Media really stands out. They understand the vibe of my content and make sure **every video feels engaging and impactful**. The **consistency and quality** they deliver have made a huge difference in how my audience connects with my content.",
+    image: "/assets/testimonials/A2 Moriviation.jpg"
   },
   {
-    name: "Emily R.",
-    role: "E-com Founder",
-    content: "The CTR optimization and thumbnail strategy increased our organic sales by 45% in Q3. They are masters of the attention economy.",
-  },
-  {
-    name: "Michael T.",
-    role: "Finance Expert",
-    content: "StoryGrid doesn't just edit; they understand high-leverage business content. My retention hopped from 32% to 58% in one month.",
-  },
-  {
-    name: "Sophie H.",
-    role: "Course Creator",
-    content: "Their pacing strategy is next level. My audience is finally finishing my videos and reaching the call-to-actions.",
-  },
-  {
-    name: "Ryan B.",
-    role: "SaaS Co-founder",
-    content: "Professional, data-driven, and results-oriented. A complete game changer for our YouTube distribution strategy.",
+    name: "Abhinav Mahajan",
+    role: "Fitness Expert",
+    content: "In fitness content, **clarity and impact** matter a lot, and StoryGrid Media nails both. The edits are **clean, sharp**, and actually **enhance the message** I’m trying to deliver. It feels like working with a team that understands your content, not just edits it.",
+    image: "/assets/testimonials/Abhinav Mahajan.jpg"
   },
 ];
 
 function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
+  const renderContent = (content: string) => {
+    const parts = content.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <span key={i} className="text-[#FFC107] font-bold">{part.slice(2, -2)}</span>;
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="bg-[#141414] border border-white/5 rounded-2xl p-6 md:p-8 w-[280px] md:w-[350px] shadow-2xl flex flex-col shrink-0 whitespace-normal">
       <div className="mb-6">
-        <p className="text-white/80 leading-relaxed text-sm md:text-base">"{t.content}"</p>
+        <p className="text-white/80 leading-relaxed text-sm md:text-base">"{renderContent(t.content)}"</p>
       </div>
       <div className="flex items-center gap-4 pt-6 border-t border-white/5 mt-auto">
-        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1F1F1F] flex items-center justify-center font-bold text-[#FFC107] text-base md:text-lg shrink-0">
-          {t.name.charAt(0)}
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1F1F1F] flex items-center justify-center font-bold text-[#FFC107] overflow-hidden shrink-0">
+          {t.image ? (
+            <img 
+              src={t.image} 
+              alt={t.name} 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                // Fallback to initials if image fails to load
+                (e.target as HTMLImageElement).style.display = 'none';
+                (e.target as HTMLImageElement).parentElement!.innerText = t.name.charAt(0);
+              }}
+            />
+          ) : (
+            <span className="text-base md:text-lg">{t.name.charAt(0)}</span>
+          )}
         </div>
         <div className="min-w-0">
           <div className="font-bold text-white text-sm md:text-base truncate">{t.name}</div>
@@ -131,10 +144,10 @@ export default function Testimonials() {
     return (
       <div className="flex overflow-hidden group/marquee py-10">
         <motion.div
-          animate={{ x: direction === "left" ? [0, -3100] : [-3100, 0] }} // Adjusted for 8 + 8 items
+          animate={{ x: direction === "left" ? [0, -1910] : [-1910, 0] }} // Adjusted for 5 + 5 items (5 * 382px)
           transition={{
             repeat: Infinity,
-            duration: 60,
+            duration: 40,
             ease: "linear",
           }}
           className="flex gap-6 md:gap-8"
