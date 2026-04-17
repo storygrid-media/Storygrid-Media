@@ -51,31 +51,31 @@ function VideoTestimonial({ title, client, videoId, index }: { title: string; cl
 const TESTIMONIALS = [
   {
     name: "CareerWithRishab",
-    role: "Content Creator",
+    role: "200K+ Followers on Instagram",
     content: "I’ve been working with Saumya for the last two years, and the experience has been amazing. What really stands out is the **thought process behind the editing**, it’s **not random transitions**, it’s built around the audience and emotion I want to convey. She’s also **extremely punctual**, and I’ve never faced any delays. If you’re looking for premium video editing, Saumya and her team are a great choice.",
-    image: "/assets/testimonials/Rishab Bindal.jpg"
+    image: "/assets/testimonials/careerwithrishab.jpg"
   },
   {
     name: "Asad Siddiqui",
-    role: "Strategic Partner",
+    role: "Finance Director | Dubai",
     content: "Working with StoryGrid Media doesn’t feel like a transaction, it feels like a **partnership**. They **don’t just edit, they think with you**, share insights, and help improve your content. The **editing quality is top-notch**, and the entire process is completely frictionless. If you’re serious about content, you don’t need just an editor, you need a partner.",
     image: "/assets/testimonials/Asad Siddiqui.jpg"
   },
   {
     name: "Akhil Kothari",
-    role: "Podcast Host",
+    role: "Businessman & Podcast Host",
     content: "Podcast editing needs more than just cuts, it needs **structure and flow**, and that’s exactly what StoryGrid Media brings. They understand how to **keep conversations engaging** and turn them into high-quality content. Working with them has made my entire podcast process **much more effective**.",
     image: "/assets/testimonials/Akhil Kothari.jpg"
   },
   {
     name: "A2 Motivation",
-    role: "Impact Creator",
+    role: "20M+ YouTube Subscribers",
     content: "I’ve worked with different editors before, but StoryGrid Media really stands out. They understand the vibe of my content and make sure **every video feels engaging and impactful**. The **consistency and quality** they deliver have made a huge difference in how my audience connects with my content.",
     image: "/assets/testimonials/A2 Moriviation.jpg"
   },
   {
     name: "Abhinav Mahajan",
-    role: "Fitness Expert",
+    role: "2M+ YouTube Subscribers",
     content: "In fitness content, **clarity and impact** matter a lot, and StoryGrid Media nails both. The edits are **clean, sharp**, and actually **enhance the message** I’m trying to deliver. It feels like working with a team that understands your content, not just edits it.",
     image: "/assets/testimonials/Abhinav Mahajan.jpg"
   },
