@@ -28,7 +28,7 @@ export default async function handler(req: any, res: any) {
     // 1. Send Lead Notification to the Team
     const { error: teamError } = await resend.emails.send({
       from: 'StoryGrid Notifications <team@storygridmedia.in>', 
-      to: ['team@storygridmedia.in'],
+      to: ['createwithsaumya@gmail.com'],
       replyTo: email,
       subject: `New Lead: ${name} from StoryGrid Website`,
       html: `

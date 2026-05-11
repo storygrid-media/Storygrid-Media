@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
           <section className="pt-8 border-t border-white/10">
             <p className="text-sm">
               If you have any questions about this privacy policy or our privacy practices, please contact us at: 
-              <a href="mailto:team@storygridmedia.in" className="text-[#FFC107] ml-2 hover:underline">team@storygridmedia.in</a>
+              <a href="mailto:createwithsaumya@gmail.com" className="text-[#FFC107] ml-2 hover:underline">createwithsaumya@gmail.com</a>
             </p>
             <p className="text-sm mt-4 italic">Last Updated: April 08, 2026</p>
           </section>

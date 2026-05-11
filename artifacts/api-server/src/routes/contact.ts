@@ -26,7 +26,7 @@ contactRouter.post("/", async (req: Request, res: Response) => {
 
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: "team@storygridmedia.in",
+      to: "createwithsaumya@gmail.com",
       replyTo: email,
       subject: `New Lead: ${name} from StoryGrid Website`,
       text: `

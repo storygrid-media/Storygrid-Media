@@ -71,7 +71,7 @@ export default function TermsOfService() {
           <section className="pt-8 border-t border-white/10">
             <p className="text-sm">
               For any clarifications regarding these terms, please reach out to: 
-              <a href="mailto:team@storygridmedia.in" className="text-[#FFC107] ml-2 hover:underline">team@storygridmedia.in</a>
+              <a href="mailto:createwithsaumya@gmail.com" className="text-[#FFC107] ml-2 hover:underline">createwithsaumya@gmail.com</a>
             </p>
             <p className="text-sm mt-4 italic">Last Updated: April 08, 2026</p>
           </section>

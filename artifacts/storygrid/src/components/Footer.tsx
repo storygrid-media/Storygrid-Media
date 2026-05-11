@@ -60,9 +60,14 @@ export default function Footer() {
 
           <div className="flex flex-col gap-4 md:items-end">
             <h4 className="font-bold text-white mb-2">Contact</h4>
-            <a href="mailto:team@storygridmedia.in" className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors">
-              team@storygridmedia.in
-            </a>
+            <div className="flex flex-col gap-2 md:items-end">
+              <a href="mailto:createwithsaumya@gmail.com" className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors">
+                createwithsaumya@gmail.com
+              </a>
+              <a href="https://wa.me/918937007735" className="text-[#9A9A9A] hover:text-[#FFC107] transition-colors" target="_blank" rel="noopener noreferrer">
+                +91 8937007735
+              </a>
+            </div>
             <div className="flex gap-4 mt-4">
               <a href="https://www.instagram.com/storygrid_media/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#FFC107] flex items-center justify-center text-black hover:bg-white transition-colors" data-testid="link-social-instagram" aria-label="Instagram">
                 <span className="sr-only">Instagram</span>
