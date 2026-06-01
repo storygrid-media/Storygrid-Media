@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { useSeo } from "@/hooks/useSeo";
 
 export default function PrivacyPolicy() {
+  useSeo({
+    title: "Privacy Policy | StoryGrid Media",
+    description: "Read the StoryGrid Media Privacy Policy to understand how we collect, use, protect, and handle your personal data when you visit our website.",
+    canonicalUrl: "https://storygridmedia.in/privacy"
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

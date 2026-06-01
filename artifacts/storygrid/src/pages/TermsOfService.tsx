@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { useSeo } from "@/hooks/useSeo";
 
 export default function TermsOfService() {
+  useSeo({
+    title: "Terms of Service | StoryGrid Media",
+    description: "Review the Terms of Service for using the digital media production, YouTube management, and content system services of StoryGrid Media.",
+    canonicalUrl: "https://storygridmedia.in/terms"
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -41,7 +41,7 @@ export default function Footer() {
               aria-label="StoryGrid Media - Back to top"
             >
               <span className="flex items-center gap-2.5">
-                <img src={logoUrl} alt="" className="h-7 w-auto" aria-hidden="true" />
+                <img src={logoUrl} alt="StoryGrid Media Logo" className="h-7 w-auto" />
                 <span className="text-xl font-bold font-display">StoryGrid <span className="text-[#FFC107]">Media</span></span>
               </span>
             </Link>

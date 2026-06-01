@@ -1,0 +1,40 @@
+# StoryGrid Media
+
+StoryGrid Media is a premium, high-conversion digital agency and content system provider designed for startup founders, content creators, and modern brands. It designs, hosts, and scales automated content machines that transform direct founder expertise into high-leverage media assets.
+
+> [!NOTE]
+> Main Production Domain: https://storygridmedia.in/
+> Core Services: Podcast Growth Systems, YouTube Management, Founder Brand Engines.
+
+---
+
+## Services & Core Offerings
+
+### 1. Podcast Growth System
+- **Timeline**: Fully operational in 14 Days.
+- **Offerings**: End-to-end studio setup guidance, multi-cam video editing, professional audio mixing & mastering, premium thumbnail design, and multi-platform distribution systems.
+
+### 2. YouTube Management
+- **Performance**: High-retention growth strategies yielding +120% average channel trajectory.
+- **Offerings**: Channel positioning, scripts/ideation structuring, audience retention editing, thumbnail A/B testing, and analytic reviews.
+
+### 3. Founder Brand Engine
+- **Strategy**: Daily content generation and publishing systems.
+- **Offerings**: Hook scripting, short-form repurposing from long-form episodes, dynamic platform-native formatting, and execution playbooks.
+
+---
+
+## Tech Stack & Architecture
+
+- **Frontend**: React 19, Vite, Tailwind CSS, Framer Motion (for dynamic UI animations), Lucide Icons.
+- **Client Routing**: `wouter` (Simple path-based routing).
+- **Backend / Integration**: `api-server` architecture with Formspree and Resend support for direct lead-generation channels.
+- **Deployments**: Vercel-hosted SPA.
+
+---
+
+## Key Site Paths
+
+- **Home Page** (`/`): Service directories, testimonials, workflow, video showcase, and growth audit forms.
+- **Privacy Policy** (`/privacy`): Terms regarding user data collection and cookie policies.
+- **Terms of Service** (`/terms`): Usage agreements for client engagement.

@@ -8,10 +8,19 @@ import Positioning from "@/components/Positioning";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import SectionDivider from "@/components/SectionDivider";
+import { useSeo } from "@/hooks/useSeo";
+import SchemaMarkup from "@/components/SchemaMarkup";
 
 export default function Home() {
+  useSeo({
+    title: "StoryGrid Media | High-Performance Content Systems",
+    description: "StoryGrid Media builds structured content systems. Expert podcast production, YouTube channel management, and viral short-form distribution.",
+    canonicalUrl: "https://storygridmedia.in/"
+  });
+
   return (
     <>
+      <SchemaMarkup />
       <Hero />
       <SectionDivider />
       <PortfolioLongform />

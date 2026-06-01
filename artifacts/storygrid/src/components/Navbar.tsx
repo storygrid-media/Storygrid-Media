@@ -66,7 +66,7 @@ export default function Navbar() {
             onClick={() => { if (location === "/") window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             aria-label="StoryGrid Media - Home"
           >
-            <img src={logoUrl} alt="" className="h-6 md:h-7 w-auto transition-transform group-hover:scale-110" aria-hidden="true" />
+            <img src={logoUrl} alt="StoryGrid Media Logo" className="h-6 md:h-7 w-auto transition-transform group-hover:scale-110" />
             <span className="text-sm md:text-base font-bold font-display">
               StoryGrid <span className="text-[#FFC107]">Media</span>
             </span>
