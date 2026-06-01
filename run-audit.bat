@@ -21,7 +21,6 @@ echo.
 echo Cleaning up temporary files...
 del temp.html
 del temp_seo.json
-del compile-report.py
 
 echo.
 echo ==============================================
