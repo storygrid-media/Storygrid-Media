@@ -83,6 +83,4 @@ We maintain a lean codebase. Recent optimizations include:
 - Streamlined project structure for faster builds.
 - Cleaned up unreferenced assets and hooks.
 
----
-
 Built with ❤️ by StoryGrid Media Team.
