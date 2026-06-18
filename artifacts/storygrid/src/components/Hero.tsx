@@ -80,7 +80,7 @@ export default function Hero() {
     <section className="relative flex items-center justify-center overflow-hidden min-h-screen lg:min-h-[100dvh]">
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <iframe
-          src={`https://www.youtube.com/embed/6HBxWrmI8OU?autoplay=1&mute=1&loop=1&playlist=6HBxWrmI8OU&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=0`}
+          src={`https://www.youtube-nocookie.com/embed/6HBxWrmI8OU?autoplay=1&mute=1&loop=1&playlist=6HBxWrmI8OU&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=0`}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none scale-125 md:scale-115"
           style={{ 
             width: "max(100vw, 177.77vh)", 
