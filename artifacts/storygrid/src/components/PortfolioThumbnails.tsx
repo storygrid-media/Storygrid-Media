@@ -151,6 +151,7 @@ function ThumbnailCard({ item }: { item: ThumbnailItem }) {
         <img 
           src={item.image} 
           alt={item.title} 
+          loading="lazy"
           className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
