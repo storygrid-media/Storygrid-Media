@@ -98,6 +98,8 @@ function FormFields({
               <div className="relative flex items-center justify-center">
                 <input
                   type="checkbox"
+                  name="goals"
+                  value={goal}
                   checked={selectedGoals.includes(goal)}
                   onChange={() => toggleGoal(goal)}
                   className="peer sr-only"
@@ -315,7 +317,7 @@ export default function ContactForm() {
             >
               <button
                 onClick={() => setShowSuccess(false)}
-                className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+                className="absolute top-4 right-4 p-2 text-white/40 hover:text-white transition-colors"
                 aria-label="Close"
               >
                 <X size={20} />

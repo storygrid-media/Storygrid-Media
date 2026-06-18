@@ -1,12 +1,13 @@
+import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import PortfolioLongform from "@/components/PortfolioLongform";
-import PortfolioShortform from "@/components/PortfolioShortform";
-import PortfolioThumbnails from "@/components/PortfolioThumbnails";
-import Services from "@/components/Services";
-import Workflow from "@/components/Workflow";
-import Positioning from "@/components/Positioning";
-import Testimonials from "@/components/Testimonials";
-import ContactForm from "@/components/ContactForm";
+const PortfolioLongform = lazy(() => import("@/components/PortfolioLongform"));
+const PortfolioShortform = lazy(() => import("@/components/PortfolioShortform"));
+const PortfolioThumbnails = lazy(() => import("@/components/PortfolioThumbnails"));
+const Services = lazy(() => import("@/components/Services"));
+const Workflow = lazy(() => import("@/components/Workflow"));
+const Positioning = lazy(() => import("@/components/Positioning"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const ContactForm = lazy(() => import("@/components/ContactForm"));
 import SectionDivider from "@/components/SectionDivider";
 import { useSeo } from "@/hooks/useSeo";
 import SchemaMarkup from "@/components/SchemaMarkup";
@@ -23,18 +24,20 @@ export default function Home() {
       <SchemaMarkup />
       <Hero />
       <SectionDivider />
-      <PortfolioLongform />
-      <PortfolioShortform />
-      <PortfolioThumbnails />
-      <SectionDivider />
-      <Services />
-      <SectionDivider />
-      <Workflow />
-      <SectionDivider />
-      <Positioning />
-      <SectionDivider />
-      <Testimonials />
-      <ContactForm />
+      <Suspense fallback={<div className="min-h-[200px] flex items-center justify-center text-white/10 font-medium font-display uppercase tracking-widest text-xs">Loading Experience...</div>}>
+        <PortfolioLongform />
+        <PortfolioShortform />
+        <PortfolioThumbnails />
+        <SectionDivider />
+        <Services />
+        <SectionDivider />
+        <Workflow />
+        <SectionDivider />
+        <Positioning />
+        <SectionDivider />
+        <Testimonials />
+        <ContactForm />
+      </Suspense>
     </>
   );
 }

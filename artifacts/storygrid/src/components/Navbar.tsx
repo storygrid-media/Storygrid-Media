@@ -97,7 +97,7 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-white/70 hover:text-white transition-colors"
+              className="p-3 text-white/70 hover:text-white transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

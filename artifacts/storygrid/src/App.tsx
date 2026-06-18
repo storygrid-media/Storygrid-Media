@@ -3,9 +3,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { lazy, Suspense } from "react";
 import Home from "@/pages/Home";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsOfService from "@/pages/TermsOfService";
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 import SectionDivider from "@/components/SectionDivider";
 
 function App() {
@@ -25,15 +26,17 @@ function App() {
 
         <Navbar />
         <main className="relative z-10">
-          <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/privacy" component={PrivacyPolicy} />
-            <Route path="/terms" component={TermsOfService} />
-            {/* Catch-all route to home */}
-            <Route>
-              <Home />
-            </Route>
-          </Switch>
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[#FFC107] font-display">Loading...</div>}>
+            <Switch>
+              <Route path="/" component={Home} />
+              <Route path="/privacy" component={PrivacyPolicy} />
+              <Route path="/terms" component={TermsOfService} />
+              {/* Catch-all route to home */}
+              <Route>
+                <Home />
+              </Route>
+            </Switch>
+          </Suspense>
         </main>
         <SectionDivider />
         <Footer />
