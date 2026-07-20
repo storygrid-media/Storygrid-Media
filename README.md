@@ -83,4 +83,12 @@ We maintain a lean codebase. Recent optimizations include:
 - Streamlined project structure for faster builds.
 - Cleaned up unreferenced assets and hooks.
 
+## 🤖 AI Agent Readiness
+
+StoryGrid Media is optimized for discovery and interaction by large language models and autonomous agents. The repository and production site include:
+- `llms.txt`: Site architecture and services overview for AI context.
+- `.well-known/ai-plugin.json`: Standardized OpenAI plugin manifest.
+- `agents.json`: Agent discovery endpoint.
+- Meta Tags: Dedicated `ai-agents`, `llms`, and `openai-bot` meta tags to allow scraping and indexing.
+
 Built with ❤️ by StoryGrid Media Team.

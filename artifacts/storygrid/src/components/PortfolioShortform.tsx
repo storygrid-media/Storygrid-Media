@@ -50,26 +50,39 @@ interface ShortVideoLoopProps {
 }
 
 function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isReady, setIsReady] = useState(false);
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { margin: "300px", once: false });
-
+  
   const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
-    <div ref={containerRef} className="relative w-full h-full bg-black overflow-hidden rounded-2xl sm:rounded-3xl">
+    <div 
+      className="relative w-full h-full bg-black overflow-hidden rounded-2xl sm:rounded-3xl cursor-pointer group/video"
+      onClick={() => setIsPlaying(true)}
+    >
       {/* Loading/Fallback Thumbnail */}
       <img
         src={thumbUrl}
         alt={title}
         loading="lazy"
         className={cn(
-          "absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-700",
-          (isReady && isInView) ? "opacity-0 pointer-events-none" : "opacity-100"
+          "absolute inset-0 w-full h-full object-cover z-20 transition-all duration-700 group-hover/video:scale-105",
+          (isReady) ? "opacity-0 pointer-events-none" : "opacity-100"
         )}
       />
 
-      {isInView && (
+      {/* Play Button Overlay */}
+      {!isPlaying && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/20 group-hover/video:bg-black/40 transition-colors duration-300">
+          <div className="w-12 h-12 bg-[#FFC107] rounded-full flex items-center justify-center shadow-xl group-hover/video:scale-110 transition-transform duration-300">
+            <svg className="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {isPlaying && (
         <div className={cn(
           "absolute inset-0 z-10 flex items-center justify-center overflow-hidden",
           "scale-[1.12]"
@@ -85,7 +98,6 @@ function ShortVideoLoop({ videoId, title }: ShortVideoLoopProps) {
           </div>
         </div>
       )}
-
     </div>
   );
 }

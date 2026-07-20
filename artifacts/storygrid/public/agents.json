@@ -1,0 +1,7 @@
+{
+  "name": "StoryGrid Media Agent",
+  "description": "Agent for discovering StoryGrid Media services and offerings.",
+  "version": "1.0",
+  "capabilities": ["discovery", "information"],
+  "contact_email": "hello@storygridmedia.in"
+}

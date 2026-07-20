@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "StoryGridMedia",
+  "name_for_human": "StoryGrid Media",
+  "description_for_model": "Plugin for interacting with StoryGrid Media, providing information about content systems, podcast production, and YouTube management.",
+  "description_for_human": "StoryGrid Media builds structured content systems for creators and founders.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://storygridmedia.in/openapi.yaml",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://storygridmedia.in/logo.avif",
+  "contact_email": "hello@storygridmedia.in",
+  "legal_info_url": "https://storygridmedia.in/privacy"
+}
