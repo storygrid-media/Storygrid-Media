@@ -1,94 +1,68 @@
 # StoryGrid Media
 
-A premium, high-conversion web application for content creators and founders. Built with a focus on visual excellence, performance, and seamless user experiences.
+Welcome to the internal repository for **StoryGrid Media's** primary web application and content hub. 
 
-## 🚀 Overview
+StoryGrid Media is a premium digital agency that builds structured content systems. We specialize in expert podcast production, YouTube channel management, and viral short-form distribution for startup founders and content creators.
 
-StoryGrid Media is designed to showcase content systems and growth strategies for modern brands. The project features a dynamic, interactive interface with custom video players, portfolio carousels, and a streamlined lead generation flow.
+This repository houses our main production website and its associated backend services.
 
-## 🛠️ Tech Stack
+---
+
+## 🏢 About This Project
+
+This platform serves as the digital storefront and lead generation engine for StoryGrid Media. It is engineered for visual excellence, performance, and seamless user experiences to reflect the high standards of our content production.
+
+### Core Services Highlighted
+- **Podcast Growth Systems**: End-to-end studio setup, multi-cam editing, and audio mastering.
+- **YouTube Management**: High-retention growth strategies and channel positioning.
+- **Founder Brand Engines**: Daily content generation and viral short-form repurposing.
+
+---
+
+## 💻 Technical Architecture
+
+Our stack is designed for speed, SEO, and dynamic visual interactions.
 
 - **Frontend**: React 19, Vite, Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Package Manager**: PNPM (Monorepo)
-- **Deployment**: Optimized for Vercel
+- **Interactions & Animations**: Framer Motion
+- **Icons & Typography**: Lucide React, Google Fonts
+- **Deployment**: Vercel (Production Domain: `storygridmedia.in`)
 
-## 📁 Project Structure
+### Repository Structure
 
 ```text
 ├── artifacts/
-│   ├── storygrid/      # Main frontend application (Vite + React)
-│   └── api-server/     # API services and backend logic
-├── lib/               # Shared libraries and integrations
-├── package.json       # Root workspace configuration
-└── pnpm-workspace.yaml # PNPM monorepo definition
+│   ├── storygrid/      # Main frontend application (React SPA)
+│   └── api-server/     # API services, lead gen, and email routing
+├── lib/                # Shared utilities and configurations
+├── public/             # Static assets, AI discovery files, SEO metadata
+└── pnpm-workspace.yaml # Monorepo definition
 ```
 
-## 🏗️ Getting Started
+---
 
-### Prerequisites
+## 🚢 Deployment & Infrastructure
 
-- [Node.js](https://nodejs.org/) (Latest LTS)
-- [PNPM](https://pnpm.io/installation) (`npm install -g pnpm`)
+The site is hosted on **Vercel** and automatically deploys from the `main` branch. 
 
-### Installation
+- **Production URL**: [https://storygridmedia.in/](https://storygridmedia.in/)
+- **Environment Variables**: Managed securely via Vercel dashboard.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/storygrid-media/Storygrid-Media.git
-   cd Storygrid-Media
-   ```
-
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-
-### Running Locally
-
-To start the development server for the frontend:
-
+To sync environments locally for development:
 ```bash
-pnpm --filter @workspace/storygrid dev
+# Ensure Vercel CLI is installed and linked to the project
+cd artifacts/storygrid && pnpm pull-env
 ```
 
-The app will be available at `http://localhost:5173`.
+---
 
-### 🔐 Environment Management
+## 🤖 AI Discovery & SEO
 
-We use Vercel's multi-environment system (Local, Preview, Production). To sync your local machine with the project's secrets:
+Our platform is fully optimized for both traditional search engines and autonomous AI agents:
+- `llms.txt`: Provides AI agents with a comprehensive overview of our services.
+- `agents.json` & `ai-plugin.json`: Standardized discovery endpoints.
+- **Dynamic Meta Tags**: Handled via `useSeo` hook for social sharing and indexing.
 
-1. **Install Vercel CLI**: `npm i -g vercel`
-2. **Link Project**: `vercel link` (Follow prompts for `storygridmedia.in`)
-3. **Pull Variables**:
-   - For API: `cd artifacts/api-server && pnpm pull-env`
-   - For Frontend: `cd artifacts/storygrid && pnpm pull-env`
+---
 
-This will create a `.env.local` file that is ignored by Git but used by your local development server.
-
-## 🚢 Deployment (Vercel)
-
-This project is configured as a PNPM monorepo.
-- **Production Domain**: `storygridmedia.in`
-- **Framework Preset**: Vite
-- **Root Directory**: `artifacts/storygrid`
-- **Build Command**: `pnpm build`
-- **Install Command**: `pnpm install`
-
-## 🧹 Codebase Cleanup
-
-We maintain a lean codebase. Recent optimizations include:
-- Removed 46+ unused UI components to reduce bundle size.
-- Streamlined project structure for faster builds.
-- Cleaned up unreferenced assets and hooks.
-
-## 🤖 AI Agent Readiness
-
-StoryGrid Media is optimized for discovery and interaction by large language models and autonomous agents. The repository and production site include:
-- `llms.txt`: Site architecture and services overview for AI context.
-- `.well-known/ai-plugin.json`: Standardized OpenAI plugin manifest.
-- `agents.json`: Agent discovery endpoint.
-- Meta Tags: Dedicated `ai-agents`, `llms`, and `openai-bot` meta tags to allow scraping and indexing.
-
-Built with ❤️ by StoryGrid Media Team.
+*This is a private repository for the StoryGrid Media team.*
