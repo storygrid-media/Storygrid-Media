@@ -43,7 +43,9 @@ function FormFields({
     <>
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2 text-left">
-          <Label htmlFor="name" className="text-white/80">Name</Label>
+          <Label htmlFor="name" className="text-white/80">
+            Name <span className="text-[#FFC107] ml-0.5">*</span>
+          </Label>
           <Input
             id="name"
             type="text"
@@ -56,7 +58,9 @@ function FormFields({
         </div>
 
         <div className="space-y-2 text-left">
-          <Label htmlFor="email" className="text-white/80">Email</Label>
+          <Label htmlFor="email" className="text-white/80">
+            Email <span className="text-[#FFC107] ml-0.5">*</span>
+          </Label>
           <Input
             id="email"
             type="email"
@@ -69,26 +73,46 @@ function FormFields({
         </div>
       </div>
 
-      <div className="space-y-1.5 text-left">
-        <Label htmlFor="channel" className="text-white/80">
-          YouTube / Instagram Handle
-          <span className="text-[10px] text-white/40 font-normal ml-1.5 lowercase">(No link needed, just your handle)</span>
-        </Label>
-        <div className="relative group/input">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors">@</span>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-2 text-left">
+          <Label htmlFor="phone" className="text-white/80">
+            Phone Number <span className="text-[#FFC107] ml-0.5">*</span>
+          </Label>
           <Input
-            id="channel"
-            type="text"
-            name="channel"
-            placeholder="your-handle"
-            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 pl-10"
-            data-testid="input-channel"
+            id="phone"
+            type="tel"
+            name="phone"
+            placeholder="+1 (555) 000-0000"
+            required
+            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
+            data-testid="input-phone"
           />
+        </div>
+
+        <div className="space-y-1.5 text-left">
+          <Label htmlFor="channel" className="text-white/80">
+            YouTube / Instagram Handle <span className="text-[#FFC107] ml-0.5">*</span>
+            <span className="text-[10px] text-white/40 font-normal ml-1.5 lowercase">(No link needed, just your handle)</span>
+          </Label>
+          <div className="relative group/input">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors">@</span>
+            <Input
+              id="channel"
+              type="text"
+              name="channel"
+              placeholder="your-handle"
+              required
+              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 pl-10"
+              data-testid="input-channel"
+            />
+          </div>
         </div>
       </div>
 
       <div className="space-y-4 text-left">
-        <Label className="text-white/80">What are your goals?</Label>
+        <Label className="text-white/80">
+          What are your goals? <span className="text-[#FFC107] ml-0.5">*</span>
+        </Label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {GOAL_OPTIONS.map((goal) => (
             <label
@@ -134,7 +158,9 @@ function FormFields({
             exit={{ opacity: 0, height: 0 }}
             className="text-left overflow-hidden mt-3"
           >
-            <Label htmlFor="message" className="text-white/80 text-[13px] ml-1 mb-1 block leading-none">Please specify your goals</Label>
+            <Label htmlFor="message" className="text-white/80 text-[13px] ml-1 mb-1 block leading-none">
+              Please specify your goals <span className="text-[#FFC107] ml-0.5">*</span>
+            </Label>
             <Textarea
               id="message"
               value={otherGoalText}

@@ -18,10 +18,10 @@ const transporter = nodemailer.createTransport({
 
 contactRouter.post("/", async (req: Request, res: Response) => {
   try {
-    const { name, email, channel, message } = req.body;
+    const { name, email, phone, channel, message } = req.body;
 
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: "Name, email, and message are required." });
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({ error: "Name, email, phone number, and message are required." });
     }
 
     const mailOptions = {
@@ -32,6 +32,7 @@ contactRouter.post("/", async (req: Request, res: Response) => {
       text: `
         Name: ${name}
         Email: ${email}
+        Phone: ${phone || "Not provided"}
         Channel/Link: ${channel || "Not provided"}
         
         Message:
@@ -42,6 +43,7 @@ contactRouter.post("/", async (req: Request, res: Response) => {
           <h2 style="color: #FFC107;">New Lead Received</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
           <p><strong>Channel/Link:</strong> ${channel || "Not provided"}</p>
           <hr />
           <p><strong>Message:</strong></p>
