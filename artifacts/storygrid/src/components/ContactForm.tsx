@@ -96,11 +96,10 @@ function FormFields({
         </div>
 
         <div className="space-y-2 text-left">
-          <div className="flex items-center justify-between min-h-[22px] gap-2">
+          <div className="flex items-center justify-between min-h-[22px]">
             <Label htmlFor="channel" className="text-white/80 font-medium text-sm">
               YouTube / Instagram Handle <span className="text-[#FFC107] ml-0.5">*</span>
             </Label>
-            <span className="text-[11px] text-white/40 font-normal shrink-0">no link needed</span>
           </div>
           <div className="relative group/input">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors text-sm">@</span>
