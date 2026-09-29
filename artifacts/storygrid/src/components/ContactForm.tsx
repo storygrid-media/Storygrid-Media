@@ -41,112 +41,131 @@ function FormFields({
 
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-5 md:gap-6">
         <div className="space-y-2 text-left">
-          <Label htmlFor="name" className="text-white/80">
-            Name <span className="text-[#FFC107] ml-0.5">*</span>
-          </Label>
+          <div className="flex items-center justify-between min-h-[22px]">
+            <Label htmlFor="name" className="text-white/80 font-medium text-sm">
+              Name <span className="text-[#FFC107] ml-0.5">*</span>
+            </Label>
+          </div>
           <Input
             id="name"
             type="text"
             name="name"
             placeholder="John Doe"
             required
-            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
+            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 text-sm"
             data-testid="input-name"
           />
         </div>
 
         <div className="space-y-2 text-left">
-          <Label htmlFor="email" className="text-white/80">
-            Email <span className="text-[#FFC107] ml-0.5">*</span>
-          </Label>
+          <div className="flex items-center justify-between min-h-[22px]">
+            <Label htmlFor="email" className="text-white/80 font-medium text-sm">
+              Email <span className="text-[#FFC107] ml-0.5">*</span>
+            </Label>
+          </div>
           <Input
             id="email"
             type="email"
             name="email"
             placeholder="john@example.com"
             required
-            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
+            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 text-sm"
             data-testid="input-email"
           />
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-5 md:gap-6">
         <div className="space-y-2 text-left">
-          <Label htmlFor="phone" className="text-white/80">
-            Phone Number <span className="text-[#FFC107] ml-0.5">*</span>
-          </Label>
+          <div className="flex items-center justify-between min-h-[22px]">
+            <Label htmlFor="phone" className="text-white/80 font-medium text-sm">
+              Phone Number <span className="text-[#FFC107] ml-0.5">*</span>
+            </Label>
+          </div>
           <Input
             id="phone"
             type="tel"
             name="phone"
             placeholder="+1 (555) 000-0000"
             required
-            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12"
+            className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 text-sm"
             data-testid="input-phone"
           />
         </div>
 
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="channel" className="text-white/80">
-            YouTube / Instagram Handle <span className="text-[#FFC107] ml-0.5">*</span>
-            <span className="text-[10px] text-white/40 font-normal ml-1.5 lowercase">(No link needed, just your handle)</span>
-          </Label>
+        <div className="space-y-2 text-left">
+          <div className="flex items-center justify-between min-h-[22px] gap-2">
+            <Label htmlFor="channel" className="text-white/80 font-medium text-sm">
+              YouTube / Instagram Handle <span className="text-[#FFC107] ml-0.5">*</span>
+            </Label>
+            <span className="text-[11px] text-white/40 font-normal shrink-0">no link needed</span>
+          </div>
           <div className="relative group/input">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors">@</span>
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#FFC107] transition-colors text-sm">@</span>
             <Input
               id="channel"
               type="text"
               name="channel"
               placeholder="your-handle"
               required
-              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 pl-10"
+              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] h-12 pl-10 text-sm"
               data-testid="input-channel"
             />
           </div>
         </div>
       </div>
 
-      <div className="space-y-4 text-left">
-        <Label className="text-white/80">
+      <div className="space-y-3 text-left">
+        <Label className="text-white/80 font-medium text-sm block">
           What are your goals? <span className="text-[#FFC107] ml-0.5">*</span>
         </Label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {GOAL_OPTIONS.map((goal) => (
-            <label
-              key={goal}
-              className="flex items-center space-x-3 group cursor-pointer"
-            >
-              <div className="relative flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  name="goals"
-                  value={goal}
-                  checked={selectedGoals.includes(goal)}
-                  onChange={() => toggleGoal(goal)}
-                  className="peer sr-only"
-                />
-                <div className="h-5 w-5 rounded border border-white/20 bg-white/5 transition-all duration-300 peer-checked:bg-[#FFC107] peer-checked:border-[#FFC107] peer-focus-visible:ring-2 peer-focus-visible:ring-[#FFC107] peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-black" />
-                <svg
-                  className="absolute h-3.5 w-3.5 text-black opacity-0 transition-opacity duration-300 peer-checked:opacity-100 pointer-events-none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-              <span className="text-white/70 group-hover:text-white transition-colors text-sm font-medium select-none">
-                {goal}
-              </span>
-            </label>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {GOAL_OPTIONS.map((goal) => {
+            const isChecked = selectedGoals.includes(goal);
+            return (
+              <label
+                key={goal}
+                className={`flex items-center space-x-3 px-3.5 py-2.5 rounded-xl border transition-all duration-200 cursor-pointer select-none ${
+                  isChecked 
+                    ? "bg-[#FFC107]/10 border-[#FFC107]/50 text-white shadow-sm shadow-[#FFC107]/5" 
+                    : "bg-black/40 border-white/10 text-white/70 hover:border-white/20 hover:bg-black/60 hover:text-white"
+                }`}
+              >
+                <div className="relative flex items-center justify-center shrink-0">
+                  <input
+                    type="checkbox"
+                    name="goals"
+                    value={goal}
+                    checked={isChecked}
+                    onChange={() => toggleGoal(goal)}
+                    className="peer sr-only"
+                  />
+                  <div className={`h-4.5 w-4.5 rounded border transition-all flex items-center justify-center ${
+                    isChecked ? "bg-[#FFC107] border-[#FFC107]" : "border-white/30 bg-white/5"
+                  }`}>
+                    {isChecked && (
+                      <svg
+                        className="h-3 w-3 text-black stroke-[3]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-sm font-medium">
+                  {goal}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </div>
 
@@ -156,9 +175,9 @@ function FormFields({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="text-left overflow-hidden mt-3"
+            className="text-left overflow-hidden pt-1"
           >
-            <Label htmlFor="message" className="text-white/80 text-[13px] ml-1 mb-1 block leading-none">
+            <Label htmlFor="message" className="text-white/80 text-xs ml-1 mb-1.5 block">
               Please specify your goals <span className="text-[#FFC107] ml-0.5">*</span>
             </Label>
             <Textarea
@@ -167,7 +186,7 @@ function FormFields({
               onChange={(e) => setOtherGoalText(e.target.value)}
               placeholder="Tell us what you're looking to achieve..."
               required
-              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[100px] resize-none"
+              className="bg-black/50 border-white/10 focus-visible:ring-[#FFC107] min-h-[90px] resize-none text-sm"
               data-testid="input-message"
             />
           </motion.div>
